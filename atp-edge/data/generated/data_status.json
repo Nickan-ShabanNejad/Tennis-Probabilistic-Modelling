@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-11-03T22:11:58+00:00",
+  "tennismylife": {
+    "2025": {
+      "ok": true,
+      "rows": 2943,
+      "url": "https://stats.tennismylife.org/data/2025.csv"
+    },
+    "2026": {
+      "ok": true,
+      "rows": 2719,
+      "url": "https://stats.tennismylife.org/data/2026.csv"
+    }
+  },
+  "matchstat": {
+    "ok": false,
+    "error": "RAPIDAPI_KEY not set"
+  },
+  "court_speed": {
+    "ok": true,
+    "rows": 1744,
+    "fetched": 62
+  },
+  "closing_odds": {
+    "ok": false,
+    "error": "403 Client Error: Forbidden for url: http://www.tennis-data.co.uk/2026/2026.xlsx",
+    "url": "http://www.tennis-data.co.uk/2026/2026.xlsx"
+  },
+  "database": {
+    "input_rows": 174169,
+    "lower_tier_removed": 6360,
+    "qualifying_removed": 1094,
+    "duplicates_removed": 86193,
+    "output_rows": 80522,
+    "latest_date": "20261101"
+  },
+  "settlement": {
+    "settled_predictions": 0,
+    "settled_bets": 0
+  },
+  "finished_utc": "2026-11-03T22:14:14+00:00"
+}

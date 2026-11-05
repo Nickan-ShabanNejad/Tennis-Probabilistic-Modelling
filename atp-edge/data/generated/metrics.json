@@ -1,0 +1,269 @@
+{
+  "trained_at_utc": "2026-11-03T22:17:28+00:00",
+  "latest_match_date": "2026-11-01",
+  "training_matches": 67895,
+  "features": [
+    "elo_diff",
+    "surf_elo_diff",
+    "blend_elo_diff",
+    "elo_prob_logit",
+    "exp_diff",
+    "surf_exp_diff",
+    "serve_diff",
+    "return_diff",
+    "spw10_diff",
+    "rpw10_diff",
+    "ace10_diff",
+    "df10_diff",
+    "win10_diff",
+    "surf_win10_diff",
+    "form_diff",
+    "opp10_diff",
+    "elo_trend_diff",
+    "m7_diff",
+    "m14_diff",
+    "sets7_diff",
+    "min7_diff",
+    "rest_diff",
+    "inj_recent_diff",
+    "inj_count_diff",
+    "layoff_diff",
+    "comeback_diff",
+    "event_resid_diff",
+    "event_win_diff",
+    "level_resid_diff",
+    "bo5_resid_diff",
+    "speed_fit_diff",
+    "speed_serve",
+    "speed_return",
+    "speed_ace",
+    "speed_elo",
+    "h2h_edge",
+    "h2h_surf_edge",
+    "log_rank_diff",
+    "age_diff",
+    "height_diff",
+    "level_elo",
+    "bo5_elo",
+    "indoor_serve",
+    "ctx_speed",
+    "ctx_level",
+    "ctx_best_of",
+    "ctx_indoor",
+    "ctx_round",
+    "ctx_h2h_n",
+    "ctx_event_n"
+  ],
+  "selected_model": "logistic_regression",
+  "selection_log_loss": {
+    "logistic_regression": 0.6056999225571039,
+    "gradient_boosting": 0.6068749909345027
+  },
+  "market_benchmark": {
+    "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "matches": 18637,
+    "model_log_loss": 0.6040811398655607,
+    "pinnacle_log_loss": 0.585646148826387,
+    "model_accuracy": 0.6633041798572732,
+    "pinnacle_accuracy": 0.6801523850405108,
+    "per_year": [
+      {
+        "year": 2018,
+        "matches": 2608,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.606418908065389,
+        "market_log_loss": 0.5891179214109523,
+        "model_accuracy": 0.6667944785276073,
+        "market_accuracy": 0.6809815950920245
+      },
+      {
+        "year": 2019,
+        "matches": 2428,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.6106839155591753,
+        "market_log_loss": 0.591932410758821,
+        "model_accuracy": 0.6589785831960461,
+        "market_accuracy": 0.6696869851729819
+      },
+      {
+        "year": 2020,
+        "matches": 1223,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.5990653817092295,
+        "market_log_loss": 0.5724073200593637,
+        "model_accuracy": 0.6680294358135732,
+        "market_accuracy": 0.6941946034341783
+      },
+      {
+        "year": 2021,
+        "matches": 2392,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.6051984634065268,
+        "market_log_loss": 0.5903846955502945,
+        "model_accuracy": 0.6580267558528428,
+        "market_accuracy": 0.6801839464882943
+      },
+      {
+        "year": 2022,
+        "matches": 2514,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.5911784474294095,
+        "market_log_loss": 0.578462970961876,
+        "model_accuracy": 0.6778042959427207,
+        "market_accuracy": 0.6785998408910103
+      },
+      {
+        "year": 2023,
+        "matches": 2544,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.6065391185206177,
+        "market_log_loss": 0.5838516902462055,
+        "model_accuracy": 0.6658805031446541,
+        "market_accuracy": 0.6764937106918238
+      },
+      {
+        "year": 2024,
+        "matches": 2564,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.5975289170411313,
+        "market_log_loss": 0.5796715052428004,
+        "model_accuracy": 0.6602964118564743,
+        "market_accuracy": 0.6879875195007801
+      },
+      {
+        "year": 2025,
+        "matches": 2299,
+        "market_source": "Pinnacle close",
+        "model_log_loss": 0.614680362988102,
+        "market_log_loss": 0.5935183361310524,
+        "model_accuracy": 0.6524575902566333,
+        "market_accuracy": 0.6789908655937364
+      },
+      {
+        "year": 2026,
+        "matches": 1920,
+        "market_source": "market-average close",
+        "model_log_loss": 0.6040049826524843,
+        "market_log_loss": 0.5944215881546377,
+        "model_accuracy": 0.6755208333333333,
+        "market_accuracy": 0.684375
+      }
+    ]
+  },
+  "market_blend": {
+    "available": true,
+    "model_coef": 0.0,
+    "market_coef": 1.0562065206364657,
+    "fitted_matches": 18637
+  },
+  "backtests": {
+    "model_only_ev2_edge2": {
+      "bets": 13080,
+      "share_of_matches": 0.7018296936202179,
+      "win_rate": 0.461697247706422,
+      "avg_odds": 2.8130871559633026,
+      "avg_claimed_ev": 0.20601495101693826,
+      "flat_roi": -0.04053363914373089,
+      "flat_roi_se": 0.011097324126387633,
+      "kelly_roi": -0.03332860460285608
+    },
+    "model_only_ev5_edge5": {
+      "bets": 8751,
+      "share_of_matches": 0.4695498202500402,
+      "win_rate": 0.46783224774311505,
+      "avg_odds": 2.675912467146612,
+      "avg_claimed_ev": 0.2665838342549531,
+      "flat_roi": -0.027727116900925608,
+      "flat_roi_se": 0.013294920306331802,
+      "kelly_roi": -0.02771030454607082
+    },
+    "market_anchored_ev2": {
+      "bets": 3,
+      "share_of_matches": 0.0001609701132156463,
+      "win_rate": 1.0,
+      "avg_odds": 1.6499999999999997,
+      "avg_claimed_ev": 0.03438700354688865,
+      "flat_roi": 0.65,
+      "flat_roi_se": 0.17953644012660305,
+      "kelly_roi": 0.571642478431775
+    }
+  },
+  "sets_model": {
+    "available": true,
+    "matches": 13016,
+    "over_rate": 0.5119852489244008,
+    "eval_years": [
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "eval_matches": 4760,
+    "log_loss": 0.6682368851746837,
+    "base_rate_log_loss": 0.6925184242737848,
+    "independent_sets_log_loss": 0.7020128730707714,
+    "brier": 0.23778542133646965,
+    "calibration": [
+      {
+        "bin": "(0.0, 0.4]",
+        "n": 883,
+        "predicted": 0.30825125534305575,
+        "actual": 0.3420158550396376
+      },
+      {
+        "bin": "(0.4, 0.5]",
+        "n": 913,
+        "predicted": 0.45334162951784945,
+        "actual": 0.4928806133625411
+      },
+      {
+        "bin": "(0.5, 0.6]",
+        "n": 1884,
+        "predicted": 0.5591221452826887,
+        "actual": 0.5923566878980892
+      },
+      {
+        "bin": "(0.6, 0.7]",
+        "n": 1080,
+        "predicted": 0.615937323309962,
+        "actual": 0.6305555555555555
+      }
+    ],
+    "coefficients": {
+      "iid_logit": 1.128431889960681,
+      "serve_sum": 0.37161440044360566,
+      "serve_gap": 0.20578178794598376,
+      "speed_c": 0.032397057891984465,
+      "long_hist": 0.8646693134234583,
+      "slam_exp": 0.003475277381157778,
+      "injury_sum": 0.024017188083956986,
+      "round": 0.009384361229705382
+    },
+    "note": "Probability source: Pinnacle moneyline when available (else rating model) -> per-set win probability -> P(4+ sets) -> logistic correction. No historical total-sets prices exist in the archive, so betting ROI on this market cannot be backtested; track it live."
+  },
+  "data": {
+    "input_rows": 168835,
+    "lower_tier_removed": 6360,
+    "qualifying_removed": 1094,
+    "duplicates_removed": 80858,
+    "output_rows": 80523,
+    "latest_date": "20261101",
+    "current_rankings_applied": 0
+  }
+}
