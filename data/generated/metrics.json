@@ -1,7 +1,7 @@
 {
-  "trained_at_utc": "2026-11-03T22:17:28+00:00",
-  "latest_match_date": "2026-11-01",
-  "training_matches": 67895,
+  "trained_at_utc": "2026-11-05T22:42:38+00:00",
+  "latest_match_date": "2026-11-05",
+  "training_matches": 67938,
   "features": [
     "elo_diff",
     "surf_elo_diff",
@@ -56,8 +56,8 @@
   ],
   "selected_model": "logistic_regression",
   "selection_log_loss": {
-    "logistic_regression": 0.6056999225571039,
-    "gradient_boosting": 0.6068749909345027
+    "logistic_regression": 0.6064055557349839,
+    "gradient_boosting": 0.6077954032969667
   },
   "market_benchmark": {
     "years": [
@@ -90,7 +90,7 @@
         "year": 2019,
         "matches": 2428,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.6106839155591753,
+        "model_log_loss": 0.6106839155591756,
         "market_log_loss": 0.591932410758821,
         "model_accuracy": 0.6589785831960461,
         "market_accuracy": 0.6696869851729819
@@ -99,7 +99,7 @@
         "year": 2020,
         "matches": 1223,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5990653817092295,
+        "model_log_loss": 0.5990653817092291,
         "market_log_loss": 0.5724073200593637,
         "model_accuracy": 0.6680294358135732,
         "market_accuracy": 0.6941946034341783
@@ -108,7 +108,7 @@
         "year": 2021,
         "matches": 2392,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.6051984634065268,
+        "model_log_loss": 0.6051984634065265,
         "market_log_loss": 0.5903846955502945,
         "model_accuracy": 0.6580267558528428,
         "market_accuracy": 0.6801839464882943
@@ -117,7 +117,7 @@
         "year": 2022,
         "matches": 2514,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5911784474294095,
+        "model_log_loss": 0.5911784474294097,
         "market_log_loss": 0.578462970961876,
         "model_accuracy": 0.6778042959427207,
         "market_accuracy": 0.6785998408910103
@@ -126,7 +126,7 @@
         "year": 2023,
         "matches": 2544,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.6065391185206177,
+        "model_log_loss": 0.6065391185206183,
         "market_log_loss": 0.5838516902462055,
         "model_accuracy": 0.6658805031446541,
         "market_accuracy": 0.6764937106918238
@@ -135,7 +135,7 @@
         "year": 2024,
         "matches": 2564,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5975289170411313,
+        "model_log_loss": 0.5975289170411298,
         "market_log_loss": 0.5796715052428004,
         "model_accuracy": 0.6602964118564743,
         "market_accuracy": 0.6879875195007801
@@ -144,7 +144,7 @@
         "year": 2025,
         "matches": 2299,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.614680362988102,
+        "model_log_loss": 0.6146803629881029,
         "market_log_loss": 0.5935183361310524,
         "model_accuracy": 0.6524575902566333,
         "market_accuracy": 0.6789908655937364
@@ -172,20 +172,20 @@
       "share_of_matches": 0.7018296936202179,
       "win_rate": 0.461697247706422,
       "avg_odds": 2.8130871559633026,
-      "avg_claimed_ev": 0.20601495101693826,
+      "avg_claimed_ev": 0.20601495101694736,
       "flat_roi": -0.04053363914373089,
       "flat_roi_se": 0.011097324126387633,
-      "kelly_roi": -0.03332860460285608
+      "kelly_roi": -0.03332860460285752
     },
     "model_only_ev5_edge5": {
       "bets": 8751,
       "share_of_matches": 0.4695498202500402,
       "win_rate": 0.46783224774311505,
       "avg_odds": 2.675912467146612,
-      "avg_claimed_ev": 0.2665838342549531,
+      "avg_claimed_ev": 0.26658383425496,
       "flat_roi": -0.027727116900925608,
       "flat_roi_se": 0.013294920306331802,
-      "kelly_roi": -0.02771030454607082
+      "kelly_roi": -0.02771030454606675
     },
     "market_anchored_ev2": {
       "bets": 3,
@@ -215,55 +215,55 @@
       2026
     ],
     "eval_matches": 4760,
-    "log_loss": 0.6682368851746837,
+    "log_loss": 0.6682216249698985,
     "base_rate_log_loss": 0.6925184242737848,
     "independent_sets_log_loss": 0.7020128730707714,
-    "brier": 0.23778542133646965,
+    "brier": 0.2377774919044273,
     "calibration": [
       {
         "bin": "(0.0, 0.4]",
-        "n": 883,
-        "predicted": 0.30825125534305575,
-        "actual": 0.3420158550396376
+        "n": 884,
+        "predicted": 0.3083456115604966,
+        "actual": 0.3416289592760181
       },
       {
         "bin": "(0.4, 0.5]",
-        "n": 913,
-        "predicted": 0.45334162951784945,
-        "actual": 0.4928806133625411
+        "n": 910,
+        "predicted": 0.45332289483944815,
+        "actual": 0.49340659340659343
       },
       {
         "bin": "(0.5, 0.6]",
-        "n": 1884,
-        "predicted": 0.5591221452826887,
-        "actual": 0.5923566878980892
+        "n": 1886,
+        "predicted": 0.5590875886559291,
+        "actual": 0.5927889713679746
       },
       {
         "bin": "(0.6, 0.7]",
         "n": 1080,
-        "predicted": 0.615937323309962,
-        "actual": 0.6305555555555555
+        "predicted": 0.615965196007571,
+        "actual": 0.6296296296296297
       }
     ],
     "coefficients": {
-      "iid_logit": 1.128431889960681,
-      "serve_sum": 0.37161440044360566,
-      "serve_gap": 0.20578178794598376,
-      "speed_c": 0.032397057891984465,
-      "long_hist": 0.8646693134234583,
-      "slam_exp": 0.003475277381157778,
-      "injury_sum": 0.024017188083956986,
-      "round": 0.009384361229705382
+      "iid_logit": 1.1280298155810249,
+      "serve_sum": 0.371923814613123,
+      "serve_gap": 0.2072849584599013,
+      "speed_c": 0.03264013703063732,
+      "long_hist": 0.8661755012450326,
+      "slam_exp": 0.0033995895766531694,
+      "injury_sum": 0.023989663452328735,
+      "round": 0.009374180724210136
     },
     "note": "Probability source: Pinnacle moneyline when available (else rating model) -> per-set win probability -> P(4+ sets) -> logistic correction. No historical total-sets prices exist in the archive, so betting ROI on this market cannot be backtested; track it live."
   },
   "data": {
-    "input_rows": 168835,
+    "input_rows": 168883,
     "lower_tier_removed": 6360,
     "qualifying_removed": 1094,
     "duplicates_removed": 80858,
-    "output_rows": 80523,
-    "latest_date": "20261101",
-    "current_rankings_applied": 0
+    "output_rows": 80571,
+    "latest_date": "20261105",
+    "current_rankings_applied": 383
   }
 }

@@ -1,0 +1,501 @@
+player,rank,points,matchstat_id
+Alexander Zverev,1,9550.0,24008
+Jannik Sinner,2,9450.0,47275
+Carlos Alcaraz,3,6100.0,68074
+Ben Shelton,4,4530.0,87562
+Daniil Medvedev,5,3860.0,22807
+Flavio Cobolli,6,3690.0,67546
+Arthur Fils,7,3525.0,83135
+Frances Tiafoe,8,3430.0,29939
+Alex De Minaur,9,3410.0,39309
+Rafael Jodar,10,3209.0,99691
+Novak Djokovic,11,3140.0,5992
+Taylor Fritz,12,3095.0,29932
+Felix Auger Aliassime,13,2875.0,40434
+Tommy Paul,14,2775.0,29935
+Jiri Lehecka,15,2580.0,61838
+Jakub Mensik,16,2545.0,86691
+Alejandro Davidovich Fokina,17,2510.0,36519
+Brandon Nakashima,18,2375.0,56846
+Learner Tien,19,2345.0,93452
+Francisco Cerundolo,20,2260.0,52279
+Luciano Darderi,21,2200.0,76127
+Andrey Rublev,22,2085.0,29372
+Casper Ruud,23,2035.0,33648
+Lorenzo Musetti,24,1960.0,63572
+Karen Khachanov,25,1940.0,25543
+Alexander Bublik,26,1895.0,24245
+Valentin Vacherot,27,1780.0,36594
+Alexander Blockx,28,1665.0,88766
+Hubert Hurkacz,29,1625.0,26473
+Alejandro Tabilo,30,1565.0,30087
+Tomas Martin Etcheverry,31,1550.0,37532
+Arthur Fery,32,1503.0,79065
+Ignacio Buse,33,1445.0,79113
+Stefanos Tsitsipas,34,1440.0,30470
+Alex Michelsen,35,1435.0,92985
+Matteo Arnaldi,36,1311.0,73956
+Botic Van De Zandschulp,37,1295.0,24249
+Ugo Humbert,38,1295.0,38911
+Jan-Lennard Struff,39,1271.0,14177
+Zizou Bergs,40,1226.0,37741
+Joao Fonseca,41,1200.0,91521
+Daniel Merida Aguilar,42,1195.0,83223
+Matteo Berrettini,43,1173.0,29812
+Arthur Gea,44,1146.0,87277
+Cameron Norrie,45,1145.0,27851
+Quentin Halys,46,1127.0,25171
+Luca Van Assche,47,1105.0,82371
+Mariano Navone,48,1099.0,66828
+Nuno Borges,49,1075.0,31446
+Tallon Griekspoor,50,1075.0,33860
+Denis Shapovalov,51,1055.0,33502
+Sebastian Baez,52,1044.0,52721
+Thiago Agustin Tirante,53,1023.0,52394
+Juan Manuel Cerundolo,54,1000.0,52934
+Raphael Collignon,55,968.0,84235
+Adolfo Daniel Vallejo,56,947.0,80391
+Jaime Faria,57,941.0,83795
+Yannick Hanfmann,58,923.0,14856
+Adrian Mannarino,59,898.0,7806
+Miomir Kecmanovic,60,893.0,34337
+Fabian Marozsan,61,875.0,52140
+Vit Kopriva,62,844.0,42971
+Daniel Altmaier,63,837.0,29732
+Ethan Quinn,64,831.0,82269
+Jaume Antoni Munar Clar,65,825.0,31358
+Mattia Bellucci,66,824.0,72578
+Martin Landaluce,67,822.0,94493
+Arthur Rinderknech,68,820.0,28170
+Tomas Machac,69,819.0,58327
+James Duckworth,70,814.0,11517
+Roman Safiullin,71,807.0,28900
+Facundo Diaz Acosta,72,807.0,64741
+Terence Atmane,73,787.0,67535
+Pablo Carreno-Busta,74,773.0,14432
+Zachary Svajda,75,759.0,73620
+Roman Andres Burruchaga,76,754.0,70705
+Hamad Medjedovic,77,751.0,79060
+Alex Molcan,78,747.0,34539
+Titouan Droguet,79,746.0,59092
+Kyrian Jacquet,80,741.0,65904
+Camilo Ugo Carabelli,81,730.0,42229
+Kamil Majchrzak,82,725.0,28898
+Rinky Hijikata,83,693.0,58149
+Aleksandar Kovacevic,84,693.0,39152
+Chak Lam Coleman Wong,85,692.0,71166
+Sebastian Korda,86,690.0,42451
+Nikoloz Basilashvili,87,681.0,14716
+Damir Dzumhur,88,679.0,13447
+Marcos Giron,89,676.0,18736
+Jacob Fearnley,90,671.0,68090
+Marco Trungelliti,91,670.0,12653
+Dino Prizmic,92,663.0,85899
+Bu Yunchaokete,93,646.0,61667
+Jenson Brooksby,94,638.0,40609
+Benjamin Bonzi,95,630.0,28899
+Marin Cilic,96,629.0,6101
+Toby Samuel,97,625.0,79068
+Adam Walton,98,619.0,47752
+Henrique Rocha,99,596.0,83794
+Michael Zheng,100,594.0,87512
+Zsombor Piros,101,590.0,47021
+Martin Damm,102,588.0,72574
+Lloyd Harris,103,579.0,36449
+Jesper De Jong,104,575.0,59166
+Yibing Wu,105,571.0,39310
+Lorenzo Sonego,106,571.0,31392
+Alexander Shevchenko,107,559.0,64891
+Hugo Gaston,108,548.0,46747
+Thiago Seyboth Wild,109,545.0,36858
+Corentin Moutet,110,540.0,36263
+Hugo Dellien,111,535.0,18477
+Gustavo Heide,112,535.0,74899
+Jan Choinski,113,533.0,26421
+Dane Sweeny,114,528.0,56590
+Nicolas Mejia,115,519.0,34968
+Otto Virtanen,116,502.0,55252
+Christopher O'Connell,117,499.0,24721
+Sho Shimabukuro,118,496.0,39863
+Dalibor Svrcina,119,494.0,63299
+Valentin Royer,120,493.0,61857
+Sebastian Ofner,121,491.0,27547
+Emilio Nava,122,484.0,56197
+Rei Sakamoto,123,477.0,93550
+Pedro Martinez Portero,124,462.0,27358
+Shintaro Mochizuki,125,451.0,73742
+Alexei Popyrin,126,448.0,34233
+Aleksandar Vukic,127,435.0,28267
+Nishesh Basavareddy,128,432.0,92184
+Stefanos Sakellaridis,129,431.0,74880
+Max Alcala Gurri,130,430.0,68981
+Clement Chidekh,131,428.0,55828
+Moise Kouame,132,425.0,111498
+Borna Gojo,133,423.0,30550
+Grigor Dimitrov,134,422.0,11953
+Francisco Comesana,135,415.0,61971
+Federico Cina,136,415.0,95698
+Laslo Djere,137,411.0,24084
+Matej Dodig,138,410.0,95464
+Darwin Blanch,139,405.0,92243
+Andrea Pellegrino,140,404.0,29457
+Pablo Llamas Ruiz,141,403.0,64896
+Jurij Rodionov,142,403.0,44555
+Tristan Schoolkate,143,401.0,67986
+Marton Fucsovics,144,400.0,13674
+Giovanni Mpetshi Perricard,145,400.0,71174
+Alexandre Muller,146,397.0,28108
+Vilius Gaubas,147,396.0,79088
+Ilia Simakin,148,393.0,84083
+Michael Mmoh,149,386.0,26925
+Elmer Moller,150,378.0,81189
+Nikolas Sanchez-Izquierdo,151,369.0,41484
+Stan Wawrinka,152,368.0,1092
+Francesco Passaro,153,367.0,63021
+Tomas Barrios Vera,154,364.0,30849
+Lukas Neumayer,155,362.0,83314
+Clement Tabur,156,362.0,47259
+Jack Draper,157,360.0,63017
+Patrick Kypson,158,358.0,46718
+Stefano Travaglia,159,357.0,12097
+Soon-Woo Kwon,160,355.0,28762
+Daniil Glinka,161,355.0,48825
+Zhizhen Zhang,162,354.0,26140
+Dusan Lajovic,163,353.0,12190
+Jerome Kym,164,353.0,76298
+Tom Gentzsch,165,352.0,86351
+Andrea Guerrieri,166,349.0,40187
+Mark Lajal,167,349.0,87283
+Liam Draxl,168,341.0,53532
+Gabriel Diallo,169,339.0,68627
+Pavel Kotov,170,339.0,45553
+Cristian Garin,171,336.0,24840
+Joel Schwaerzler,172,334.0,97369
+Gauthier Onclin,173,333.0,56641
+Alex Bolt,174,332.0,19689
+Vitaliy Sachko,175,332.0,28904
+Francesco Maestrelli,176,330.0,63737
+Joao Lucas Reis Da Silva,177,327.0,50000
+Taro Daniel,178,326.0,20648
+Chris Rodesch,179,325.0,54163
+Felix Balshaw,180,324.0,106767
+Bernard Tomic,181,322.0,11522
+Nicolai Budkov Kjaer,182,320.0,104215
+Marco Cecchinato,183,316.0,20104
+Mika Brunold,184,313.0,84377
+Lautaro Midon,185,309.0,90203
+Guido Ivan Justo,186,308.0,61966
+Sascha Gueymard Wayenburg,187,307.0,83554
+Diego Dedura,188,307.0,104494
+Dylan Dietrich,189,304.0,85859
+Jack Pinnington Jones,190,302.0,79067
+Inaki Montes-De La Torre,191,301.0,71614
+Keegan Smith,192,301.0,56211
+Juan Carlos Prado Angelo,193,298.0,89131
+Jan Kumstat,194,298.0,94531
+Alexis Galarneau,195,297.0,39043
+Facundo Mena,196,296.0,14898
+Matheus Pucinelli De Almeida,197,294.0,64916
+Gonzalo Bueno,198,294.0,73983
+David Jorda Sanchis,199,293.0,18669
+Andre Ilagan,200,292.0,59169
+Timofey Skatov,201,290.0,55257
+Juan Pablo Varillas,202,288.0,26153
+Luka Pavlovic,203,281.0,53909
+Jeff Wolf,204,280.0,46722
+Braden Shick,205,276.0,88050
+Zdenek Kolar,206,274.0,30856
+Tristan Boyer,207,272.0,56195
+Federico Agustin Gomez,208,272.0,35376
+Edas Butvilas,209,271.0,87766
+Pol Martin Tiffon,210,268.0,51853
+Maks Kasnikowski,211,266.0,84060
+Liam Broady,212,265.0,18016
+Harry Wendelken,213,264.0,65558
+Eliot Spizzirri,214,261.0,71083
+Gianluca Cadenasso,215,261.0,96517
+Max Houkes,216,261.0,68393
+Henry Searle,217,258.0,92094
+Colton Smith,218,256.0,89108
+Rio Noguchi,219,256.0,50143
+Harold Mayot,220,255.0,60140
+Raul Brancaccio,221,255.0,33904
+Remy Bertola,222,255.0,35296
+Ilya Ivashka,223,254.0,28296
+Alex Barrena,224,254.0,75042
+Kimmer Coppejans,225,253.0,23298
+Marat Sharipov (RUS),226,253.0,80183
+Marvin Moeller,227,252.0,52968
+Felix Gill,228,252.0,73608
+Andres Andrade,229,251.0,37492
+Chun Hsin Tseng,230,250.0,47557
+Maxim Mrva,231,249.0,97984
+Billy Harris,232,245.0,29180
+Thiago Moura Monteiro,233,245.0,14609
+Daniel Rincon,234,244.0,76010
+Matthew Dellavedova,235,237.0,40795
+Philip Henning,236,234.0,58005
+Roberto Bautista Agut,237,233.0,1837
+Alejandro Moro Canas,238,232.0,60625
+Luca Nardi,239,231.0,71221
+Filippo Romano,240,229.0,90774
+Jay Clarke,241,229.0,28992
+Mackenzie Mcdonald,242,228.0,18094
+Leandro Riedi,243,227.0,79064
+Matteo Martineau,244,227.0,35323
+Elias Ymer,245,226.0,26218
+Andrej Nedic,246,226.0,77866
+Hayato Matsuoka,247,226.0,95461
+Max Hans Rehberg,248,224.0,74153
+Pierre-Hugues Herbert,249,222.0,14727
+Juncheng Shang,250,220.0,86082
+Luka Mikrut,251,218.0,85851
+Jay Dylan Hara Friend,252,218.0,89501
+Dominic Stricker,253,217.0,73196
+Juan Manuel La Serna,254,216.0,86275
+Rodrigo Pacheco Mendez,255,216.0,89396
+James McCabe,256,216.0,83315
+Genaro Alberto Olivieri,257,215.0,37577
+Valerio Aboian,258,215.0,73268
+Max Basing,259,214.0,67853
+Matias Soto,260,214.0,58609
+Franco Roncadelli,261,214.0,58723
+Kilian Feldbausch,262,213.0,85862
+Roberto Carballes Baena,263,213.0,21506
+Charles Broom,264,212.0,39438
+Sumit Nagal,265,207.0,26922
+Buvaysar Gadamauri,266,207.0,54146
+August Holmgren,267,207.0,47387
+Petr Bar Biryukov,268,207.0,85308
+Cezar Cretu,269,206.0,53726
+Alastair Gray,270,206.0,53159
+Stefan Kozlov,271,202.0,26221
+Lorenzo Giustino,272,202.0,11981
+Reilly Opelka,273,200.0,28087
+Calvin Hemery,274,200.0,25533
+Oliver Tarvet,275,199.0,87767
+Mili Poljicak,276,199.0,84120
+Hynek Barton,277,199.0,86156
+Stefano Napolitano,278,198.0,20465
+Igor Ribeiro Marcondes,279,198.0,29610
+Radu Mihai Papoe,280,198.0,70477
+Yi Zhou,281,196.0,97973
+Alexander Ritschard,282,196.0,21464
+Murphy Cassone,283,196.0,81980
+Michele Ribecai,284,196.0,100225
+Aidan Mayo,285,194.0,76333
+Petr Nesterov,286,194.0,81784
+Fajing Sun,287,193.0,34537
+Joaquin Aguilar Cardozo,288,190.0,98385
+Marc-Andrea Huesler,289,189.0,35297
+Oriol Roca Batalla,290,189.0,18771
+Filip Cristian Jianu,291,188.0,55290
+Florent Bax,292,187.0,54208
+Sergey Fomin,293,187.0,43553
+Sandro Kopp,294,187.0,44209
+Mees Rottgering,295,186.0,96765
+Nick Hardt,296,186.0,38973
+Frederico Ferreira Silva,297,186.0,20396
+Thomas Faurel,298,185.0,100234
+Yanki Erel,299,185.0,58726
+Pedro Boscardin Dias,300,185.0,69729
+Carl Emil Overbeck,301,184.0,81153
+Martin Krumich,302,184.0,70459
+Stefan Dostanic,303,181.0,67703
+Yu Hsiou Hsu,304,180.0,45979
+Daniel Michalski,305,179.0,62258
+Carlo Alberto Caniato,306,179.0,91428
+Daniel Milavsky,307,179.0,82490
+Jonas Forejtek,308,178.0,66254
+Enrico Dalla Valle,309,178.0,32764
+Georgii Kravchenko,310,178.0,52552
+Abedallah Shelbayh,311,177.0,76009
+Henri Squire,312,176.0,48013
+Max Schoenhaus,313,176.0,95311
+Juan Bautista Torres,314,176.0,77659
+Samuele Pieri,315,175.0,85763
+Guy Den Ouden,316,173.0,84236
+Sean Cuenin,317,171.0,71357
+Tiago Pereira,318,171.0,92649
+Oliver Crawford,319,170.0,50133
+Florian Broska,320,170.0,45938
+Mert Alkaya,321,170.0,44573
+Francesco Forti,322,169.0,51965
+Dali Blanch,323,169.0,78285
+Alejo Sanchez Quilez,324,169.0,98265
+Gonzalo Villanueva,325,169.0,24841
+Federico Bondioli,326,168.0,92247
+Lucas Poullain,327,168.0,30496
+Cruz Hewitt,328,167.0,106055
+Omar Jasika,329,167.0,26965
+Giles Hussey,330,166.0,71188
+Carlos Sanchez Jover,331,166.0,42963
+Akira Santillan,332,164.0,27531
+Anton Matusevich,333,163.0,59356
+Ugo Blanchet,334,161.0,44595
+Luciano Emanuel Ambrogi,335,159.0,81995
+Laurent Lokoli,336,158.0,21548
+Arthur Nagel,337,156.0,89700
+Timo Legout,338,155.0,78284
+Eliakim Coulibaly,339,155.0,79634
+Nicolas Kicker,340,155.0,18648
+Carlos Maria Zarate,341,155.0,109920
+Patrick Schoen,342,154.0,97382
+Philip Sekulic,343,154.0,73918
+Marko Topo,344,153.0,84561
+Mikhail Kukushkin,345,152.0,9043
+Miguel Damas,346,152.0,41083
+Alibek Kachmazov,347,151.0,72877
+Felipe Meligeni Alves,348,151.0,36617
+Moez Echargui,349,151.0,36114
+Jake Delaney,350,151.0,27114
+Andrej Martin,351,149.0,8721
+Robert Strombachs,352,149.0,64479
+Matthew William Donald,353,148.0,86692
+Karan Singh,354,148.0,86083
+Daniel Elahi Galan,355,147.0,26845
+Michael Geerts,356,147.0,29462
+Juan Estevez,357,146.0,90029
+Yaroslav Demin,358,143.0,85075
+Andres Martin,359,142.0,79066
+Eduardo Ribeiro,360,142.0,44217
+Mitchell Krueger,361,141.0,17123
+Paul Jubb,362,140.0,50382
+Dimitar Kuzmanov,363,139.0,17837
+Franco Agamenone,364,139.0,17972
+Daniel Masur,365,138.0,23816
+Henry Bernet,366,138.0,101158
+Jie Cui,367,138.0,45197
+Massimo Giunta,368,138.0,85513
+Andrey Chepelev,369,138.0,39445
+Juan Pablo Ficovich,370,137.0,29906
+Lucio Ratti,371,137.0,91721
+Norbert Gombos,372,136.0,17928
+Tommaso Compagnucci,373,136.0,54380
+Mathys Erhard,374,136.0,50118
+Yosuke Watanuki,375,134.0,32729
+Tung-Lin Wu,376,134.0,29953
+Ognjen Milic,377,134.0,103193
+Tiago Torres,378,133.0,69536
+Raphael Perot,379,133.0,76022
+Aziz Dougaz,380,132.0,30626
+Duje Ajdukovic,381,132.0,47543
+Max Wiskandt,382,131.0,74151
+Juan Cruz Martin Manzano,383,130.0,94958
+Ryan Nijboer,384,130.0,58606
+Jacopo Vasami,385,129.0,114185
+Ivan Marrero Curbelo,386,129.0,42150
+Mika Petkovic,387,128.0,100215
+Sebastian Sorger,388,127.0,84195
+Pavel Lagutin,389,127.0,116729
+Gabriele Piraino,390,127.0,86619
+Manas Manoj Dhamne,391,127.0,94055
+Alvaro Guillen Meza,392,127.0,66379
+Sander Jong,393,125.0,84237
+Hugo Grenier,394,125.0,28932
+Yoshihito Nishioka,395,124.0,24225
+Jack Kennedy,396,124.0,111500
+Ozan Baris,397,123.0,82492
+Eric Vanshelboim,398,123.0,69838
+Izan Almazan Valiente,399,123.0,99973
+Alex Martinez,400,122.0,68297
+Kaichi Uchida,401,122.0,22269
+Jack Loge,402,122.0,96547
+Sebastian Gorzny,403,121.0,92474
+Edward Winter,404,121.0,83105
+Yuta Shimizu,405,121.0,48871
+Robin Bertrand,406,121.0,83555
+Svyatoslav Gulin,407,120.0,91530
+Mitsuki Wei Kang Leong,408,120.0,95918
+Kasidit Samrej,409,120.0,55656
+Marek Gengel,410,119.0,36062
+Khumoun Sultanov,411,119.0,28774
+Blake Ellis,412,119.0,33614
+Mateus Alves,413,119.0,46407
+Vadym Ursu,414,119.0,30801
+Thanasi Kokkinakis,415,118.0,22432
+Olle Wallin,416,117.0,79842
+Johan Nikles,417,117.0,29829
+Niels Visker,418,117.0,73241
+Arthur Weber,419,116.0,59423
+Louis Wessels,420,116.0,38463
+Digvijaypratap Singh,421,116.0,40054
+Kenta Miyoshi,422,115.0,96788
+Santiago Rodriguez Taverna,423,115.0,38876
+Semen Pankin,424,115.0,59353
+Maxime Chazal,425,114.0,13209
+Dan Added,426,114.0,40605
+Enzo Aguiard,427,113.0,102670
+Lui Maxted,428,113.0,83521
+Paulo Saraiva Dos Santos,429,113.0,67172
+Spencer Johnson,430,112.0,111370
+Sergi Perez Contri,431,112.0,32910
+Miguel Tobon,432,112.0,98292
+Holger Rune,433,110.0,69471
+Alafia Ayeni,434,110.0,46474
+Hamish Stewart,435,110.0,59443
+Blaise Bicknell,436,110.0,75024
+Masamichi Imamura,437,110.0,42990
+Hernan Casanova,438,109.0,23099
+Justin Boulais,439,109.0,64632
+Yannik Kelm,440,109.0,88931
+Tyler Zink,441,109.0,69574
+Oleksii Krutykh,442,109.0,56420
+Geoffrey Blancaneaux,443,109.0,35036
+Luca Castelnuovo,444,108.0,31327
+Gerard Campana Lee,445,108.0,86348
+Oleg Prihodko,446,107.0,36042
+Pedro Sakamoto,447,107.0,18348
+Dhakshineswar Suresh,448,106.0,55841
+Luca Staeheli,449,106.0,59487
+Murkel Dellien,450,106.0,27205
+Garrett Johns,451,106.0,58591
+Nikita Mashtakov,452,105.0,36258
+Karl Poling,453,104.0,44252
+Alex Marti Pujolras,454,103.0,51846
+Hiroki Moriya,455,103.0,11521
+Sebastian Dominko,456,102.0,89110
+Koki Matsuda,457,102.0,97989
+Fausto Tabacco,458,102.0,70909
+Benjamin Hassan,459,101.0,32887
+Alexandr Binda,460,101.0,73055
+Moerani Bouzige,461,101.0,50146
+Carlos Taberner,462,100.0,29665
+Thijs Boogaard,463,100.0,103054
+Karim Bennani,464,100.0,95483
+Ivan Ivanov,465,100.0,99980
+Emile Hudd,466,100.0,59355
+Evan Zhu,467,100.0,36897
+Adrian Boitan,468,99.0,54996
+Juan Alejandro Hernandez,469,99.0,63018
+Duncan Chan,470,98.0,98810
+Dragos Nicolae Madaras,471,98.0,41961
+Quinn Vandecasteele,472,98.0,71628
+Federico Arnaboldi,473,98.0,53722
+Denis Yevseyev,474,98.0,17264
+Andrea Collarini,475,97.0,12498
+Amit Vales,476,97.0,86599
+Niels Mcdonald,477,96.0,104451
+Eero Vasa,478,96.0,30743
+Romain Faucon,479,96.0,84352
+Branko Djuric,480,95.0,80945
+Trevor Svajda,481,95.0,94591
+Viktor Durasovic,482,95.0,28685
+Keisuke Saitoh,483,94.0,76126
+Gilles Arnaud Bailly,484,94.0,92054
+Colin Sinclair,485,94.0,26960
+Cyril Vandermeersch,486,93.0,59762
+Matisse Bobichon,487,92.0,94966
+Anton Shepp,488,92.0,82975
+Andrew Fenty,489,92.0,64915
+Aidan Mchugh,490,91.0,50386
+George Loffhagen,491,91.0,63016
+Antoine Ghibaudo,492,91.0,83330
+Maximus Jones,493,91.0,82696
+Sergio Callejon Hernando,494,91.0,91735
+Luca Wiedenmann,495,91.0,48631
+Alan Magadan,496,91.0,67202
+Dusan Obradovic,497,91.0,64266
+Constantin Bittoun Kouzmine,498,91.0,37720
+Petr Brunclik,499,89.0,93848
+Daniel Siniakov,500,89.0,78282
