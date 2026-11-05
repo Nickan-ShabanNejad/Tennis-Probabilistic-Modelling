@@ -22,7 +22,7 @@ def replay(matches: pd.DataFrame, engine: Engine, seed: int = 7, progress: bool 
         if usable:
             flip = bool(rng.random() < 0.5)
             a, b = (str(r["loser_id"]), str(r["winner_id"])) if flip else (str(r["winner_id"]), str(r["loser_id"]))
-            best_of = int(float(r.get("best_of") or (5 if level == "G" else 3)))
+            best_of = int(r["best_of"]) if r.get("best_of") in (3, 5) else (5 if level == "G" else 3)
             ctx = {"tournament": r.get("tourney_name", ""), "surface": surface, "level": level, "best_of": best_of,
                    "indoor": str(r.get("indoor", "")).upper() in {"I", "1", "1.0", "TRUE"}, "round": r.get("round", ""),
                    "date": r["tourney_date"]}
