@@ -1,2 +1,2 @@
-bet_id,match_id,flagged_at,start_ts,tournament,level,player_a,player_b,market,selection,price,book,probability,ev,stake,strategy
-2026-11-07|c|alcaraz|c|ruud|Moneyline|casper ruud,2026-11-07|c|alcaraz|c|ruud,2026-11-07T14:44:25+00:00,1794067200.0,Paris Masters,M,Casper Ruud,Carlos Alcaraz,Moneyline,Casper Ruud,5.3,winamax_de,0.19251932404010857,0.02035241741257532,0.0011832800821264722,market
+bet_id,match_id,flagged_at,start_ts,tournament,level,player_a,player_b,market,selection,price,book,probability,ev,stake,strategy,result,pl_units,closing_price,clv
+2026-11-07|c|alcaraz|c|ruud|Moneyline|casper ruud,2026-11-07|c|alcaraz|c|ruud,2026-11-07T14:44:25+00:00,1794067200.0,Paris Masters,M,Casper Ruud,Carlos Alcaraz,Moneyline,Casper Ruud,5.3,winamax_de,0.1925193240401085,0.0203524174125753,0.0011832800821264,market,,,,
