@@ -245,3 +245,12 @@ def test_matchstat_odds_parser_shapes():
     flat = [{"bookmaker": "Bet365", "market": "Match Winner", "od1": 1.5, "od2": 2.6},
             {"bookmaker": "Bet365", "market": "Set Handicap", "od1": 1.9, "od2": 1.9}]
     assert parse_moneylines(flat) == {"bet365": (1.5, 2.6)}
+
+
+def test_matchstat_odds_real_payload():
+    """Response captured from the live Matchstat pre-match odds endpoint (Stockholm, Nov 2026)."""
+    import json
+    from atp_edge.matchstat_odds import parse_moneylines
+    payload = json.loads((Path(__file__).parent / "matchstat_odds_sample.json").read_text())["payload"]
+    ml = parse_moneylines(payload)
+    assert ml["pinnacle"] == (1.323, 3.66) and ml["bet365"] == (1.3, 3.5) and len(ml) == 4

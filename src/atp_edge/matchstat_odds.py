@@ -67,9 +67,47 @@ def _is_moneyline(name: str) -> bool:
     return any(m in n for m in MONEYLINE_MARKETS) and "set" not in n and "game" not in n and "handicap" not in n
 
 
+def _ts(row: dict) -> float:
+    for k in ("addTime", "sourceAddTime", "time", "timestamp", "updatedAt"):
+        try:
+            return float(row.get(k))
+        except Exception:
+            continue
+    return 0.0
+
+
+def _rows_by_book(rows: list, line: float | None = None) -> dict[str, tuple[float, float]]:
+    """Latest two-way quote per bookmaker from market rows like
+    {"bookmaker": "Pinnacle", "od1": "1.9", "od2": "1.95", "addTime": ..., "line": "2.5"}."""
+    best: dict[str, tuple[float, tuple[float, float]]] = {}
+    for row in rows:
+        if not isinstance(row, dict) or not row.get("bookmaker") or str(row.get("oddType", "pre")).lower() not in ("pre", ""):
+            continue
+        if line is not None:
+            try:
+                if abs(float(row.get("line")) - line) > 1e-9:
+                    continue
+            except Exception:
+                continue
+        pr = _pair(row)
+        if not pr:
+            continue
+        key, ts = book_key(row["bookmaker"]), _ts(row)
+        if key not in best or ts >= best[key][0]:
+            best[key] = (ts, pr)
+    return {k: v[1] for k, v in best.items()}
+
+
 def parse_moneylines(payload: Any) -> dict[str, tuple[float, float]]:
     out: dict[str, tuple[float, float]] = {}
     root = payload.get("result", payload.get("data", payload)) if isinstance(payload, dict) else payload
+    # Shape seen live (Nov 2026): {"result": {"Full Time Result": [{"bookmaker": ..., "od1": ..}, ..], ...}}
+    if isinstance(root, dict):
+        for market, rows in root.items():
+            if isinstance(rows, list) and _is_moneyline(market):
+                out.update(_rows_by_book(rows))
+        if out:
+            return out
     if isinstance(root, dict):
         for book, markets in root.items():
             if not isinstance(markets, dict):
@@ -100,6 +138,14 @@ def parse_sets35(payload: Any) -> dict[str, dict[str, float]]:
     res = {"over": {}, "under": {}}
     root = payload.get("result", payload.get("data", payload)) if isinstance(payload, dict) else payload
     if not isinstance(root, dict):
+        return res
+    # Live shape: market "Over Under" rows with line "3.5" (a line this small can only be sets).
+    for market, rows in root.items():
+        m = str(market).lower()
+        if isinstance(rows, list) and ("over" in m or "total" in m) and "game" not in m:
+            for book, (o, u) in _rows_by_book(rows, line=3.5).items():
+                res["over"][book], res["under"][book] = o, u
+    if res["over"]:
         return res
     for book, markets in root.items():
         if not isinstance(markets, dict):
