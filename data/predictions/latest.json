@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-09T04:33:49+00:00",
- "generated_at_local": "Sun Nov 08, 23:33",
+ "generated_at": "2026-11-09T13:41:07+00:00",
+ "generated_at_local": "Mon Nov 09, 08:41",
  "settings": {
   "strategy": "market",
   "min_ev": 0.02,
@@ -11,258 +11,6 @@
   "horizon_hours": 48.0
  },
  "matches": [
-  {
-   "player_a": "Alex Michelsen",
-   "player_b": "Yannick Hanfmann",
-   "tournament": "BNP Paribas Nordic Open - Stockholm",
-   "start_ts": 1794223800.0,
-   "round": "",
-   "status": "ok",
-   "event": "Stockholm",
-   "event_key": "stockholm",
-   "level": "250",
-   "surface": "Hard",
-   "indoor": true,
-   "best_of": 3,
-   "p_model_a": 0.8442697340728634,
-   "p_model_a_injury_adj": 0.8442697340728634,
-   "p_market_a": 0.7344972907886815,
-   "market_source": "Pinnacle",
-   "p_fair_a": 0.7455001028626296,
-   "fair_odds_a": 1.3413814379905808,
-   "fair_odds_b": 3.9292746725953838,
-   "pinnacle_a": 1.323,
-   "pinnacle_b": 3.66,
-   "best_a": 1.35,
-   "best_book_a": "fonbet",
-   "best_b": 3.66,
-   "best_book_b": "pinnacle",
-   "n_books": 4,
-   "court_speed": 0.9745751633986929,
-   "court_speed_source": "tennis_abstract",
-   "court_speed_prior": 0.9745751633986929,
-   "court_speed_live_matches": 0,
-   "h2h": [
-    0,
-    0
-   ],
-   "h2h_surface": [
-    0,
-    0
-   ],
-   "injury_flag_a": 0.0,
-   "injury_flag_b": 0.0,
-   "injury_signals_a": "",
-   "injury_signals_b": "",
-   "event_record_a": "first appearance at this event",
-   "event_record_b": "first appearance at this event",
-   "rank_a": 35.0,
-   "rank_b": 58.0,
-   "factors": {
-    "Ratings (Elo)": 0.6006324144459637,
-    "Age & physique": 0.5493337712656802,
-    "Serve & return": 0.2511810906822408,
-    "Recent form": 0.12337164336519804,
-    "Fatigue & schedule": 0.09068718407311623,
-    "Injury signals": 0.05599631828777698,
-    "Court speed": 0.0053805581140084656,
-    "Event type (level / best-of-5)": -0.003165692396648113,
-    "History at this event": 0.0,
-    "Head to head": 0.0
-   },
-   "recommendation": null,
-   "strategy": "market",
-   "fixture_id": "4731248"
-  },
-  {
-   "player_a": "James Duckworth",
-   "player_b": "Cameron Norrie",
-   "tournament": "BNP Paribas Nordic Open - Stockholm",
-   "start_ts": 1794225600.0,
-   "round": "",
-   "status": "ok",
-   "event": "Stockholm",
-   "event_key": "stockholm",
-   "level": "250",
-   "surface": "Hard",
-   "indoor": true,
-   "best_of": 3,
-   "p_model_a": 0.26928406000145894,
-   "p_model_a_injury_adj": 0.26928406000145894,
-   "p_market_a": 0.3102688408990744,
-   "market_source": "Pinnacle",
-   "p_fair_a": 0.300742625890482,
-   "fair_odds_a": 3.3251023097875008,
-   "fair_odds_b": 1.4300886011727343,
-   "pinnacle_a": 3.13,
-   "pinnacle_b": 1.408,
-   "best_a": 3.3,
-   "best_book_a": "fonbet",
-   "best_b": 1.408,
-   "best_book_b": "pinnacle",
-   "n_books": 4,
-   "court_speed": 0.9745751633986929,
-   "court_speed_source": "tennis_abstract",
-   "court_speed_prior": 0.9745751633986929,
-   "court_speed_live_matches": 0,
-   "h2h": [
-    0,
-    1
-   ],
-   "h2h_surface": [
-    0,
-    1
-   ],
-   "injury_flag_a": 0.0,
-   "injury_flag_b": 0.0,
-   "injury_signals_a": "",
-   "injury_signals_b": "",
-   "event_record_a": "first appearance at this event",
-   "event_record_b": "3 matches here, 44% shrunk win rate, -0.14 vs rating",
-   "rank_a": 70.0,
-   "rank_b": 45.0,
-   "factors": {
-    "Ratings (Elo)": -0.3784488768573853,
-    "Recent form": -0.26418885319231233,
-    "Age & physique": -0.16088938220750207,
-    "Fatigue & schedule": -0.11449652968123417,
-    "Injury signals": -0.09591618067677574,
-    "Head to head": -0.06400885252144188,
-    "Serve & return": 0.046718125728455774,
-    "Court speed": -0.014198446248075432,
-    "History at this event": -0.0024115875891571326,
-    "Event type (level / best-of-5)": 0.0007290626508550758
-   },
-   "recommendation": null,
-   "strategy": "market",
-   "fixture_id": "4731244"
-  },
-  {
-   "player_a": "Tomas Machac",
-   "player_b": "Borna Gojo",
-   "tournament": "BNP Paribas Nordic Open - Stockholm",
-   "start_ts": 1794229200.0,
-   "round": "",
-   "status": "ok",
-   "event": "Stockholm",
-   "event_key": "stockholm",
-   "level": "250",
-   "surface": "Hard",
-   "indoor": true,
-   "best_of": 3,
-   "p_model_a": 0.6088379227113163,
-   "p_model_a_injury_adj": 0.6088379227113163,
-   "p_market_a": 0.7154882154882154,
-   "market_source": "Pinnacle",
-   "p_fair_a": 0.7259207539479292,
-   "fair_odds_a": 1.377560835065656,
-   "fair_odds_b": 3.648579797282482,
-   "pinnacle_a": 1.352,
-   "pinnacle_b": 3.4,
-   "best_a": 1.352,
-   "best_book_a": "pinnacle",
-   "best_b": 3.4,
-   "best_book_b": "pinnacle",
-   "n_books": 5,
-   "court_speed": 0.9745751633986929,
-   "court_speed_source": "tennis_abstract",
-   "court_speed_prior": 0.9745751633986929,
-   "court_speed_live_matches": 0,
-   "h2h": [
-    0,
-    0
-   ],
-   "h2h_surface": [
-    0,
-    0
-   ],
-   "injury_flag_a": 0.0,
-   "injury_flag_b": 0.0,
-   "injury_signals_a": "2 retirements/walkovers in 12 months",
-   "injury_signals_b": "early in a comeback",
-   "event_record_a": "2 matches here, 50% shrunk win rate, +0.04 vs rating",
-   "event_record_b": "1 matches here, 43% shrunk win rate, -0.06 vs rating",
-   "rank_a": 69.0,
-   "rank_b": 133.0,
-   "factors": {
-    "Ratings (Elo)": 0.2952600145086093,
-    "Serve & return": -0.18333686087974352,
-    "Fatigue & schedule": 0.10778899747674392,
-    "Injury signals": 0.09912103124778385,
-    "Age & physique": 0.09306662635028215,
-    "History at this event": 0.022173714129385853,
-    "Court speed": 0.01777169513282854,
-    "Event type (level / best-of-5)": -0.013764637229827315,
-    "Recent form": 6.343191477263012e-05,
-    "Head to head": 0.0
-   },
-   "recommendation": null,
-   "strategy": "market",
-   "fixture_id": "4735860"
-  },
-  {
-   "player_a": "Adolfo Daniel Vallejo",
-   "player_b": "Ugo Humbert",
-   "tournament": "BNP Paribas Nordic Open - Stockholm",
-   "start_ts": 1794231000.0,
-   "round": "",
-   "status": "ok",
-   "event": "Stockholm",
-   "event_key": "stockholm",
-   "level": "250",
-   "surface": "Hard",
-   "indoor": true,
-   "best_of": 3,
-   "p_model_a": 0.315351208405323,
-   "p_model_a_injury_adj": 0.315351208405323,
-   "p_market_a": 0.3281888334089877,
-   "market_source": "Pinnacle",
-   "p_fair_a": 0.3193731964665921,
-   "fair_odds_a": 3.1311331416147956,
-   "fair_odds_b": 1.46923393966943,
-   "pinnacle_a": 2.96,
-   "pinnacle_b": 1.446,
-   "best_a": 3.0,
-   "best_book_a": "bet365",
-   "best_b": 1.446,
-   "best_book_b": "pinnacle",
-   "n_books": 5,
-   "court_speed": 0.9745751633986929,
-   "court_speed_source": "tennis_abstract",
-   "court_speed_prior": 0.9745751633986929,
-   "court_speed_live_matches": 0,
-   "h2h": [
-    0,
-    0
-   ],
-   "h2h_surface": [
-    0,
-    0
-   ],
-   "injury_flag_a": 0.0,
-   "injury_flag_b": 0.0,
-   "injury_signals_a": "",
-   "injury_signals_b": "",
-   "event_record_a": "first appearance at this event",
-   "event_record_b": "3 matches here, 56% shrunk win rate, +0.05 vs rating",
-   "rank_a": 56.0,
-   "rank_b": 38.0,
-   "factors": {
-    "Ratings (Elo)": -0.655450385679421,
-    "Recent form": -0.2865221681232359,
-    "Age & physique": 0.24569497948278712,
-    "Fatigue & schedule": -0.07576665416411918,
-    "Serve & return": -0.03205285025234844,
-    "History at this event": -0.027011371468340324,
-    "Court speed": 0.012513442122283343,
-    "Injury signals": -0.011891814175228907,
-    "Event type (level / best-of-5)": 0.0047833384047250545,
-    "Head to head": 0.0
-   },
-   "recommendation": null,
-   "strategy": "market",
-   "fixture_id": "4731247"
-  },
   {
    "player_a": "Tomas Martin Etcheverry",
    "player_b": "Max Dahlin",
@@ -278,17 +26,17 @@
    "best_of": 3,
    "p_model_a": 0.8687540867143613,
    "p_model_a_injury_adj": 0.8687540867143613,
-   "p_market_a": 0.7539606795189923,
+   "p_market_a": 0.7849947898575894,
    "market_source": "Pinnacle",
-   "p_fair_a": 0.7654493808376605,
-   "fair_odds_a": 1.3064221162549794,
-   "fair_odds_b": 4.263472011164763,
-   "pinnacle_a": 1.289,
-   "pinnacle_b": 3.95,
-   "best_a": 1.289,
-   "best_book_a": "pinnacle",
-   "best_b": 4.1,
-   "best_book_b": "bwin",
+   "p_fair_a": 0.7970249789019184,
+   "fair_odds_a": 1.2546658216129254,
+   "fair_odds_b": 4.926714600595015,
+   "pinnacle_a": 1.238,
+   "pinnacle_b": 4.52,
+   "best_a": 1.25,
+   "best_book_a": "bet365",
+   "best_b": 4.52,
+   "best_book_b": "pinnacle",
    "n_books": 6,
    "court_speed": 0.9745751633986929,
    "court_speed_source": "tennis_abstract",
@@ -341,16 +89,16 @@
    "best_of": 3,
    "p_model_a": 0.2439130260987883,
    "p_model_a_injury_adj": 0.2439130260987883,
-   "p_market_a": 0.11854434517324036,
+   "p_market_a": 0.12776555079346694,
    "market_source": "Pinnacle",
-   "p_fair_a": 0.10725861772849081,
-   "fair_odds_a": 9.32326018345072,
-   "fair_odds_b": 1.1201452289078162,
-   "pinnacle_a": 8.09,
-   "pinnacle_b": 1.088,
-   "best_a": 8.09,
+   "p_fair_a": 0.11620941937728631,
+   "fair_odds_a": 8.60515443032542,
+   "fair_odds_b": 1.131489769098247,
+   "pinnacle_a": 7.53,
+   "pinnacle_b": 1.103,
+   "best_a": 7.53,
    "best_book_a": "pinnacle",
-   "best_b": 1.1,
+   "best_b": 1.11,
    "best_book_b": "bet365",
    "n_books": 5,
    "court_speed": 0.9745751633986929,
@@ -404,18 +152,18 @@
    "best_of": 3,
    "p_model_a": 0.34510070729785003,
    "p_model_a_injury_adj": 0.34510070729785003,
-   "p_market_a": 0.43751590735556123,
+   "p_market_a": 0.45654960266598305,
    "market_source": "Pinnacle",
-   "p_fair_a": 0.4340436953031114,
-   "fair_odds_a": 2.3039155062525607,
-   "fair_odds_b": 1.7669208589090173,
-   "pinnacle_a": 2.21,
-   "pinnacle_b": 1.719,
-   "best_a": 2.21,
-   "best_book_a": "pinnacle",
-   "best_b": 1.8,
-   "best_book_b": "bet365",
-   "n_books": 4,
+   "p_fair_a": 0.454120773827354,
+   "fair_odds_a": 2.2020573768778444,
+   "fair_odds_b": 1.831907044734706,
+   "pinnacle_a": 2.12,
+   "pinnacle_b": 1.781,
+   "best_a": 2.19,
+   "best_book_a": "draftkings",
+   "best_b": 1.781,
+   "best_book_b": "pinnacle",
+   "n_books": 6,
    "court_speed": 0.9745751633986929,
    "court_speed_source": "tennis_abstract",
    "court_speed_prior": 0.9745751633986929,
@@ -467,18 +215,18 @@
    "best_of": 3,
    "p_model_a": 0.6622312814700141,
    "p_model_a_injury_adj": 0.6622312814700141,
-   "p_market_a": 0.5714285714285715,
+   "p_market_a": 0.5706883789785344,
    "market_source": "consensus",
-   "p_fair_a": 0.5753838211328869,
-   "fair_odds_a": 1.737970313504951,
-   "fair_odds_b": 2.355068058565328,
+   "p_fair_a": 0.5746038595201942,
+   "fair_odds_a": 1.7403294172702217,
+   "fair_odds_b": 2.3507500535197536,
    "pinnacle_a": null,
    "pinnacle_b": null,
-   "best_a": 1.66,
-   "best_book_a": "bet365",
-   "best_b": 2.28,
-   "best_book_b": "marathonbet",
-   "n_books": 3,
+   "best_a": 1.68,
+   "best_book_a": "marathonbet",
+   "best_b": 2.3,
+   "best_book_b": "fonbet",
+   "n_books": 4,
    "court_speed": 0.9745751633986929,
    "court_speed_source": "tennis_abstract",
    "court_speed_prior": 0.9745751633986929,
@@ -537,8 +285,8 @@
    "fair_odds_b": 2.4033618553564717,
    "pinnacle_a": 1.676,
    "pinnacle_b": 2.31,
-   "best_a": 1.72,
-   "best_book_a": "bet365",
+   "best_a": 1.676,
+   "best_book_a": "pinnacle",
    "best_b": 2.4,
    "best_book_b": "fonbet",
    "n_books": 5,
@@ -593,17 +341,17 @@
    "best_of": 3,
    "p_model_a": 0.619148954567745,
    "p_model_a_injury_adj": 0.619148954567745,
-   "p_market_a": 0.6514125612888163,
+   "p_market_a": 0.6602031394275162,
    "market_source": "Pinnacle",
-   "p_fair_a": 0.6593496607166176,
-   "fair_odds_a": 1.5166459612842522,
-   "fair_odds_b": 2.9355614384640716,
-   "pinnacle_a": 1.493,
-   "pinnacle_b": 2.79,
-   "best_a": 1.493,
+   "p_fair_a": 0.6685273383792283,
+   "fair_odds_a": 1.4958251407106118,
+   "fair_odds_b": 3.0168400468092633,
+   "pinnacle_a": 1.472,
+   "pinnacle_b": 2.86,
+   "best_a": 1.472,
    "best_book_a": "pinnacle",
-   "best_b": 2.8,
-   "best_book_b": "marathonbet",
+   "best_b": 2.86,
+   "best_book_b": "pinnacle",
    "n_books": 3,
    "court_speed": 0.9745751633986929,
    "court_speed_source": "tennis_abstract",
@@ -644,294 +392,14 @@
  ],
  "skipped": [
   {
-   "player_a": "Vraj Gohil",
-   "player_b": "Vitek Horak",
-   "tournament": "M15 Hua Hin",
-   "start_ts": 1794198600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734981"
-  },
-  {
-   "player_a": "Jay Dylan Hara Friend",
-   "player_b": "Yusuke Kusuhara",
-   "tournament": "Matsuyama Challenger",
-   "start_ts": 1794198600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731485"
-  },
-  {
-   "player_a": "Hendrik Thada Grohbruegge",
-   "player_b": "Penn Charusorn",
-   "tournament": "M15 Hua Hin",
-   "start_ts": 1794198600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4733483"
-  },
-  {
-   "player_a": "Aditya Kothari",
-   "player_b": "Hong-Lin Fu",
-   "tournament": "M15 Hua Hin",
-   "start_ts": 1794198600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734982"
-  },
-  {
-   "player_a": "Oleksii Krutykh",
-   "player_b": "Oskari Paldanius",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794211200.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734984"
-  },
-  {
-   "player_a": "Jack Loge",
-   "player_b": "Odysseas Geladaris",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794211200.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734217"
-  },
-  {
-   "player_a": "Giovanni Mpetshi Perricard",
-   "player_b": "Tom Gentzsch",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794214800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731491"
-  },
-  {
-   "player_a": "Vladyslav Orlov",
-   "player_b": "Lorenzo Angelini",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794215400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734985"
-  },
-  {
-   "player_a": "Alexandre Reco",
-   "player_b": "Lorenzo Carboni",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794216600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735554"
-  },
-  {
-   "player_a": "Nikita Mashtakov",
-   "player_b": "Adrian Andreev",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794216600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735555"
-  },
-  {
-   "player_a": "Buvaysar Gadamauri",
-   "player_b": "Ugo Blanchet",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794218400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735066"
-  },
-  {
-   "player_a": "Karol Malirz",
-   "player_b": "Salvador Monteiro",
-   "tournament": "M25 Vale do Lobo",
-   "start_ts": 1794222000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734994"
-  },
-  {
    "player_a": "Johannus Monday",
    "player_b": "Georgii Kravchenko",
    "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794222000.0,
+   "start_ts": 1794231600.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
    "fixture_id": "4732341"
-  },
-  {
-   "player_a": "Massimo Giunta",
-   "player_b": "Francesco Forti",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794222000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732347"
-  },
-  {
-   "player_a": "Diogo Marques",
-   "player_b": "Diogo Coelho",
-   "tournament": "M25 Vale do Lobo",
-   "start_ts": 1794222000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735562"
-  },
-  {
-   "player_a": "Pierre Antoine Tailleu",
-   "player_b": "Alex Kobelt",
-   "tournament": "M25 Vale do Lobo",
-   "start_ts": 1794222000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734993"
-  },
-  {
-   "player_a": "Hugo Grenier",
-   "player_b": "Martin Krumich",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794223800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735556"
-  },
-  {
-   "player_a": "Edas Butvilas",
-   "player_b": "Cosme Rolland De Ravel",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794223800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735067"
-  },
-  {
-   "player_a": "John Echeverria",
-   "player_b": "Guillaume Dalmasso",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794225600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734230"
-  },
-  {
-   "player_a": "Yannik Kelm",
-   "player_b": "Pedro Vives Marcos",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794225600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734228"
-  },
-  {
-   "player_a": "Branko Djuric",
-   "player_b": "Nicolas Tepmahc",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794225600.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734229"
-  },
-  {
-   "player_a": "Ryan Peniston",
-   "player_b": "Henry Searle",
-   "tournament": "Hersonissos 3 Challenger",
-   "start_ts": 1794227400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732348"
-  },
-  {
-   "player_a": "Calvin Hemery",
-   "player_b": "Lucas Poullain",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794229200.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735840"
-  },
-  {
-   "player_a": "Enrique Bogo",
-   "player_b": "Daniel Vecchio Couldrey Rebelo",
-   "tournament": "M25 Santa Cruz do Sul",
-   "start_ts": 1794229200.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735862"
-  },
-  {
-   "player_a": "Pedro Rodrigues Longobardi",
-   "player_b": "Enzo Fortes",
-   "tournament": "M25 Santa Cruz do Sul",
-   "start_ts": 1794229200.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735863"
-  },
-  {
-   "player_a": "Luca Nardi",
-   "player_b": "Alexander Ritschard",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794229200.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735861"
-  },
-  {
-   "player_a": "Nino Ehrenschneider",
-   "player_b": "Mae Malige",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794231000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734989"
-  },
-  {
-   "player_a": "Semen Pankin",
-   "player_b": "Maxime Janvier",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794231000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734999"
-  },
-  {
-   "player_a": "Toufik Sahtali",
-   "player_b": "Nikolai Barsukov",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794231000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734990"
   },
   {
    "player_a": "Franco Marini",
@@ -954,44 +422,14 @@
    "fixture_id": "4735869"
   },
   {
-   "player_a": "Ryo Tabata",
-   "player_b": "Johan Nikles",
-   "tournament": "Lima 3 Challenger",
+   "player_a": "Bernardo Munk Mesa",
+   "player_b": "Aziz Dougaz",
+   "tournament": "Monastir 1 Challenger",
    "start_ts": 1794236400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735881"
-  },
-  {
-   "player_a": "Mitchell Krueger",
-   "player_b": "Lui Maxted",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794236400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4736476"
-  },
-  {
-   "player_a": "Franco Roncadelli",
-   "player_b": "Juan Sebastian Gomez",
-   "tournament": "Lima 3 Challenger",
-   "start_ts": 1794236400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735597"
-  },
-  {
-   "player_a": "Timo Legout",
-   "player_b": "Emile Hudd",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794236400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735596"
+   "fixture_id": "4732378"
   },
   {
    "player_a": "Sandro Kopp",
@@ -1004,24 +442,44 @@
    "fixture_id": "4732376"
   },
   {
-   "player_a": "Andres Martin",
-   "player_b": "Filip Jeff Planinsek",
+   "player_a": "Lazar Markovic",
+   "player_b": "Stephen Slocombe",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794236400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737603"
+  },
+  {
+   "player_a": "Franco Roncadelli",
+   "player_b": "Juan Sebastian Gomez",
+   "tournament": "Lima 3 Challenger",
+   "start_ts": 1794236400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4735597"
+  },
+  {
+   "player_a": "Volodymyr Gurenko",
+   "player_b": "Mathias Hamel-Van Dun",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794236400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737606"
+  },
+  {
+   "player_a": "Mitchell Krueger",
+   "player_b": "Lui Maxted",
    "tournament": "Knoxville Challenger",
    "start_ts": 1794236400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735875"
-  },
-  {
-   "player_a": "Bernardo Munk Mesa",
-   "player_b": "Aziz Dougaz",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794236400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732378"
+   "fixture_id": "4736476"
   },
   {
    "player_a": "Carlos Sanchez Jover",
@@ -1034,14 +492,34 @@
    "fixture_id": "4735598"
   },
   {
-   "player_a": "Max Houkes",
-   "player_b": "Tom Gentzsch",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794238200.0,
+   "player_a": "Andres Martin",
+   "player_b": "Filip Jeff Planinsek",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794236400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735599"
+   "fixture_id": "4735875"
+  },
+  {
+   "player_a": "Ranak Pajpani",
+   "player_b": "Matthew Michibata",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794236400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737607"
+  },
+  {
+   "player_a": "Ryo Tabata",
+   "player_b": "Johan Nikles",
+   "tournament": "Lima 3 Challenger",
+   "start_ts": 1794236400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4735881"
   },
   {
    "player_a": "Clement Tabur",
@@ -1054,10 +532,80 @@
    "fixture_id": "4734278"
   },
   {
+   "player_a": "Max Houkes",
+   "player_b": "Tom Gentzsch",
+   "tournament": "Orleans Challenger",
+   "start_ts": 1794238200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4735599"
+  },
+  {
+   "player_a": "Tomas Dummer Macedo",
+   "player_b": "Eduardo Heineberg",
+   "tournament": "M25 Santa Cruz do Sul",
+   "start_ts": 1794240000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737610"
+  },
+  {
+   "player_a": "Eric Martins",
+   "player_b": "Glauco Pinheiro Da Cruz Junior",
+   "tournament": "M25 Santa Cruz do Sul",
+   "start_ts": 1794240000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737611"
+  },
+  {
+   "player_a": "Nicolas Jarry",
+   "player_b": "Maximo Zeitune",
+   "tournament": "Lima 3 Challenger",
+   "start_ts": 1794240600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737614"
+  },
+  {
+   "player_a": "Thomas Gerbaud",
+   "player_b": "Anirudh Rao",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794241800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737619"
+  },
+  {
+   "player_a": "Ozan Baris",
+   "player_b": "Patrick Zahraj",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794241800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737168"
+  },
+  {
+   "player_a": "Timo Legout",
+   "player_b": "Emile Hudd",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794241800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4735596"
+  },
+  {
    "player_a": "Oriol Roca Batalla",
    "player_b": "Juan Alejandro Hernandez",
    "tournament": "Lima 3 Challenger",
-   "start_ts": 1794240600.0,
+   "start_ts": 1794241800.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
@@ -1067,7 +615,7 @@
    "player_a": "Filip Misolic",
    "player_b": "Alan Magadan",
    "tournament": "Lima 3 Challenger",
-   "start_ts": 1794240600.0,
+   "start_ts": 1794241800.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
@@ -1084,6 +632,36 @@
    "fixture_id": "4732373"
   },
   {
+   "player_a": "Kaue Noatto",
+   "player_b": "Andrey Barbiero",
+   "tournament": "M25 Santa Cruz do Sul",
+   "start_ts": 1794245400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737622"
+  },
+  {
+   "player_a": "Giles Hussey",
+   "player_b": "Geoffrey Blancaneaux",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794247200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737173"
+  },
+  {
+   "player_a": "Joaquin Bianchi",
+   "player_b": "Jesus Martinez",
+   "tournament": "M15 Zamora",
+   "start_ts": 1794247200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737625"
+  },
+  {
    "player_a": "Benjamin Bonzi",
    "player_b": "Andrea Pellegrino",
    "tournament": "Orleans Challenger",
@@ -1092,6 +670,46 @@
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
    "fixture_id": "4734276"
+  },
+  {
+   "player_a": "Gabriel Miller",
+   "player_b": "Lucas Hammond",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794247200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737626"
+  },
+  {
+   "player_a": "Eric David Verdes",
+   "player_b": "Kim Johannes Niethammer",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794247200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737631"
+  },
+  {
+   "player_a": "Daniel Milavsky",
+   "player_b": "Kenta Miyoshi",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794247200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737175"
+  },
+  {
+   "player_a": "Haig Daouidian",
+   "player_b": "Miko Lapalme",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794247200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737630"
   },
   {
    "player_a": "Facundo Mena",
@@ -1114,14 +732,114 @@
    "fixture_id": "4735018"
   },
   {
+   "player_a": "Alberto Alvarado Berrospi",
+   "player_b": "Axel Cabrera",
+   "tournament": "M15 Zamora",
+   "start_ts": 1794252600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737637"
+  },
+  {
    "player_a": "Nicolai Budkov Kjaer",
    "player_b": "Sascha Gueymard Wayenburg",
    "tournament": "Orleans Challenger",
-   "start_ts": 1794251400.0,
+   "start_ts": 1794252600.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
    "fixture_id": "4731492"
+  },
+  {
+   "player_a": "Tarun Karra",
+   "player_b": "Marcel Hornung",
+   "tournament": "M15 Zamora",
+   "start_ts": 1794252600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737638"
+  },
+  {
+   "player_a": "Steven Mccartney",
+   "player_b": "Jared Horwood",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794252600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737639"
+  },
+  {
+   "player_a": "Stefano Lacroce",
+   "player_b": "Tiago Silva",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794252600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737641"
+  },
+  {
+   "player_a": "Ian Luca Cervantes Tomas",
+   "player_b": "Miguel Gamborino",
+   "tournament": "M15 Zamora",
+   "start_ts": 1794252600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737636"
+  },
+  {
+   "player_a": "Matthias Uwe Kask",
+   "player_b": "Eliot Nobel",
+   "tournament": "M25 Montreal",
+   "start_ts": 1794252600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737640"
+  },
+  {
+   "player_a": "Trevor Svajda",
+   "player_b": "Max Hans Rehberg",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794254400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732867"
+  },
+  {
+   "player_a": "Patricio Betancourt",
+   "player_b": "Nicolas Dagda Mireles",
+   "tournament": "M15 Zamora",
+   "start_ts": 1794259800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4737650"
+  },
+  {
+   "player_a": "Liam Draxl",
+   "player_b": "Duncan Chan",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794259800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4734282"
+  },
+  {
+   "player_a": "Nicolas Mejia",
+   "player_b": "Jack Kennedy",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794259800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4734280"
   },
   {
    "player_a": "Miguel Tobon",
@@ -1134,6 +852,16 @@
    "fixture_id": "4735021"
   },
   {
+   "player_a": "Marcel Latak",
+   "player_b": "Clement Chidekh",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794267000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732873"
+  },
+  {
    "player_a": "Arklon Huertas Del Pino",
    "player_b": "Lautaro Midon",
    "tournament": "Lima 3 Challenger",
@@ -1144,24 +872,34 @@
    "fixture_id": "4732871"
   },
   {
-   "player_a": "Omar Jasika",
-   "player_b": "Dhakshineswar Suresh",
+   "player_a": "Carl Emil Overbeck",
+   "player_b": "Florian Broska",
    "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
+   "start_ts": 1794268800.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731228"
+   "fixture_id": "4731227"
   },
   {
-   "player_a": "Jake Delaney",
-   "player_b": "Juncheng Shang",
+   "player_a": "Casey Hoole",
+   "player_b": "Sam Ryan Ziegann",
    "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
+   "start_ts": 1794268800.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731229"
+   "fixture_id": "4738188"
+  },
+  {
+   "player_a": "Dane Sweeny",
+   "player_b": "Anton Shepp",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794268800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738187"
   },
   {
    "player_a": "Sebastian Gorzny",
@@ -1174,84 +912,14 @@
    "fixture_id": "4731230"
   },
   {
-   "player_a": "James McCabe",
-   "player_b": "Jan Kumstat",
-   "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731231"
-  },
-  {
-   "player_a": "Carl Emil Overbeck",
-   "player_b": "Florian Broska",
-   "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731227"
-  },
-  {
-   "player_a": "Enzo Aguiard",
-   "player_b": "Akira Santillan",
-   "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731233"
-  },
-  {
-   "player_a": "Tristan Schoolkate",
-   "player_b": "Cruz Hewitt",
-   "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731235"
-  },
-  {
-   "player_a": "August Holmgren",
-   "player_b": "Philip Sekulic",
-   "tournament": "Brisbane 3 Challenger",
-   "start_ts": 1794268805.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731236"
-  },
-  {
-   "player_a": "Kasidit Samrej",
-   "player_b": "Yuta Shimizu",
+   "player_a": "Rio Noguchi",
+   "player_b": "Daniel Michalski",
    "tournament": "Matsuyama Challenger",
    "start_ts": 1794272400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731237"
-  },
-  {
-   "player_a": "Yosuke Watanuki",
-   "player_b": "Taro Daniel",
-   "tournament": "Matsuyama Challenger",
-   "start_ts": 1794272400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731484"
-  },
-  {
-   "player_a": "Mili Poljicak",
-   "player_b": "Chun Hsin Tseng",
-   "tournament": "Matsuyama Challenger",
-   "start_ts": 1794272400.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731240"
+   "fixture_id": "4731945"
   },
   {
    "player_a": "Naoya Honda",
@@ -1264,6 +932,66 @@
    "fixture_id": "4731946"
   },
   {
+   "player_a": "Hikaru Shiraishi",
+   "player_b": "Ognjen Milic",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794272400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738199"
+  },
+  {
+   "player_a": "Naoya Honda",
+   "player_b": "Chun Hsin Tseng",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794272400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738197"
+  },
+  {
+   "player_a": "Mili Poljicak",
+   "player_b": "Chun Hsin Tseng",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794272400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731240"
+  },
+  {
+   "player_a": "Kasidit Samrej",
+   "player_b": "Yuta Shimizu",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794272400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731237"
+  },
+  {
+   "player_a": "Mili Poljicak",
+   "player_b": "Kaichi Uchida",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794272400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738196"
+  },
+  {
+   "player_a": "Yosuke Watanuki",
+   "player_b": "Taro Daniel",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794272400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731484"
+  },
+  {
    "player_a": "Shunsuke Nakagawa",
    "player_b": "David Jorda Sanchis",
    "tournament": "Matsuyama Challenger",
@@ -1274,14 +1002,154 @@
    "fixture_id": "4731238"
   },
   {
-   "player_a": "Rio Noguchi",
-   "player_b": "Daniel Michalski",
-   "tournament": "Matsuyama Challenger",
-   "start_ts": 1794272400.0,
+   "player_a": "Jake Delaney",
+   "player_b": "Juncheng Shang",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794274200.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731945"
+   "fixture_id": "4731229"
+  },
+  {
+   "player_a": "Moerani Bouzige",
+   "player_b": "Christopher O'Connell",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794274200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738201"
+  },
+  {
+   "player_a": "Matthew Dellavedova",
+   "player_b": "Thomas Fancutt",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794274200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738202"
+  },
+  {
+   "player_a": "Niels Mcdonald",
+   "player_b": "Koki Matsuda",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794276600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738206"
+  },
+  {
+   "player_a": "Shintaro Imai",
+   "player_b": "Fajing Sun",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794276600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738208"
+  },
+  {
+   "player_a": "Rei Sakamoto",
+   "player_b": "Renta Tokuda",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794276600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738207"
+  },
+  {
+   "player_a": "Omar Jasika",
+   "player_b": "Dhakshineswar Suresh",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794279600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731228"
+  },
+  {
+   "player_a": "Enzo Aguiard",
+   "player_b": "Akira Santillan",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794279600.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731233"
+  },
+  {
+   "player_a": "Ryuki Matsuda",
+   "player_b": "Max Schoenhaus",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794280800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738212"
+  },
+  {
+   "player_a": "Takuya Kumasaka",
+   "player_b": "Yi Zhou",
+   "tournament": "Matsuyama Challenger",
+   "start_ts": 1794280800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738213"
+  },
+  {
+   "player_a": "Christian Langmo",
+   "player_b": "Ymerali Ibraimi",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794285000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738216"
+  },
+  {
+   "player_a": "August Holmgren",
+   "player_b": "Philip Sekulic",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794285000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731236"
+  },
+  {
+   "player_a": "Tristan Schoolkate",
+   "player_b": "Cruz Hewitt",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794292200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731235"
+  },
+  {
+   "player_a": "Hiroki Moriya",
+   "player_b": "Alex Bolt",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794292200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738218"
+  },
+  {
+   "player_a": "Matteo Martineau",
+   "player_b": "Hugo Gaston",
+   "tournament": "Orleans Challenger",
+   "start_ts": 1794304800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4733502"
   },
   {
    "player_a": "Dalibor Svrcina",
@@ -1314,26 +1182,6 @@
    "fixture_id": "4731489"
   },
   {
-   "player_a": "Sebastian Baez",
-   "player_b": "Daniil Glinka",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794304800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734271"
-  },
-  {
-   "player_a": "Matteo Martineau",
-   "player_b": "Hugo Gaston",
-   "tournament": "Orleans Challenger",
-   "start_ts": 1794304800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4733502"
-  },
-  {
    "player_a": "Jurij Rodionov",
    "player_b": "Pedro Martinez Portero",
    "tournament": "Orleans Challenger",
@@ -1344,14 +1192,34 @@
    "fixture_id": "4734272"
   },
   {
-   "player_a": "Mert Alkaya",
-   "player_b": "Eliakim Coulibaly",
+   "player_a": "Sebastian Baez",
+   "player_b": "Daniil Glinka",
+   "tournament": "Orleans Challenger",
+   "start_ts": 1794304800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4734271"
+  },
+  {
+   "player_a": "Kasra Rahmani",
+   "player_b": "Alejandro Moro Canas",
    "tournament": "Monastir 1 Challenger",
    "start_ts": 1794312000.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732375"
+   "fixture_id": "4732379"
+  },
+  {
+   "player_a": "Mika Petkovic",
+   "player_b": "Gianluca Cadenasso",
+   "tournament": "Monastir 1 Challenger",
+   "start_ts": 1794312000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731662"
   },
   {
    "player_a": "Federico Bondioli",
@@ -1364,6 +1232,16 @@
    "fixture_id": "4732374"
   },
   {
+   "player_a": "Mert Alkaya",
+   "player_b": "Eliakim Coulibaly",
+   "tournament": "Monastir 1 Challenger",
+   "start_ts": 1794312000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732375"
+  },
+  {
    "player_a": "Dali Blanch",
    "player_b": "Marko Topo",
    "tournament": "Monastir 1 Challenger",
@@ -1372,16 +1250,6 @@
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
    "fixture_id": "4732377"
-  },
-  {
-   "player_a": "Kasra Rahmani",
-   "player_b": "Alejandro Moro Canas",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794312000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732379"
   },
   {
    "player_a": "Duje Ajdukovic",
@@ -1404,16 +1272,6 @@
    "fixture_id": "4732380"
   },
   {
-   "player_a": "Mika Petkovic",
-   "player_b": "Gianluca Cadenasso",
-   "tournament": "Monastir 1 Challenger",
-   "start_ts": 1794312000.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4731662"
-  },
-  {
    "player_a": "Alastair Gray",
    "player_b": "Darwin Blanch",
    "tournament": "Knoxville Challenger",
@@ -1424,14 +1282,34 @@
    "fixture_id": "4732874"
   },
   {
-   "player_a": "Liam Draxl",
-   "player_b": "Duncan Chan",
+   "player_a": "Abedallah Shelbayh",
+   "player_b": "Harry Wendelken",
    "tournament": "Knoxville Challenger",
    "start_ts": 1794322800.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734282"
+   "fixture_id": "4734279"
+  },
+  {
+   "player_a": "Aidan Mayo",
+   "player_b": "Michael Mmoh",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794322800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4734281"
+  },
+  {
+   "player_a": "Marcos Giron",
+   "player_b": "Maks Kasnikowski",
+   "tournament": "Knoxville Challenger",
+   "start_ts": 1794322800.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732866"
   },
   {
    "player_a": "Alexis Galarneau",
@@ -1454,84 +1332,24 @@
    "fixture_id": "4734284"
   },
   {
-   "player_a": "Nicolas Mejia",
-   "player_b": "Jack Kennedy",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794322800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734280"
-  },
-  {
-   "player_a": "Marcel Latak",
-   "player_b": "Clement Chidekh",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794322800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732873"
-  },
-  {
-   "player_a": "Trevor Svajda",
-   "player_b": "Max Hans Rehberg",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794322800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732867"
-  },
-  {
-   "player_a": "Aidan Mayo",
-   "player_b": "Michael Mmoh",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794322800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734281"
-  },
-  {
-   "player_a": "Abedallah Shelbayh",
-   "player_b": "Harry Wendelken",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794322800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4734279"
-  },
-  {
-   "player_a": "Marcos Giron",
-   "player_b": "Maks Kasnikowski",
-   "tournament": "Knoxville Challenger",
-   "start_ts": 1794322800.0,
-   "round": "",
-   "status": "skipped",
-   "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732866"
-  },
-  {
-   "player_a": "Zdenek Kolar",
-   "player_b": "Joao Lucas Reis Da Silva",
+   "player_a": "Fabio Zavalaga Uculmana",
+   "player_b": "Alex Barrena",
    "tournament": "Lima 3 Challenger",
    "start_ts": 1794326400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732870"
+   "fixture_id": "4735017"
   },
   {
-   "player_a": "Elmer Moller",
-   "player_b": "Genaro Alberto Olivieri",
+   "player_a": "Juan Pablo Varillas",
+   "player_b": "Tomas Barrios Vera",
    "tournament": "Lima 3 Challenger",
    "start_ts": 1794326400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4732869"
+   "fixture_id": "4735020"
   },
   {
    "player_a": "Marco Cecchinato",
@@ -1544,14 +1362,24 @@
    "fixture_id": "4732868"
   },
   {
-   "player_a": "Fabio Zavalaga Uculmana",
-   "player_b": "Alex Barrena",
+   "player_a": "Elmer Moller",
+   "player_b": "Genaro Alberto Olivieri",
    "tournament": "Lima 3 Challenger",
    "start_ts": 1794326400.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735017"
+   "fixture_id": "4732869"
+  },
+  {
+   "player_a": "Zdenek Kolar",
+   "player_b": "Joao Lucas Reis Da Silva",
+   "tournament": "Lima 3 Challenger",
+   "start_ts": 1794326400.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732870"
   },
   {
    "player_a": "Gonzalo Bueno",
@@ -1564,14 +1392,104 @@
    "fixture_id": "4732872"
   },
   {
-   "player_a": "Juan Pablo Varillas",
-   "player_b": "Tomas Barrios Vera",
-   "tournament": "Lima 3 Challenger",
-   "start_ts": 1794326400.0,
+   "player_a": "James McCabe",
+   "player_b": "Jan Kumstat",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794355200.0,
    "round": "",
    "status": "skipped",
    "reason": "not an ATP 250/500/1000/Slam/Finals event",
-   "fixture_id": "4735020"
+   "fixture_id": "4731231"
+  },
+  {
+   "player_a": "Sebastian Gorzny",
+   "player_b": "Isaac Becroft",
+   "tournament": "Brisbane 3 Challenger",
+   "start_ts": 1794355200.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4738211"
+  },
+  {
+   "player_a": "Carlo Alberto Caniato",
+   "player_b": "Gilles Arnaud Bailly",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731488"
+  },
+  {
+   "player_a": "Felix Gill",
+   "player_b": "Menelaos Efstathiou",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731487"
+  },
+  {
+   "player_a": "Andrej Nedic",
+   "player_b": "Michele Ribecai",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732346"
+  },
+  {
+   "player_a": "Radu Mihai Papoe",
+   "player_b": "Philip Henning",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732345"
+  },
+  {
+   "player_a": "Pavlos Tsitsipas",
+   "player_b": "Cezar Cretu",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732344"
+  },
+  {
+   "player_a": "Ioannis Xilas",
+   "player_b": "Sergey Fomin",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732343"
+  },
+  {
+   "player_a": "Karim Bennani",
+   "player_b": "Sumit Nagal",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4731486"
+  },
+  {
+   "player_a": "Michael Geerts",
+   "player_b": "Juan Cruz Martin Manzano",
+   "tournament": "Hersonissos 3 Challenger",
+   "start_ts": 1794384000.0,
+   "round": "",
+   "status": "skipped",
+   "reason": "not an ATP 250/500/1000/Slam/Finals event",
+   "fixture_id": "4732342"
   }
  ],
  "model": {
@@ -1586,397 +1504,37 @@
  "sources": {
   "matchstat": {
    "ok": true,
-   "fixtures": 116,
+   "fixtures": 122,
    "api_calls": 3
   },
   "odds_api": {
    "ok": true,
    "tournaments": [],
    "events": 0,
-   "credits_remaining": "17763",
-   "credits_used": "2237"
+   "credits_remaining": "17748",
+   "credits_used": "2252"
   },
-  "odds_fetched_ts": 1794198820.082835,
+  "odds_fetched_ts": 1794231661.763125,
   "matchstat_odds": {
    "ok": true,
-   "fixtures_checked": 10,
-   "fixtures_priced": 10,
+   "fixtures_checked": 6,
+   "fixtures_priced": 6,
    "sample_errors": [],
-   "api_calls": 13
+   "api_calls": 9
   }
  },
  "inputs": {
   "fixtures": [
    {
-    "id": "4731242",
-    "player_a": "Keegan Smith",
-    "player_b": "Yu Hsiou Hsu",
-    "tournament": "Matsuyama Challenger",
-    "surface_hint": "",
-    "start_ts": 1794195000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734210",
-    "player_a": "Kazuma Kawachi",
-    "player_b": "Daniel Wright 2",
-    "tournament": "M15 Kuala Lumpur",
-    "surface_hint": "",
-    "start_ts": 1794196800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731241",
-    "player_a": "Billy Harris",
-    "player_b": "Liam Broady",
-    "tournament": "Matsuyama Challenger",
-    "surface_hint": "",
-    "start_ts": 1794196800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734211",
-    "player_a": "Jayson Blando",
-    "player_b": "Jules Melot",
-    "tournament": "M15 Kuala Lumpur",
-    "surface_hint": "",
-    "start_ts": 1794196800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731239",
-    "player_a": "Joel Schwaerzler",
-    "player_b": "Mitsuki Wei Kang Leong",
-    "tournament": "Matsuyama Challenger",
-    "surface_hint": "",
-    "start_ts": 1794197400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734981",
-    "player_a": "Vraj Gohil",
-    "player_b": "Vitek Horak",
-    "tournament": "M15 Hua Hin",
-    "surface_hint": "",
-    "start_ts": 1794198600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731485",
-    "player_a": "Jay Dylan Hara Friend",
-    "player_b": "Yusuke Kusuhara",
-    "tournament": "Matsuyama Challenger",
-    "surface_hint": "",
-    "start_ts": 1794198600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4733483",
-    "player_a": "Hendrik Thada Grohbruegge",
-    "player_b": "Penn Charusorn",
-    "tournament": "M15 Hua Hin",
-    "surface_hint": "",
-    "start_ts": 1794198600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734982",
-    "player_a": "Aditya Kothari",
-    "player_b": "Hong-Lin Fu",
-    "tournament": "M15 Hua Hin",
-    "surface_hint": "",
-    "start_ts": 1794198600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734984",
-    "player_a": "Oleksii Krutykh",
-    "player_b": "Oskari Paldanius",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794211200.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734217",
-    "player_a": "Jack Loge",
-    "player_b": "Odysseas Geladaris",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794211200.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731491",
-    "player_a": "Giovanni Mpetshi Perricard",
-    "player_b": "Tom Gentzsch",
+    "id": "4735861",
+    "player_a": "Luca Nardi",
+    "player_b": "Alexander Ritschard",
     "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794214800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734985",
-    "player_a": "Vladyslav Orlov",
-    "player_b": "Lorenzo Angelini",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794215400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735554",
-    "player_a": "Alexandre Reco",
-    "player_b": "Lorenzo Carboni",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794216600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735555",
-    "player_a": "Nikita Mashtakov",
-    "player_b": "Adrian Andreev",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794216600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735066",
-    "player_a": "Buvaysar Gadamauri",
-    "player_b": "Ugo Blanchet",
-    "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794218400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734994",
-    "player_a": "Karol Malirz",
-    "player_b": "Salvador Monteiro",
-    "tournament": "M25 Vale do Lobo",
-    "surface_hint": "",
-    "start_ts": 1794222000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732341",
-    "player_a": "Johannus Monday",
-    "player_b": "Georgii Kravchenko",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794222000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732347",
-    "player_a": "Massimo Giunta",
-    "player_b": "Francesco Forti",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794222000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735562",
-    "player_a": "Diogo Marques",
-    "player_b": "Diogo Coelho",
-    "tournament": "M25 Vale do Lobo",
-    "surface_hint": "",
-    "start_ts": 1794222000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734993",
-    "player_a": "Pierre Antoine Tailleu",
-    "player_b": "Alex Kobelt",
-    "tournament": "M25 Vale do Lobo",
-    "surface_hint": "",
-    "start_ts": 1794222000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731248",
-    "player_a": "Alex Michelsen",
-    "player_b": "Yannick Hanfmann",
-    "tournament": "BNP Paribas Nordic Open - Stockholm",
-    "surface_hint": "",
-    "start_ts": 1794223800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat",
-    "prices_a": {
-     "bet365": 1.3,
-     "fonbet": 1.35,
-     "pinnacle": 1.323,
-     "marathonbet": 1.285
-    },
-    "prices_b": {
-     "bet365": 3.5,
-     "fonbet": 3.3,
-     "pinnacle": 3.66,
-     "marathonbet": 3.6
-    },
-    "odds_source": "matchstat"
-   },
-   {
-    "id": "4735556",
-    "player_a": "Hugo Grenier",
-    "player_b": "Martin Krumich",
-    "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794223800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735067",
-    "player_a": "Edas Butvilas",
-    "player_b": "Cosme Rolland De Ravel",
-    "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794223800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731244",
-    "player_a": "James Duckworth",
-    "player_b": "Cameron Norrie",
-    "tournament": "BNP Paribas Nordic Open - Stockholm",
-    "surface_hint": "",
-    "start_ts": 1794225600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat",
-    "prices_a": {
-     "bet365": 3.0,
-     "fonbet": 3.3,
-     "pinnacle": 3.13,
-     "marathonbet": 3.06
-    },
-    "prices_b": {
-     "bet365": 1.4,
-     "fonbet": 1.33,
-     "pinnacle": 1.408,
-     "marathonbet": 1.37
-    },
-    "odds_source": "matchstat"
-   },
-   {
-    "id": "4734230",
-    "player_a": "John Echeverria",
-    "player_b": "Guillaume Dalmasso",
-    "tournament": "Monastir 1 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794225600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734228",
-    "player_a": "Yannik Kelm",
-    "player_b": "Pedro Vives Marcos",
-    "tournament": "Monastir 1 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794225600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734229",
-    "player_a": "Branko Djuric",
-    "player_b": "Nicolas Tepmahc",
-    "tournament": "Monastir 1 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794225600.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732348",
-    "player_a": "Ryan Peniston",
-    "player_b": "Henry Searle",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794227400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735860",
-    "player_a": "Tomas Machac",
-    "player_b": "Borna Gojo",
-    "tournament": "BNP Paribas Nordic Open - Stockholm",
     "surface_hint": "",
     "start_ts": 1794229200.0,
     "round": "",
     "status": "Not Started",
-    "source": "matchstat",
-    "prices_a": {
-     "bet365": 1.33,
-     "draftkings": 1.32,
-     "fonbet": 1.32,
-     "pinnacle": 1.352,
-     "marathonbet": 1.32
-    },
-    "prices_b": {
-     "bet365": 3.4,
-     "draftkings": 3.38,
-     "fonbet": 3.35,
-     "pinnacle": 3.4,
-     "marathonbet": 3.34
-    },
-    "odds_source": "matchstat"
+    "source": "matchstat"
    },
    {
     "id": "4735840",
@@ -1990,34 +1548,12 @@
     "source": "matchstat"
    },
    {
-    "id": "4735862",
-    "player_a": "Enrique Bogo",
-    "player_b": "Daniel Vecchio Couldrey Rebelo",
-    "tournament": "M25 Santa Cruz do Sul",
+    "id": "4734990",
+    "player_a": "Toufik Sahtali",
+    "player_b": "Nikolai Barsukov",
+    "tournament": "Monastir 1 Challenger",
     "surface_hint": "",
-    "start_ts": 1794229200.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735863",
-    "player_a": "Pedro Rodrigues Longobardi",
-    "player_b": "Enzo Fortes",
-    "tournament": "M25 Santa Cruz do Sul",
-    "surface_hint": "",
-    "start_ts": 1794229200.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735861",
-    "player_a": "Luca Nardi",
-    "player_b": "Alexander Ritschard",
-    "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794229200.0,
+    "start_ts": 1794231000.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2045,41 +1581,15 @@
     "source": "matchstat"
    },
    {
-    "id": "4734990",
-    "player_a": "Toufik Sahtali",
-    "player_b": "Nikolai Barsukov",
-    "tournament": "Monastir 1 Challenger",
+    "id": "4732341",
+    "player_a": "Johannus Monday",
+    "player_b": "Georgii Kravchenko",
+    "tournament": "Hersonissos 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794231000.0,
+    "start_ts": 1794231600.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
-   },
-   {
-    "id": "4731247",
-    "player_a": "Adolfo Daniel Vallejo",
-    "player_b": "Ugo Humbert",
-    "tournament": "BNP Paribas Nordic Open - Stockholm",
-    "surface_hint": "",
-    "start_ts": 1794231000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat",
-    "prices_a": {
-     "bet365": 3.0,
-     "draftkings": 2.99,
-     "fonbet": 2.85,
-     "pinnacle": 2.96,
-     "marathonbet": 2.875
-    },
-    "prices_b": {
-     "bet365": 1.4,
-     "draftkings": 1.4,
-     "fonbet": 1.42,
-     "pinnacle": 1.446,
-     "marathonbet": 1.41
-    },
-    "odds_source": "matchstat"
    },
    {
     "id": "4735868",
@@ -2104,43 +1614,10 @@
     "source": "matchstat"
    },
    {
-    "id": "4735881",
-    "player_a": "Ryo Tabata",
-    "player_b": "Johan Nikles",
-    "tournament": "Lima 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794236400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4736476",
-    "player_a": "Mitchell Krueger",
-    "player_b": "Lui Maxted",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794236400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735597",
-    "player_a": "Franco Roncadelli",
-    "player_b": "Juan Sebastian Gomez",
-    "tournament": "Lima 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794236400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4735596",
-    "player_a": "Timo Legout",
-    "player_b": "Emile Hudd",
-    "tournament": "Knoxville Challenger",
+    "id": "4732378",
+    "player_a": "Bernardo Munk Mesa",
+    "player_b": "Aziz Dougaz",
+    "tournament": "Monastir 1 Challenger",
     "surface_hint": "",
     "start_ts": 1794236400.0,
     "round": "",
@@ -2159,10 +1636,10 @@
     "source": "matchstat"
    },
    {
-    "id": "4735875",
-    "player_a": "Andres Martin",
-    "player_b": "Filip Jeff Planinsek",
-    "tournament": "Knoxville Challenger",
+    "id": "4737603",
+    "player_a": "Lazar Markovic",
+    "player_b": "Stephen Slocombe",
+    "tournament": "M25 Montreal",
     "surface_hint": "",
     "start_ts": 1794236400.0,
     "round": "",
@@ -2170,10 +1647,32 @@
     "source": "matchstat"
    },
    {
-    "id": "4732378",
-    "player_a": "Bernardo Munk Mesa",
-    "player_b": "Aziz Dougaz",
-    "tournament": "Monastir 1 Challenger",
+    "id": "4735597",
+    "player_a": "Franco Roncadelli",
+    "player_b": "Juan Sebastian Gomez",
+    "tournament": "Lima 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794236400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737606",
+    "player_a": "Volodymyr Gurenko",
+    "player_b": "Mathias Hamel-Van Dun",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794236400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4736476",
+    "player_a": "Mitchell Krueger",
+    "player_b": "Lui Maxted",
+    "tournament": "Knoxville Challenger",
     "surface_hint": "",
     "start_ts": 1794236400.0,
     "round": "",
@@ -2192,12 +1691,34 @@
     "source": "matchstat"
    },
    {
-    "id": "4735599",
-    "player_a": "Max Houkes",
-    "player_b": "Tom Gentzsch",
-    "tournament": "Orleans Challenger",
+    "id": "4735875",
+    "player_a": "Andres Martin",
+    "player_b": "Filip Jeff Planinsek",
+    "tournament": "Knoxville Challenger",
     "surface_hint": "",
-    "start_ts": 1794238200.0,
+    "start_ts": 1794236400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737607",
+    "player_a": "Ranak Pajpani",
+    "player_b": "Matthew Michibata",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794236400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4735881",
+    "player_a": "Ryo Tabata",
+    "player_b": "Johan Nikles",
+    "tournament": "Lima 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794236400.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2214,12 +1735,89 @@
     "source": "matchstat"
    },
    {
+    "id": "4735599",
+    "player_a": "Max Houkes",
+    "player_b": "Tom Gentzsch",
+    "tournament": "Orleans Challenger",
+    "surface_hint": "",
+    "start_ts": 1794238200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737610",
+    "player_a": "Tomas Dummer Macedo",
+    "player_b": "Eduardo Heineberg",
+    "tournament": "M25 Santa Cruz do Sul",
+    "surface_hint": "",
+    "start_ts": 1794240000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737611",
+    "player_a": "Eric Martins",
+    "player_b": "Glauco Pinheiro Da Cruz Junior",
+    "tournament": "M25 Santa Cruz do Sul",
+    "surface_hint": "",
+    "start_ts": 1794240000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737614",
+    "player_a": "Nicolas Jarry",
+    "player_b": "Maximo Zeitune",
+    "tournament": "Lima 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794240600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737619",
+    "player_a": "Thomas Gerbaud",
+    "player_b": "Anirudh Rao",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794241800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737168",
+    "player_a": "Ozan Baris",
+    "player_b": "Patrick Zahraj",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794241800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4735596",
+    "player_a": "Timo Legout",
+    "player_b": "Emile Hudd",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794241800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
     "id": "4736481",
     "player_a": "Oriol Roca Batalla",
     "player_b": "Juan Alejandro Hernandez",
     "tournament": "Lima 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794240600.0,
+    "start_ts": 1794241800.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2230,7 +1828,18 @@
     "player_b": "Alan Magadan",
     "tournament": "Lima 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794240600.0,
+    "start_ts": 1794241800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4732373",
+    "player_a": "Moise Kouame",
+    "player_b": "Robert Strombachs",
+    "tournament": "Monastir 1 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794243600.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2248,28 +1857,50 @@
     "prices_a": {
      "bet365": 1.25,
      "bwin": 1.22,
-     "draftkings": 1.24,
-     "fonbet": 1.27,
-     "pinnacle": 1.289,
-     "marathonbet": 1.26
+     "draftkings": 1.22,
+     "fonbet": 1.23,
+     "pinnacle": 1.238,
+     "marathonbet": 1.24
     },
     "prices_b": {
      "bet365": 4.0,
      "bwin": 4.1,
-     "draftkings": 4.09,
-     "fonbet": 3.75,
-     "pinnacle": 3.95,
-     "marathonbet": 3.8
+     "draftkings": 4.34,
+     "fonbet": 4.2,
+     "pinnacle": 4.52,
+     "marathonbet": 4.0
     },
     "odds_source": "matchstat"
    },
    {
-    "id": "4732373",
-    "player_a": "Moise Kouame",
-    "player_b": "Robert Strombachs",
-    "tournament": "Monastir 1 Challenger",
+    "id": "4737622",
+    "player_a": "Kaue Noatto",
+    "player_b": "Andrey Barbiero",
+    "tournament": "M25 Santa Cruz do Sul",
     "surface_hint": "",
-    "start_ts": 1794243600.0,
+    "start_ts": 1794245400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737173",
+    "player_a": "Giles Hussey",
+    "player_b": "Geoffrey Blancaneaux",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794247200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737625",
+    "player_a": "Joaquin Bianchi",
+    "player_b": "Jesus Martinez",
+    "tournament": "M15 Zamora",
+    "surface_hint": "",
+    "start_ts": 1794247200.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2279,6 +1910,50 @@
     "player_a": "Benjamin Bonzi",
     "player_b": "Andrea Pellegrino",
     "tournament": "Orleans Challenger",
+    "surface_hint": "",
+    "start_ts": 1794247200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737626",
+    "player_a": "Gabriel Miller",
+    "player_b": "Lucas Hammond",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794247200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737631",
+    "player_a": "Eric David Verdes",
+    "player_b": "Kim Johannes Niethammer",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794247200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737175",
+    "player_a": "Daniel Milavsky",
+    "player_b": "Kenta Miyoshi",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794247200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737630",
+    "player_a": "Haig Daouidian",
+    "player_b": "Miko Lapalme",
+    "tournament": "M25 Montreal",
     "surface_hint": "",
     "start_ts": 1794247200.0,
     "round": "",
@@ -2296,18 +1971,18 @@
     "status": "Not Started",
     "source": "matchstat",
     "prices_a": {
-     "bet365": 7.0,
-     "draftkings": 7.6,
-     "fonbet": 7.5,
-     "pinnacle": 8.09,
-     "marathonbet": 7.5
+     "bet365": 6.5,
+     "draftkings": 7.5,
+     "fonbet": 7.1,
+     "pinnacle": 7.53,
+     "marathonbet": 6.8
     },
     "prices_b": {
-     "bet365": 1.1,
+     "bet365": 1.11,
      "draftkings": 1.09,
-     "fonbet": 1.09,
-     "pinnacle": 1.088,
-     "marathonbet": 1.084
+     "fonbet": 1.1,
+     "pinnacle": 1.103,
+     "marathonbet": 1.099
     },
     "odds_source": "matchstat"
    },
@@ -2334,12 +2009,133 @@
     "source": "matchstat"
    },
    {
+    "id": "4737637",
+    "player_a": "Alberto Alvarado Berrospi",
+    "player_b": "Axel Cabrera",
+    "tournament": "M15 Zamora",
+    "surface_hint": "",
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
     "id": "4731492",
     "player_a": "Nicolai Budkov Kjaer",
     "player_b": "Sascha Gueymard Wayenburg",
     "tournament": "Orleans Challenger",
     "surface_hint": "",
-    "start_ts": 1794251400.0,
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737638",
+    "player_a": "Tarun Karra",
+    "player_b": "Marcel Hornung",
+    "tournament": "M15 Zamora",
+    "surface_hint": "",
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737639",
+    "player_a": "Steven Mccartney",
+    "player_b": "Jared Horwood",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737641",
+    "player_a": "Stefano Lacroce",
+    "player_b": "Tiago Silva",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737636",
+    "player_a": "Ian Luca Cervantes Tomas",
+    "player_b": "Miguel Gamborino",
+    "tournament": "M15 Zamora",
+    "surface_hint": "",
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737640",
+    "player_a": "Matthias Uwe Kask",
+    "player_b": "Eliot Nobel",
+    "tournament": "M25 Montreal",
+    "surface_hint": "",
+    "start_ts": 1794252600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4732867",
+    "player_a": "Trevor Svajda",
+    "player_b": "Max Hans Rehberg",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794254400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737650",
+    "player_a": "Patricio Betancourt",
+    "player_b": "Nicolas Dagda Mireles",
+    "tournament": "M15 Zamora",
+    "surface_hint": "",
+    "start_ts": 1794259800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4734282",
+    "player_a": "Liam Draxl",
+    "player_b": "Duncan Chan",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794259800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4734280",
+    "player_a": "Nicolas Mejia",
+    "player_b": "Jack Kennedy",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794259800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4737650",
+    "player_a": "Patricio Betancourt",
+    "player_b": "Nicolas Dagda Mireles",
+    "tournament": "M15 Zamora",
+    "surface_hint": "",
+    "start_ts": 1794259800.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2356,6 +2152,17 @@
     "source": "matchstat"
    },
    {
+    "id": "4732873",
+    "player_a": "Marcel Latak",
+    "player_b": "Clement Chidekh",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794267000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
     "id": "4732871",
     "player_a": "Arklon Huertas Del Pino",
     "player_b": "Lautaro Midon",
@@ -2367,23 +2174,34 @@
     "source": "matchstat"
    },
    {
-    "id": "4731228",
-    "player_a": "Omar Jasika",
-    "player_b": "Dhakshineswar Suresh",
+    "id": "4731227",
+    "player_a": "Carl Emil Overbeck",
+    "player_b": "Florian Broska",
     "tournament": "Brisbane 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794268805.0,
+    "start_ts": 1794268800.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
    },
    {
-    "id": "4731229",
-    "player_a": "Jake Delaney",
-    "player_b": "Juncheng Shang",
+    "id": "4738188",
+    "player_a": "Casey Hoole",
+    "player_b": "Sam Ryan Ziegann",
     "tournament": "Brisbane 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794268805.0,
+    "start_ts": 1794268800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738187",
+    "player_a": "Dane Sweeny",
+    "player_b": "Anton Shepp",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794268800.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2400,86 +2218,9 @@
     "source": "matchstat"
    },
    {
-    "id": "4731231",
-    "player_a": "James McCabe",
-    "player_b": "Jan Kumstat",
-    "tournament": "Brisbane 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794268805.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731227",
-    "player_a": "Carl Emil Overbeck",
-    "player_b": "Florian Broska",
-    "tournament": "Brisbane 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794268805.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731233",
-    "player_a": "Enzo Aguiard",
-    "player_b": "Akira Santillan",
-    "tournament": "Brisbane 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794268805.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731235",
-    "player_a": "Tristan Schoolkate",
-    "player_b": "Cruz Hewitt",
-    "tournament": "Brisbane 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794268805.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731236",
-    "player_a": "August Holmgren",
-    "player_b": "Philip Sekulic",
-    "tournament": "Brisbane 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794268805.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731237",
-    "player_a": "Kasidit Samrej",
-    "player_b": "Yuta Shimizu",
-    "tournament": "Matsuyama Challenger",
-    "surface_hint": "",
-    "start_ts": 1794272400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731484",
-    "player_a": "Yosuke Watanuki",
-    "player_b": "Taro Daniel",
-    "tournament": "Matsuyama Challenger",
-    "surface_hint": "",
-    "start_ts": 1794272400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4731240",
-    "player_a": "Mili Poljicak",
-    "player_b": "Chun Hsin Tseng",
+    "id": "4731945",
+    "player_a": "Rio Noguchi",
+    "player_b": "Daniel Michalski",
     "tournament": "Matsuyama Challenger",
     "surface_hint": "",
     "start_ts": 1794272400.0,
@@ -2499,6 +2240,72 @@
     "source": "matchstat"
    },
    {
+    "id": "4738199",
+    "player_a": "Hikaru Shiraishi",
+    "player_b": "Ognjen Milic",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794272400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738197",
+    "player_a": "Naoya Honda",
+    "player_b": "Chun Hsin Tseng",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794272400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731240",
+    "player_a": "Mili Poljicak",
+    "player_b": "Chun Hsin Tseng",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794272400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731237",
+    "player_a": "Kasidit Samrej",
+    "player_b": "Yuta Shimizu",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794272400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738196",
+    "player_a": "Mili Poljicak",
+    "player_b": "Kaichi Uchida",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794272400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731484",
+    "player_a": "Yosuke Watanuki",
+    "player_b": "Taro Daniel",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794272400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
     "id": "4731238",
     "player_a": "Shunsuke Nakagawa",
     "player_b": "David Jorda Sanchis",
@@ -2510,15 +2317,197 @@
     "source": "matchstat"
    },
    {
-    "id": "4731945",
-    "player_a": "Rio Noguchi",
-    "player_b": "Daniel Michalski",
-    "tournament": "Matsuyama Challenger",
+    "id": "4731229",
+    "player_a": "Jake Delaney",
+    "player_b": "Juncheng Shang",
+    "tournament": "Brisbane 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794272400.0,
+    "start_ts": 1794274200.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
+   },
+   {
+    "id": "4738201",
+    "player_a": "Moerani Bouzige",
+    "player_b": "Christopher O'Connell",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794274200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738202",
+    "player_a": "Matthew Dellavedova",
+    "player_b": "Thomas Fancutt",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794274200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738206",
+    "player_a": "Niels Mcdonald",
+    "player_b": "Koki Matsuda",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794276600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738208",
+    "player_a": "Shintaro Imai",
+    "player_b": "Fajing Sun",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794276600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738207",
+    "player_a": "Rei Sakamoto",
+    "player_b": "Renta Tokuda",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794276600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731228",
+    "player_a": "Omar Jasika",
+    "player_b": "Dhakshineswar Suresh",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794279600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731233",
+    "player_a": "Enzo Aguiard",
+    "player_b": "Akira Santillan",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794279600.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738212",
+    "player_a": "Ryuki Matsuda",
+    "player_b": "Max Schoenhaus",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794280800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738213",
+    "player_a": "Takuya Kumasaka",
+    "player_b": "Yi Zhou",
+    "tournament": "Matsuyama Challenger",
+    "surface_hint": "",
+    "start_ts": 1794280800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738216",
+    "player_a": "Christian Langmo",
+    "player_b": "Ymerali Ibraimi",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794285000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731236",
+    "player_a": "August Holmgren",
+    "player_b": "Philip Sekulic",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794285000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731235",
+    "player_a": "Tristan Schoolkate",
+    "player_b": "Cruz Hewitt",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794292200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738218",
+    "player_a": "Hiroki Moriya",
+    "player_b": "Alex Bolt",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794292200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4733502",
+    "player_a": "Matteo Martineau",
+    "player_b": "Hugo Gaston",
+    "tournament": "Orleans Challenger",
+    "surface_hint": "",
+    "start_ts": 1794304800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4735943",
+    "player_a": "Lorenzo Sonego",
+    "player_b": "Quentin Halys",
+    "tournament": "BNP Paribas Nordic Open - Stockholm",
+    "surface_hint": "",
+    "start_ts": 1794304800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat",
+    "prices_a": {
+     "bet365": 2.1,
+     "bwin": 2.1,
+     "draftkings": 2.19,
+     "fonbet": 2.08,
+     "pinnacle": 2.12,
+     "marathonbet": 2.12
+    },
+    "prices_b": {
+     "bet365": 1.72,
+     "bwin": 1.72,
+     "draftkings": 1.68,
+     "fonbet": 1.75,
+     "pinnacle": 1.781,
+     "marathonbet": 1.71
+    },
+    "odds_source": "matchstat"
    },
    {
     "id": "4731490",
@@ -2554,6 +2543,17 @@
     "source": "matchstat"
    },
    {
+    "id": "4734272",
+    "player_a": "Jurij Rodionov",
+    "player_b": "Pedro Martinez Portero",
+    "tournament": "Orleans Challenger",
+    "surface_hint": "",
+    "start_ts": 1794304800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
     "id": "4734271",
     "player_a": "Sebastian Baez",
     "player_b": "Daniil Glinka",
@@ -2563,30 +2563,6 @@
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
-   },
-   {
-    "id": "4735943",
-    "player_a": "Lorenzo Sonego",
-    "player_b": "Quentin Halys",
-    "tournament": "BNP Paribas Nordic Open - Stockholm",
-    "surface_hint": "",
-    "start_ts": 1794304800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat",
-    "prices_a": {
-     "bet365": 2.0,
-     "draftkings": 2.19,
-     "pinnacle": 2.21,
-     "marathonbet": 2.14
-    },
-    "prices_b": {
-     "bet365": 1.8,
-     "draftkings": 1.68,
-     "pinnacle": 1.719,
-     "marathonbet": 1.7
-    },
-    "odds_source": "matchstat"
    },
    {
     "id": "4735942",
@@ -2601,36 +2577,16 @@
     "prices_a": {
      "bet365": 1.66,
      "bwin": 1.65,
-     "marathonbet": 1.62
+     "fonbet": 1.62,
+     "marathonbet": 1.68
     },
     "prices_b": {
      "bet365": 2.2,
      "bwin": 2.2,
-     "marathonbet": 2.28
+     "fonbet": 2.3,
+     "marathonbet": 2.17
     },
     "odds_source": "matchstat"
-   },
-   {
-    "id": "4733502",
-    "player_a": "Matteo Martineau",
-    "player_b": "Hugo Gaston",
-    "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794304800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734272",
-    "player_a": "Jurij Rodionov",
-    "player_b": "Pedro Martinez Portero",
-    "tournament": "Orleans Challenger",
-    "surface_hint": "",
-    "start_ts": 1794304800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
    },
    {
     "id": "4731246",
@@ -2643,18 +2599,18 @@
     "status": "Not Started",
     "source": "matchstat",
     "prices_a": {
-     "bet365": 1.72,
+     "bet365": 1.66,
      "draftkings": 1.59,
      "fonbet": 1.57,
      "pinnacle": 1.676,
-     "marathonbet": 1.65
+     "marathonbet": 1.63
     },
     "prices_b": {
-     "bet365": 2.1,
+     "bet365": 2.2,
      "draftkings": 2.36,
      "fonbet": 2.4,
      "pinnacle": 2.31,
-     "marathonbet": 2.22
+     "marathonbet": 2.26
     },
     "odds_source": "matchstat"
    },
@@ -2670,20 +2626,31 @@
     "source": "matchstat",
     "prices_a": {
      "bet365": 1.44,
-     "pinnacle": 1.493,
-     "marathonbet": 1.43
+     "pinnacle": 1.472,
+     "marathonbet": 1.44
     },
     "prices_b": {
      "bet365": 2.75,
-     "pinnacle": 2.79,
-     "marathonbet": 2.8
+     "pinnacle": 2.86,
+     "marathonbet": 2.76
     },
     "odds_source": "matchstat"
    },
    {
-    "id": "4732375",
-    "player_a": "Mert Alkaya",
-    "player_b": "Eliakim Coulibaly",
+    "id": "4732379",
+    "player_a": "Kasra Rahmani",
+    "player_b": "Alejandro Moro Canas",
+    "tournament": "Monastir 1 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794312000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731662",
+    "player_a": "Mika Petkovic",
+    "player_b": "Gianluca Cadenasso",
     "tournament": "Monastir 1 Challenger",
     "surface_hint": "",
     "start_ts": 1794312000.0,
@@ -2703,9 +2670,9 @@
     "source": "matchstat"
    },
    {
-    "id": "4732377",
-    "player_a": "Dali Blanch",
-    "player_b": "Marko Topo",
+    "id": "4732375",
+    "player_a": "Mert Alkaya",
+    "player_b": "Eliakim Coulibaly",
     "tournament": "Monastir 1 Challenger",
     "surface_hint": "",
     "start_ts": 1794312000.0,
@@ -2714,9 +2681,9 @@
     "source": "matchstat"
    },
    {
-    "id": "4732379",
-    "player_a": "Kasra Rahmani",
-    "player_b": "Alejandro Moro Canas",
+    "id": "4732377",
+    "player_a": "Dali Blanch",
+    "player_b": "Marko Topo",
     "tournament": "Monastir 1 Challenger",
     "surface_hint": "",
     "start_ts": 1794312000.0,
@@ -2747,17 +2714,6 @@
     "source": "matchstat"
    },
    {
-    "id": "4731662",
-    "player_a": "Mika Petkovic",
-    "player_b": "Gianluca Cadenasso",
-    "tournament": "Monastir 1 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794312000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
     "id": "4732874",
     "player_a": "Alastair Gray",
     "player_b": "Darwin Blanch",
@@ -2769,9 +2725,31 @@
     "source": "matchstat"
    },
    {
-    "id": "4734282",
-    "player_a": "Liam Draxl",
-    "player_b": "Duncan Chan",
+    "id": "4734279",
+    "player_a": "Abedallah Shelbayh",
+    "player_b": "Harry Wendelken",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794322800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4734281",
+    "player_a": "Aidan Mayo",
+    "player_b": "Michael Mmoh",
+    "tournament": "Knoxville Challenger",
+    "surface_hint": "",
+    "start_ts": 1794322800.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4732866",
+    "player_a": "Marcos Giron",
+    "player_b": "Maks Kasnikowski",
     "tournament": "Knoxville Challenger",
     "surface_hint": "",
     "start_ts": 1794322800.0,
@@ -2802,119 +2780,9 @@
     "source": "matchstat"
    },
    {
-    "id": "4734280",
-    "player_a": "Nicolas Mejia",
-    "player_b": "Jack Kennedy",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794322800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732873",
-    "player_a": "Marcel Latak",
-    "player_b": "Clement Chidekh",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794322800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732867",
-    "player_a": "Trevor Svajda",
-    "player_b": "Max Hans Rehberg",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794322800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734281",
-    "player_a": "Aidan Mayo",
-    "player_b": "Michael Mmoh",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794322800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4734279",
-    "player_a": "Abedallah Shelbayh",
-    "player_b": "Harry Wendelken",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794322800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732866",
-    "player_a": "Marcos Giron",
-    "player_b": "Maks Kasnikowski",
-    "tournament": "Knoxville Challenger",
-    "surface_hint": "",
-    "start_ts": 1794322800.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732870",
-    "player_a": "Zdenek Kolar",
-    "player_b": "Joao Lucas Reis Da Silva",
-    "tournament": "Lima 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794326400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732869",
-    "player_a": "Elmer Moller",
-    "player_b": "Genaro Alberto Olivieri",
-    "tournament": "Lima 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794326400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732868",
-    "player_a": "Marco Cecchinato",
-    "player_b": "Francisco Comesana",
-    "tournament": "Lima 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794326400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
     "id": "4735017",
     "player_a": "Fabio Zavalaga Uculmana",
     "player_b": "Alex Barrena",
-    "tournament": "Lima 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794326400.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
-    "id": "4732872",
-    "player_a": "Gonzalo Bueno",
-    "player_b": "Thiago Seyboth Wild",
     "tournament": "Lima 3 Challenger",
     "surface_hint": "",
     "start_ts": 1794326400.0,
@@ -2934,34 +2802,67 @@
     "source": "matchstat"
    },
    {
-    "id": "4732345",
-    "player_a": "Radu Mihai Papoe",
-    "player_b": "Philip Henning",
-    "tournament": "Hersonissos 3 Challenger",
+    "id": "4732868",
+    "player_a": "Marco Cecchinato",
+    "player_b": "Francisco Comesana",
+    "tournament": "Lima 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794384000.0,
+    "start_ts": 1794326400.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
    },
    {
-    "id": "4732343",
-    "player_a": "Ioannis Xilas",
-    "player_b": "Sergey Fomin",
-    "tournament": "Hersonissos 3 Challenger",
+    "id": "4732869",
+    "player_a": "Elmer Moller",
+    "player_b": "Genaro Alberto Olivieri",
+    "tournament": "Lima 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794384000.0,
+    "start_ts": 1794326400.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
    },
    {
-    "id": "4732342",
-    "player_a": "Michael Geerts",
-    "player_b": "Juan Cruz Martin Manzano",
-    "tournament": "Hersonissos 3 Challenger",
+    "id": "4732870",
+    "player_a": "Zdenek Kolar",
+    "player_b": "Joao Lucas Reis Da Silva",
+    "tournament": "Lima 3 Challenger",
     "surface_hint": "",
-    "start_ts": 1794384000.0,
+    "start_ts": 1794326400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4732872",
+    "player_a": "Gonzalo Bueno",
+    "player_b": "Thiago Seyboth Wild",
+    "tournament": "Lima 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794326400.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731231",
+    "player_a": "James McCabe",
+    "player_b": "Jan Kumstat",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794355200.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4738211",
+    "player_a": "Sebastian Gorzny",
+    "player_b": "Isaac Becroft",
+    "tournament": "Brisbane 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794355200.0,
     "round": "",
     "status": "Not Started",
     "source": "matchstat"
@@ -2989,17 +2890,6 @@
     "source": "matchstat"
    },
    {
-    "id": "4731486",
-    "player_a": "Karim Bennani",
-    "player_b": "Sumit Nagal",
-    "tournament": "Hersonissos 3 Challenger",
-    "surface_hint": "",
-    "start_ts": 1794384000.0,
-    "round": "",
-    "status": "Not Started",
-    "source": "matchstat"
-   },
-   {
     "id": "4732346",
     "player_a": "Andrej Nedic",
     "player_b": "Michele Ribecai",
@@ -3011,9 +2901,53 @@
     "source": "matchstat"
    },
    {
+    "id": "4732345",
+    "player_a": "Radu Mihai Papoe",
+    "player_b": "Philip Henning",
+    "tournament": "Hersonissos 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794384000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
     "id": "4732344",
     "player_a": "Pavlos Tsitsipas",
     "player_b": "Cezar Cretu",
+    "tournament": "Hersonissos 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794384000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4732343",
+    "player_a": "Ioannis Xilas",
+    "player_b": "Sergey Fomin",
+    "tournament": "Hersonissos 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794384000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4731486",
+    "player_a": "Karim Bennani",
+    "player_b": "Sumit Nagal",
+    "tournament": "Hersonissos 3 Challenger",
+    "surface_hint": "",
+    "start_ts": 1794384000.0,
+    "round": "",
+    "status": "Not Started",
+    "source": "matchstat"
+   },
+   {
+    "id": "4732342",
+    "player_a": "Michael Geerts",
+    "player_b": "Juan Cruz Martin Manzano",
     "tournament": "Hersonissos 3 Challenger",
     "surface_hint": "",
     "start_ts": 1794384000.0,
