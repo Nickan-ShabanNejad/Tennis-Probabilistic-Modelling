@@ -2,7 +2,7 @@ name: Live slate (predictions + bet log)
 
 on:
   schedule:
-  - cron: "5 * * * *"
+    - cron: "5 * * * *"       # every hour (fixtures, predictions, closing-line snapshots)
   workflow_dispatch:
 
 permissions:
@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
           cache: pip
@@ -28,7 +28,15 @@ jobs:
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional: AI-written match previews
+          MIN_EV: ${{ vars.MIN_EV }}
+          MIN_EDGE: ${{ vars.MIN_EDGE }}
+          KELLY_FRACTION: ${{ vars.KELLY_FRACTION }}
+          KELLY_CAP: ${{ vars.KELLY_CAP }}
+          BET_BOOKS: ${{ vars.BET_BOOKS }}
           ODDS_API_REGIONS: ${{ vars.ODDS_API_REGIONS || 'eu' }}
+          # Hours between paid price pulls. 1 = every run. Set the repo variable to 4 to stay on the free plan.
+          ODDS_REFRESH_HOURS: ${{ vars.ODDS_REFRESH_HOURS || '1' }}
         run: python scripts/run_slate.py
 
       - name: Commit
