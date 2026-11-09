@@ -2,7 +2,7 @@ name: Live slate (predictions + bet log)
 
 on:
   schedule:
-    - cron: "5 */4 * * *"
+  - cron: "5 * * * *"
   workflow_dispatch:
 
 permissions:
