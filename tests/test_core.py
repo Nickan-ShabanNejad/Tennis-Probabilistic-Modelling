@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT / "src"))
     ("US Men's Clay Court Championship - Houston", "houston", "250"), ("Nitto ATP Finals", "atp finals", "F"),
     ("HSBC Championships - London", "queens club", "500"), ("Wimbledon", "wimbledon", "G"),
     ("ATP Shanghai Masters", "shanghai", "M"), ("Kinoshita Group Japan Open", "tokyo", "500"),
+    ("BNP Paribas Nordic Open - Stockholm", "stockholm", "250"), ("BNP Paribas Open - Indian Wells", "indian wells", "M"),
+    ("Rolex Paris Masters - Paris", "paris masters", "M"), ("Mubadala Citi DC Open - Washington", "washington", "500"),
 ])
 def test_tournament_resolution(name, key, level):
     from atp_edge.tournaments import resolve
@@ -214,3 +216,32 @@ def test_clv_tracking_keeps_opening_price_and_measures_close(tmp_path, monkeypat
     tracking.settle(m)
     b = pd.read_csv(tmp_path / "b.csv")
     assert b.loc[0, "result"] == "lost" and b.loc[0, "clv"] > 0.05 and b.loc[0, "pl_units"] == -0.01
+
+
+def test_replay_handles_missing_best_of():
+    """Matchstat rows have no best_of (NaN) - this crashed the first live retrain."""
+    from atp_edge.court_speed import CourtSpeed
+    from atp_edge.data import clean
+    from atp_edge.engine import Engine
+    from atp_edge.history import replay
+    df = pd.DataFrame([_row(tourney_name="Paris Masters", tourney_level="M", winner_id=f"w{i}", loser_id=f"l{i}",
+                            winner_name=f"Ann W{i}", loser_name=f"Bob L{i}", best_of=np.nan, data_source="Matchstat")
+                       for i in range(3)])
+    rows = replay(df, Engine(CourtSpeed(pd.DataFrame())), progress=False)
+    assert len(rows) == 3 and set(rows["_best_of"]) == {3}
+    out, _ = clean(df.assign(tourney_name="Wimbledon", tourney_level="G"))
+    assert set(out["best_of"]) == {5}
+
+
+def test_matchstat_odds_parser_shapes():
+    from atp_edge.matchstat_odds import parse_moneylines, parse_sets35
+    nested = {"result": {"Pinnacle": {"Full Time Result": [{"od1": 1.9, "od2": 1.95, "sourceAddTime": 1},
+                                                            {"od1": 1.8, "od2": 2.05, "sourceAddTime": 2}],
+                                      "Total Sets 3.5": [{"od1": 1.7, "od2": 2.1, "sourceAddTime": 2}]},
+                         "William Hill": {"Match Winner": {"start": {"od1": 1.75, "od2": 2.0}}}}}
+    ml = parse_moneylines(nested)
+    assert ml == {"pinnacle": (1.8, 2.05), "williamhill": (1.75, 2.0)}
+    assert parse_sets35(nested)["over"] == {"pinnacle": 1.7}
+    flat = [{"bookmaker": "Bet365", "market": "Match Winner", "od1": 1.5, "od2": 2.6},
+            {"bookmaker": "Bet365", "market": "Set Handicap", "od1": 1.9, "od2": 1.9}]
+    assert parse_moneylines(flat) == {"bet365": (1.5, 2.6)}

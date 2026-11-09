@@ -18,6 +18,7 @@ def collect(rt, demo: bool = False) -> tuple[list[dict], list[dict], dict]:
     status: dict = {}
     fixtures: list[dict] = []
     odds_events: list[dict] = []
+    ms = None
     if secret("RAPIDAPI_KEY"):
         try:
             from .rapidapi import MatchstatClient
@@ -52,7 +53,42 @@ def collect(rt, demo: bool = False) -> tuple[list[dict], list[dict], dict]:
             status["odds_api"] = {"ok": False, "error": str(exc)}
     else:
         status["odds_api"] = {"ok": False, "error": "ODDS_API_KEY not set"}
+    if ms is not None:
+        status["matchstat_odds"] = add_matchstat_prices(rt, ms, fixtures, odds_events)
     return fixtures, odds_events, status
+
+
+def add_matchstat_prices(rt, ms, fixtures: list[dict], odds_events: list[dict], horizon_hours: float = 48,
+                         max_calls: int = 60) -> dict:
+    """Fill prices from Matchstat for tour-level fixtures The Odds API does not cover."""
+    from .matchstat_odds import fetch_event_odds
+    from .predict import pair_key
+    covered = {pair_key(o["player_a"], o["player_b"]) for o in odds_events if o.get("prices_a")}
+    now = time.time()
+    tried = priced = 0
+    errors: list[str] = []
+    for f in fixtures:
+        if tried >= max_calls:
+            break
+        ev = resolve(f.get("tournament", ""))
+        ts = f.get("start_ts") or 0
+        if ev is None or pair_key(f["player_a"], f["player_b"]) in covered:
+            continue
+        if ts and not (now - 600 < ts < now + horizon_hours * 3600):
+            continue
+        if rt.engine.find(f["player_a"]) is None or rt.engine.find(f["player_b"]) is None:
+            continue
+        tried += 1
+        got = fetch_event_odds(ms, f["id"], want_sets=(ev.level == "G"))
+        if got["prices_a"]:
+            f["prices_a"], f["prices_b"] = got["prices_a"], got["prices_b"]
+            if got.get("sets35"):
+                f["sets35"] = got["sets35"]
+            f["odds_source"] = "matchstat"
+            priced += 1
+        elif got.get("errors"):
+            errors.extend(got["errors"][:1])
+    return {"ok": True, "fixtures_checked": tried, "fixtures_priced": priced, "sample_errors": errors[:3], "api_calls": ms.calls}
 
 
 def _odds_interval_hours() -> float:

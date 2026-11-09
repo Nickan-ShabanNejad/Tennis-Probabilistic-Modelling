@@ -39,7 +39,7 @@ _EVENTS = [
     # Finals
     ("atp finals", "ATP Finals", "F", "Hard", True, ("atp finals", "tour finals", "nitto", "masters cup", "turin")),
     # Masters 1000
-    ("indian wells", "Indian Wells", "M", "Hard", False, ("indian wells", "bnp paribas")),
+    ("indian wells", "Indian Wells", "M", "Hard", False, ("indian wells", "bnp paribas open")),
     ("miami", "Miami", "M", "Hard", False, ("miami",)),
     ("monte carlo", "Monte Carlo", "M", "Clay", False, ("monte carlo", "monaco")),
     ("madrid", "Madrid", "M", "Clay", False, ("madrid", "mutua")),
@@ -133,11 +133,33 @@ def _event_text(name) -> str:
 
 
 def resolve(name) -> Event | None:
-    """Map any provider tournament name to a registry event (or None)."""
+    """Map any provider tournament name to a registry event (or None).
+
+    Provider names often look like "<sponsor name> - <city>". Sponsors are shared
+    between events (BNP Paribas sponsors Indian Wells AND Stockholm), so the city
+    after " - " wins - except that a Grand Slam name always wins ("French Open - Paris"
+    is Roland Garros, not the Paris Masters).
+    """
     raw = str(name or "")
     if not raw.strip() or EXCLUDED.search(raw) or LOWER_TIER.search(raw):
         return None
-    text = _event_text(raw)
+    full = _best(_event_text(raw))
+    if full is not None and full.level == "G":
+        return full
+    parts = [p for p in raw.split(" - ") if p.strip()]
+    if len(parts) > 1:
+        city = _best(_event_text(parts[-1]))
+        if city is not None:
+            return city
+    if full is not None:
+        return full
+    # Plain "Paris" with no other context is the Paris Masters.
+    if _event_text(raw).strip() == "paris":
+        return EVENTS["paris masters"]
+    return None
+
+
+def _best(text: str) -> Event | None:
     # "French Open - Paris": the Slam must win over the Paris Masters key.
     best: tuple[int, Event] | None = None
     for event in EVENTS.values():
@@ -148,14 +170,7 @@ def resolve(name) -> Event | None:
                     score += 100  # a Slam token always dominates a city token
                 if best is None or score > best[0]:
                     best = (score, event)
-    if best:
-        return best[1]
-    # Plain "Paris" with no other context is the Paris Masters.
-    if text.strip() in {"paris"}:
-        return EVENTS["paris masters"]
-    if text.strip() in {"london"}:
-        return None
-    return None
+    return best[1] if best else None
 
 
 def canonical(name) -> str:

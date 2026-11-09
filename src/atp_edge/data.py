@@ -138,6 +138,9 @@ def clean(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     report["qualifying_removed"] = int(qual.sum())
     df = df[~qual]
     df["tourney_level"] = [resolve_level(n, lv) for n, lv in zip(df["tourney_name"], df["tourney_level"])]
+    # Matchstat rows arrive without a format; men's Slams are best of 5, everything else best of 3.
+    bo = pd.to_numeric(df["best_of"], errors="coerce")
+    df["best_of"] = bo.where(bo.isin([3, 5]), np.where(df["tourney_level"] == "G", 5, 3)).astype(int)
     for side in ("winner", "loser"):
         df[f"{side}_id"] = df[f"{side}_id"].astype(str).str.replace(r"\.0$", "", regex=True)
     df, removed = dedupe(df)
