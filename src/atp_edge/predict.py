@@ -4,7 +4,8 @@ from __future__ import annotations
 import json
 import math
 import time
-from dataclasses import dataclass
+import os
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
@@ -12,36 +13,65 @@ import joblib
 import numpy as np
 
 from . import injuries as injury_flags
-from .betting import blend, injury_adjust, kelly_stake, no_vig, set_prob_from_match, sets_distribution
+from .betting import injury_adjust, kelly_stake, no_vig, set_prob_from_match, sets_distribution
 from .config import APP_TIMEZONE, GENERATED
 from .engine import ROUND_INDEX
 from .modeling import ENGINE_PATH, MATCH_MODEL, METRICS_PATH, predict_over35
 from .odds_api import SHARP_BOOK, best_price
 from .tournaments import BETTABLE_LEVELS, normalize, resolve
 
-FAMILIES = {
-    "Ratings (Elo)": ("elo", "exp_diff", "log_rank", "level_elo", "bo5_elo"),
-    "Serve & return": ("serve", "return", "spw", "rpw", "ace", "df10"),
-    "Recent form": ("win10", "form", "opp10", "elo_trend"),
-    "Fatigue & schedule": ("m7", "m14", "sets7", "min7", "rest"),
-    "Injury signals": ("inj_", "layoff", "comeback"),
-    "History at this event": ("event_",),
-    "Event type (level / best-of-5)": ("level_resid", "bo5_resid"),
-    "Court speed": ("speed_",),
-    "Head to head": ("h2h",),
-    "Age & physique": ("age", "height"),
+FAMILY_OF = {
+    # every feature belongs to exactly one family (no double counting)
+    "elo_diff": "Ratings (Elo)", "surf_elo_diff": "Ratings (Elo)", "blend_elo_diff": "Ratings (Elo)",
+    "elo_prob_logit": "Ratings (Elo)", "cond_elo_diff": "Ratings (Elo)", "exp_diff": "Ratings (Elo)", "surf_exp_diff": "Ratings (Elo)",
+    "log_rank_diff": "Ratings (Elo)", "level_elo": "Ratings (Elo)", "bo5_elo": "Ratings (Elo)",
+    "serve_diff": "Serve", "spw10_diff": "Serve", "spw_adj10_diff": "Serve", "ace10_diff": "Serve", "df10_diff": "Serve", "indoor_serve": "Serve",
+    "return_diff": "Return", "rpw10_diff": "Return", "rpw_adj10_diff": "Return",
+    "win10_diff": "Recent form", "surf_win10_diff": "Recent form", "form_diff": "Recent form",
+    "opp10_diff": "Recent form", "elo_trend_diff": "Recent form",
+    "m7_diff": "Fatigue & schedule", "m14_diff": "Fatigue & schedule", "sets7_diff": "Fatigue & schedule",
+    "min7_diff": "Fatigue & schedule", "rest_diff": "Fatigue & schedule",
+    "inj_recent_diff": "Injury signals", "inj_count_diff": "Injury signals", "layoff_diff": "Injury signals",
+    "comeback_diff": "Injury signals",
+    "event_resid_diff": "History at this event", "event_win_diff": "History at this event",
+    "level_resid_diff": "Event type (level / best-of-5)", "bo5_resid_diff": "Event type (level / best-of-5)",
+    "speed_fit_diff": "Court speed", "speed_serve": "Court speed", "speed_return": "Court speed",
+    "speed_ace": "Court speed", "speed_elo": "Court speed",
+    "h2h_edge": "Head to head", "h2h_surf_edge": "Head to head",
+    "age_diff": "Age & physique", "height_diff": "Age & physique",
 }
+
+
 
 
 @dataclass
 class Settings:
-    strategy: str = "market"          # "market" (default) or "model"
-    min_ev: float = 0.02
-    min_edge: float = 0.03            # model-only mode
-    min_ev_sets: float = 0.03
-    kelly_fraction: float = 0.25
-    kelly_cap: float = 0.02
+    """Betting rule. The automated bet log uses these defaults, which can be changed
+    with repository variables (MIN_EV, MIN_EDGE, MIN_EV_SETS, KELLY_FRACTION,
+    KELLY_CAP, BET_BOOKS) without touching code."""
+    strategy: str = "model"           # the model's probability is the fair price
+    min_ev: float = field(default_factory=lambda: _env_float("MIN_EV", 0.05))
+    min_edge: float = field(default_factory=lambda: _env_float("MIN_EDGE", 0.05))
+    min_ev_sets: float = field(default_factory=lambda: _env_float("MIN_EV_SETS", 0.05))
+    kelly_fraction: float = field(default_factory=lambda: _env_float("KELLY_FRACTION", 0.25))
+    kelly_cap: float = field(default_factory=lambda: _env_float("KELLY_CAP", 0.02))
     horizon_hours: float = 48.0
+    books: tuple = field(default_factory=lambda: _env_books())   # empty = every book
+
+
+def _env_float(name: str, default: float) -> float:
+    try:
+        return float(os.getenv(name, "") or default)
+    except ValueError:
+        return default
+
+
+def _env_books() -> tuple:
+    return tuple(b.strip().lower() for b in os.getenv("BET_BOOKS", "").split(",") if b.strip())
+
+
+def _allowed(prices: dict, books: tuple) -> dict:
+    return {k: v for k, v in (prices or {}).items() if not books or k in books}
 
 
 class Runtime:
@@ -64,10 +94,12 @@ class Runtime:
         m[:, self.model.diff_idx] *= -1
         z, zm = steps["scale"].transform(v)[0], steps["scale"].transform(m)[0]
         contrib = steps["model"].coef_[0] * (z - zm) / 2.0
-        out = {}
-        for fam, keys in FAMILIES.items():
-            idx = [i for i, f in enumerate(names) if not f.startswith("ctx_") and any(k in f for k in keys)]
-            out[fam] = float(contrib[idx].sum()) if idx else 0.0
+        out: dict[str, float] = {}
+        for i, f in enumerate(names):
+            if f.startswith("ctx_"):
+                continue
+            fam = FAMILY_OF.get(f, "Other")
+            out[fam] = out.get(fam, 0.0) + float(contrib[i])
         return dict(sorted(out.items(), key=lambda kv: -abs(kv[1])))
 
     # ------------------------------------------------------------------
@@ -104,12 +136,12 @@ class Runtime:
             pairs = [p for p in pairs if p]
             if pairs:
                 p_market, market_source = float(np.median(pairs)), "consensus"
-        coef = self.model.blend if st.strategy == "market" else None
-        fair = blend(p_model, p_market, coef) if (st.strategy == "market" and p_market is not None) else p_model
-        fair = injury_adjust(fair, sev_a, sev_b)
+        # Model only: the fair price is the model's own probability (after manual injury flags).
+        fair = p_model_adj
 
-        best_a, book_a = best_price(prices_a)
-        best_b, book_b = best_price(prices_b)
+        # Best price only among the books you can actually bet at (Settings.books).
+        best_a, book_a = best_price(_allowed(prices_a, st.books))
+        best_b, book_b = best_price(_allowed(prices_b, st.books))
         rec = None
         for side, p, price, book, name, mkt in (("A", fair, best_a, book_a, pa.name, p_market),
                                                ("B", 1 - fair, best_b, book_b, pb.name, None if p_market is None else 1 - p_market)):
@@ -117,7 +149,8 @@ class Runtime:
                 continue
             e = p * price - 1
             edge = (p - mkt) if mkt is not None else None
-            ok = e >= st.min_ev and (st.strategy == "market" or (edge is not None and edge >= st.min_edge))
+            # Needs a market reference (Pinnacle, else the consensus of the books) so the edge is known.
+            ok = e >= st.min_ev and edge is not None and edge >= st.min_edge
             if ok and (rec is None or e > rec["ev"]):
                 rec = {"market": "Moneyline", "selection": name, "side": side, "price": float(price), "book": book,
                        "fair_odds": 1 / p, "probability": p, "ev": float(e), "edge_vs_market": edge,
@@ -138,9 +171,11 @@ class Runtime:
             "event_record_a": _event_text(meta["a_state"]), "event_record_b": _event_text(meta["b_state"]),
             "rank_a": meta["a_state"]["rank"], "rank_b": meta["b_state"]["rank"],
             "factors": self.explain(x), "recommendation": rec, "strategy": st.strategy,
+            "stats_a": self.engine.profile(pa.pid, ev.surface), "stats_b": self.engine.profile(pb.pid, ev.surface),
+            "prices_a": dict(prices_a), "prices_b": dict(prices_b),
         }
         if ev.level == "G" and ev.best_of == 5:
-            result["sets"] = self._sets(fair if p_market is not None else p_model_adj, meta, ctx, sets35 or {}, st)
+            result["sets"] = self._sets(p_market if p_market is not None else p_model_adj, meta, ctx, sets35 or {}, st)
         return result
 
     def _sets(self, p_a: float, meta: dict, ctx: dict, sets35: dict, st: Settings) -> dict:
@@ -149,7 +184,8 @@ class Runtime:
         if p_over is None:
             return {"available": False}
         s = set_prob_from_match(p_a, 5)
-        over, under = sets35.get("over", {}), sets35.get("under", {})
+        raw_over, raw_under = sets35.get("over", {}), sets35.get("under", {})
+        over, under = _allowed(raw_over, st.books), _allowed(raw_under, st.books)
         best_o, book_o = best_price(over)
         best_u, book_u = best_price(under)
         rec = None
@@ -160,7 +196,7 @@ class Runtime:
         return {
             "available": True, "p_over35": p_over, "fair_over": 1 / p_over, "fair_under": 1 / (1 - p_over),
             "best_over": best_o, "best_over_book": book_o, "best_under": best_u, "best_under_book": book_u,
-            "pinnacle_over": over.get(SHARP_BOOK), "pinnacle_under": under.get(SHARP_BOOK),
+            "pinnacle_over": raw_over.get(SHARP_BOOK), "pinnacle_under": raw_under.get(SHARP_BOOK),
             "independent_sets_view": sets_distribution(s), "recommendation": rec,
         }
 

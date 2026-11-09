@@ -103,24 +103,40 @@ def auto_refresh() -> None:
         st.rerun(scope="app")
 
 
+def _books_seen() -> list[str]:
+    try:
+        f, o, *_ = load_inputs()
+    except Exception:
+        return []
+    seen = set()
+    for ev in list(f) + list(o):
+        seen.update((ev.get("prices_a") or {}).keys())
+    return sorted(seen)
+
+
 def settings_sidebar() -> Settings:
+    """Sidebar controls. Defaults are the same rule the automated bet log uses."""
+    d = Settings()
     with st.sidebar:
         st.markdown("### ⚙️ Settings")
-        mode = st.radio("Betting mode", ["Market-anchored (recommended)", "Model only (experimental)"],
-                        help="Market-anchored: fair price = model combined with Pinnacle using weights learned on "
-                             "2018-2026 closing odds; a bet needs a book price better than that. Model only: raw model "
-                             "vs market (historically loses at closing prices).")
-        strategy = "market" if mode.startswith("Market") else "model"
-        min_ev = st.slider("Minimum EV (moneyline)", 0.0, 15.0, 2.0 if strategy == "market" else 5.0, 0.5, format="%.1f%%") / 100
-        min_edge = st.slider("Minimum edge vs market", 0.0, 15.0, 5.0, 0.5, format="%.1f%%") / 100 if strategy == "model" else 0.0
-        min_ev_sets = st.slider("Minimum EV (Slam sets)", 0.0, 15.0, 3.0, 0.5, format="%.1f%%") / 100
-        frac = st.select_slider("Kelly fraction", [0.1, 0.2, 0.25, 0.33, 0.5], 0.25,
+        min_ev = st.slider("Minimum EV", 0.0, 20.0, d.min_ev * 100, 0.5, format="%.1f%%",
+                           help="Expected return per unit staked at the best price, using the model's probability.") / 100
+        min_edge = st.slider("Minimum edge vs market", 0.0, 20.0, d.min_edge * 100, 0.5, format="%.1f%%",
+                             help="Model probability minus the market's no-vig probability (Pinnacle, else consensus).") / 100
+        min_ev_sets = st.slider("Minimum EV (Slam sets)", 0.0, 20.0, d.min_ev_sets * 100, 0.5, format="%.1f%%") / 100
+        frac = st.select_slider("Kelly fraction", [0.1, 0.2, 0.25, 0.33, 0.5], d.kelly_fraction if d.kelly_fraction in (0.1, 0.2, 0.25, 0.33, 0.5) else 0.25,
                                 format_func=lambda x: {0.1: "1/10", 0.2: "1/5", 0.25: "1/4", 0.33: "1/3", 0.5: "1/2"}[x])
-        cap = st.slider("Max stake per bet", 0.5, 5.0, 2.0, 0.5, format="%.1f%%") / 100
+        cap = st.slider("Max stake per bet", 0.5, 5.0, d.kelly_cap * 100, 0.5, format="%.1f%%") / 100
+        seen = _books_seen()
+        default_books = [b for b in d.books if b in seen] if d.books else []
+        books = st.multiselect("My sportsbooks", seen, default=default_books,
+                               help="Only these books are used for the best price. Leave empty to use every book.")
         bankroll = st.number_input("Bankroll (CA$)", min_value=0.0, value=float(st.session_state.get("bankroll", 1000.0)), step=100.0)
         st.session_state["bankroll"] = bankroll
-        return Settings(strategy=strategy, min_ev=min_ev, min_edge=min_edge or 0.03, min_ev_sets=min_ev_sets,
-                        kelly_fraction=frac, kelly_cap=cap)
+        st.caption("The automated bet log uses the defaults above (change them with repo variables MIN_EV, MIN_EDGE, "
+                   "KELLY_FRACTION, KELLY_CAP, BET_BOOKS).")
+        return Settings(strategy="model", min_ev=min_ev, min_edge=min_edge, min_ev_sets=min_ev_sets,
+                        kelly_fraction=frac, kelly_cap=cap, books=tuple(books))
 
 
 def keys_available() -> bool:

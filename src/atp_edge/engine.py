@@ -47,7 +47,7 @@ ROUND_INDEX = {"R128": 1, "R64": 2, "R32": 3, "R16": 4, "QF": 5, "SF": 6, "F": 7
 # Rating constants (FiveThirtyEight-style dynamic K). Tuned on 2005-2013.
 K_C, K_OFFSET, K_SHAPE = 150.0, 5.0, 0.3
 MOV_WEIGHT = 1.0
-LEVEL_K = {"G": 1.1, "F": 1.05, "D": 0.85, "A": 0.9}
+LEVEL_K = {"G": 1.1, "F": 1.05, "D": 0.85, "A": 0.9, "C": 0.7}   # Challengers move ratings less
 EWMA_ALPHA = 0.15
 EVENT_PRIOR, LEVEL_PRIOR, BO5_PRIOR, H2H_PRIOR = 6.0, 20.0, 12.0, 6.0
 SPEED_RIDGE, SPEED_PRIOR = 0.35, 12.0
@@ -85,6 +85,10 @@ def score_info(score) -> dict:
                 sets_l += 1
     return {"incomplete": incomplete, "walkover": walkover, "games_w": gw, "games_l": gl,
             "sets": sets_w + sets_l, "sets_w": sets_w, "sets_l": sets_l}
+
+
+def _is_indoor(v) -> bool:
+    return str(v or "").strip().upper() in {"I", "1", "1.0", "TRUE", "INDOOR"}
 
 
 def _num(v):
@@ -194,7 +198,8 @@ class Engine:
         vals = [m[key] for m in list(p.hist)[::-1] if (surface is None or m["surface"] == surface) and m.get(key) is not None][:n]
         return float(np.mean(vals)) if vals else default
 
-    def state(self, p: Player, surface: str, when: date, level: str, best_of: int, event: str, speed: float) -> dict:
+    def state(self, p: Player, surface: str, when: date, level: str, best_of: int, event: str, speed: float,
+              indoor: bool = False) -> dict:
         hist = list(p.hist)
         s_elo = p.surf_elo.get(surface, 1500.0)
         days_since = max((when - p.last_date).days, 0) if p.last_date else 365
@@ -211,10 +216,12 @@ class Engine:
         age = (when.year - p.birth_year) if p.birth_year else 26.0
         return {
             "elo": p.elo, "surf_elo": s_elo, "blend_elo": 0.5 * p.elo + 0.5 * s_elo,
+            "cond_elo": p.surf_elo.get(("Hard-I" if indoor else "Hard-O") if surface == "Hard" else surface, s_elo),
             "exp": math.log1p(p.n), "surf_exp": math.log1p(p.surf_n.get(surface, 0)),
             "serve": p.serve.get(surface, p.serve.get("all", 0.63)),
             "ret": p.ret.get(surface, p.ret.get("all", 0.37)),
             "spw10": self._window(p, "spw", 10, 0.63), "rpw10": self._window(p, "rpw", 10, 0.37),
+            "spw_adj10": self._window(p, "spw_adj", 10, 0.63), "rpw_adj10": self._window(p, "rpw_adj", 10, 0.37),
             "ace10": self._window(p, "ace", 10, 0.08), "df10": self._window(p, "df", 10, 0.035),
             "win10": self._window(p, "win", 10, 0.5), "surf_win10": self._window(p, "win", 10, 0.5, surface),
             "form": float(np.average([m["win"] for m in hist[-10:]], weights=[0.8 ** (len(hist[-10:]) - 1 - i) for i in range(len(hist[-10:]))])) if hist else 0.5,
@@ -252,8 +259,9 @@ class Engine:
         speed = float(sp["speed"])
         pa = self.players.get(a_id) or Player(pid=a_id)
         pb = self.players.get(b_id) or Player(pid=b_id)
-        A = self.state(pa, surface, when, level, best_of, event, speed)
-        B = self.state(pb, surface, when, level, best_of, event, speed)
+        indoor = bool(ctx.get("indoor"))
+        A = self.state(pa, surface, when, level, best_of, event, speed, indoor)
+        B = self.state(pb, surface, when, level, best_of, event, speed, indoor)
         d = {k: A[k] - B[k] for k in A}
         pair = tuple(sorted((a_id, b_id)))
         h = self.h2h.get(pair, [])
@@ -265,11 +273,12 @@ class Engine:
         blend = d["blend_elo"]
         f = {
             # ratings
-            "elo_diff": d["elo"], "surf_elo_diff": d["surf_elo"], "blend_elo_diff": blend,
+            "elo_diff": d["elo"], "surf_elo_diff": d["surf_elo"], "blend_elo_diff": blend, "cond_elo_diff": d["cond_elo"],
             "elo_prob_logit": blend * math.log(10) / 400.0,
             "exp_diff": d["exp"], "surf_exp_diff": d["surf_exp"],
             # serve / return
             "serve_diff": d["serve"], "return_diff": d["ret"], "spw10_diff": d["spw10"], "rpw10_diff": d["rpw10"],
+            "spw_adj10_diff": d["spw_adj10"], "rpw_adj10_diff": d["rpw_adj10"],
             "ace10_diff": d["ace10"], "df10_diff": d["df10"],
             # form
             "win10_diff": d["win10"], "surf_win10_diff": d["surf_win10"], "form_diff": d["form"],
@@ -349,6 +358,15 @@ class Engine:
         l.elo -= _k(l.n) * (1 - exp) * mult
         w.surf_elo[surface] = ws + _k(w.surf_n.get(surface, 0)) * (1 - sexp) * mult
         l.surf_elo[surface] = ls - _k(l.surf_n.get(surface, 0)) * (1 - sexp) * mult
+        # Condition rating: hard courts split into indoor and outdoor (different balls, no wind/sun).
+        if surface == "Hard":
+            cond = "Hard-I" if _is_indoor(r.get("indoor")) else "Hard-O"
+            wc, lc = w.surf_elo.get(cond, ws), l.surf_elo.get(cond, ls)
+            cexp = 1 / (1 + 10 ** ((lc - wc) / 400))
+            w.surf_elo[cond] = wc + _k(w.surf_n.get(cond, 0)) * (1 - cexp) * mult
+            l.surf_elo[cond] = lc - _k(l.surf_n.get(cond, 0)) * (1 - cexp) * mult
+            for p in (w, l):
+                p.surf_n[cond] = p.surf_n.get(cond, 0) + 1
         for p in (w, l):
             p.n += 1
             p.surf_n[surface] = p.surf_n.get(surface, 0) + 1
@@ -362,21 +380,39 @@ class Engine:
             won = (_num(r.get(f"{side}_1stWon")) or 0) + (_num(r.get(f"{side}_2ndWon")) or 0) if _num(r.get(f"{side}_1stWon")) is not None else None
             osv = _num(r.get(f"{opp}_svpt"))
             owon = (_num(r.get(f"{opp}_1stWon")) or 0) + (_num(r.get(f"{opp}_2ndWon")) or 0) if _num(r.get(f"{opp}_1stWon")) is not None else None
+            first_in = _num(r.get(f"{side}_1stIn"))
+            bp_faced, bp_saved = _num(r.get(f"{side}_bpFaced")), _num(r.get(f"{side}_bpSaved"))
+            obp_faced, obp_saved = _num(r.get(f"{opp}_bpFaced")), _num(r.get(f"{opp}_bpSaved"))
+            pts = (svpt + osv) if (svpt and osv) else None
             stats[side] = {
                 "spw": _ratio(won, svpt), "rpw": (1 - owon / osv) if (owon is not None and osv) else None,
                 "ace": _ratio(r.get(f"{side}_ace"), svpt), "df": _ratio(r.get(f"{side}_df"), svpt), "svpt": svpt,
+                # display-only statistics (match page comparison)
+                "first_in": _ratio(first_in, svpt), "first_won": _ratio(r.get(f"{side}_1stWon"), first_in),
+                "second_won": _ratio(r.get(f"{side}_2ndWon"), (svpt - first_in) if (svpt and first_in is not None) else None),
+                "bp_save": _ratio(bp_saved, bp_faced),
+                "bp_conv": _ratio((obp_faced - obp_saved) if (obp_faced is not None and obp_saved is not None) else None, obp_faced),
+                "winners": _ratio(r.get(f"{side}_winners"), pts), "ue": _ratio(r.get(f"{side}_unforced_errors"), pts),
             }
         minutes = _num(r.get("minutes"))
         speed_info = self.speed_for(r.get("tourney_name", ""), surface, when.year)
+        # Opponent-adjusted serve/return: credit for holding serve against a strong returner and
+        # for winning return points against a big server (pre-match opponent ratings).
+        pre_ret = {pid: pl.ret.get(surface, pl.ret.get("all")) for pid, pl in ((w.pid, w), (l.pid, l))}
+        pre_srv = {pid: pl.serve.get(surface, pl.serve.get("all")) for pid, pl in ((w.pid, w), (l.pid, l))}
         for p, side, won, opp_elo, resid in ((w, "w", 1.0, pre_l_elo, 1 - blend_exp), (l, "l", 0.0, pre_w_elo, -(1 - blend_exp))):
             s = stats[side]
+            opp = l if p is w else w
+            s["spw_adj"] = (s["spw"] + ((pre_ret[opp.pid] or 0.37) - 0.37)) if s["spw"] is not None else None
+            s["rpw_adj"] = (s["rpw"] + ((pre_srv[opp.pid] or 0.63) - 0.63)) if s["rpw"] is not None else None
             for key in (surface, "all"):
                 if s["spw"] is not None:
                     p.serve[key] = s["spw"] if key not in p.serve else EWMA_ALPHA * s["spw"] + (1 - EWMA_ALPHA) * p.serve[key]
                 if s["rpw"] is not None:
                     p.ret[key] = s["rpw"] if key not in p.ret else EWMA_ALPHA * s["rpw"] + (1 - EWMA_ALPHA) * p.ret[key]
             p.hist.append({"date": when, "surface": surface, "win": won, "opp_elo": opp_elo, "sets": info["sets"],
-                           "minutes": minutes, "spw": s["spw"], "rpw": s["rpw"], "ace": s["ace"], "df": s["df"]})
+                           "minutes": minutes, **{k: s[k] for k in ("spw", "rpw", "spw_adj", "rpw_adj", "ace", "df", "first_in", "first_won",
+                                                                    "second_won", "bp_save", "bp_conv", "winners", "ue")}})
             ev = p.event_perf.setdefault(event, [0.0, 0, 0])
             ev[0] += resid; ev[1] += 1; ev[2] += int(won)
             lv = p.level_perf.setdefault(level, [0.0, 0])
@@ -415,6 +451,29 @@ class Engine:
         elif p.return_date:
             p.matches_since_return += 1
         p.last_date = when
+
+    # ----------------------------------------------------------- display
+    def profile(self, pid: str, surface: str) -> dict:
+        """Side-by-side statistics for the match page (not model features)."""
+        p = self.players.get(pid)
+        if p is None:
+            return {}
+
+        def w(key, n=10, surf=None):
+            vals = [m.get(key) for m in list(p.hist)[::-1] if (surf is None or m["surface"] == surf) and m.get(key) is not None][:n]
+            return (float(np.mean(vals)), len(vals)) if vals else (None, 0)
+
+        out = {"Elo (overall)": p.elo, f"Elo ({surface})": p.surf_elo.get(surface), "ATP rank": p.rank,
+               "Matches played (career, in database)": p.n,
+               "Win rate, last 10": w("win")[0], f"Win rate, last 10 on {surface}": w("win", 10, surface)[0]}
+        for key, label in (("spw", "Service points won"), ("rpw", "Return points won"), ("first_in", "1st serve in"),
+                           ("first_won", "1st serve points won"), ("second_won", "2nd serve points won"),
+                           ("ace", "Aces per service point"), ("df", "Double faults per service point"),
+                           ("bp_save", "Break points saved"), ("bp_conv", "Break points converted"),
+                           ("winners", "Winners per point played"), ("ue", "Unforced errors per point played")):
+            val, n = w(key)
+            out[f"{label} (last {n})" if n else label] = val
+        return out
 
     # -------------------------------------------------------------- helpers
     def apply_rankings(self, rankings) -> int:

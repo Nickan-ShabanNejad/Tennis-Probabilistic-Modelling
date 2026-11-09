@@ -67,7 +67,9 @@ def test_lower_tier_and_qualifying_removed():
         _row(tourney_name="Brisbane", winner_name="I J", loser_name="K L"),
     ])
     out, rep = clean(df)
-    assert len(out) == 1 and rep["lower_tier_removed"] == 2 and rep["qualifying_removed"] == 1
+    # ITF removed; Challenger kept for ratings (level "C", never bet on); qualifying removed
+    assert len(out) == 2 and rep["lower_tier_removed"] == 1 and rep["qualifying_removed"] == 1
+    assert set(out["tourney_level"]) == {"C", "250"}
 
 
 def test_generic_level_codes_use_registry():

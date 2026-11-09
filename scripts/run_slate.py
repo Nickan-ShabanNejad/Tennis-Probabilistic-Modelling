@@ -24,6 +24,9 @@ def main() -> int:
     rt = Runtime()
     fixtures, odds_events, status = collect(rt, demo=args.demo)
     slate = build_slate(rt, fixtures, odds_events, Settings())
+    if not args.demo:
+        from atp_edge.narrative import ai_previews
+        status["ai_previews"] = ai_previews(slate["matches"])
     slate["sources"] = status
     slate["inputs"] = {"fixtures": fixtures, "odds_events": odds_events}
     slate["demo"] = bool(args.demo)

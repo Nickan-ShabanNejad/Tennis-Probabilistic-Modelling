@@ -28,7 +28,7 @@ st.markdown(
     'Grand Slams / ATP Finals · fair odds, value bets and Grand Slam total sets</div></div>'
     + badge(f"Data: {label}", "")
     + badge(f"Ratings to {rt.metrics.get('latest_match_date', '?')}", "")
-    + badge("Market-anchored" if settings.strategy == "market" else "Model only · experimental", "ok" if settings.strategy == "market" else "warn")
+    + badge(f"Bets: EV ≥ {settings.min_ev:.0%} · edge ≥ {settings.min_edge:.0%}", "blue")
     + (badge("DEMO · synthetic prices", "bad") if demo else ""),
     unsafe_allow_html=True,
 )
@@ -74,9 +74,8 @@ def open_match(m):
 st.markdown("### ✅ Recommended bets")
 cards = [(m, m["recommendation"], "ml") for m in ml_bets] + [(m, m["sets"]["recommendation"], "sets") for m in set_bets]
 if not cards:
-    st.markdown('<div class="empty">No price beats the fair odds by your minimum EV right now. Against sharp prices '
-                'that is normal; value shows up when a sportsbook lags the market. Open any match to compare every '
-                'book\'s price or type in your own.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="empty">No match passes your EV and edge thresholds right now. Open any match to see the '
+                'model\'s probability against every book\'s price, or type in your own price.</div>', unsafe_allow_html=True)
 else:
     cols = st.columns(3)
     for i, (m, r, kind) in enumerate(sorted(cards, key=lambda c: -c[1]["ev"])):

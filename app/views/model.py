@@ -26,7 +26,7 @@ if b:
     kpi(k[0], "Model log loss", f"{b['model_log_loss']:.4f}", f"{b['matches']:,} matches with Pinnacle odds")
     kpi(k[1], "Pinnacle log loss", f"{b['pinnacle_log_loss']:.4f}", "closing price")
     kpi(k[2], "Accuracy", f"{b['model_accuracy']:.1%}", f"Pinnacle {b['pinnacle_accuracy']:.1%}")
-    kpi(k[3], "Model weight on top of market", f"{m['market_blend']['model_coef']:.2f}", "0 = adds nothing measurable")
+    kpi(k[3], "Gap to market", f"{b['model_log_loss'] - b['pinnacle_log_loss']:+.4f}", "log loss; 0 would match the closing price")
     py = pd.DataFrame(b.get("per_year", []))
     if not py.empty:
         fig = go.Figure()
@@ -39,14 +39,14 @@ if b:
 
 bt = m.get("backtests", {})
 if bt:
-    labels = {"model_only_ev2_edge2": "Model only · EV ≥ 2%, edge ≥ 2%", "model_only_ev5_edge5": "Model only · EV ≥ 5%, edge ≥ 5%",
-              "market_anchored_ev2": "Market-anchored · EV ≥ 2% at Pinnacle"}
+    labels = {"model_only_ev2_edge2": "EV ≥ 2%, edge ≥ 2%", "model_only_ev5_edge5": "EV ≥ 5%, edge ≥ 5% (default)",
+              "model_only_ev8_edge8": "EV ≥ 8%, edge ≥ 8%"}
     rows = [{"Rule": labels.get(k, k), **v} for k, v in bt.items()]
     st.markdown("**Betting rules replayed at Pinnacle closing prices**")
     st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True, column_config={
         c: st.column_config.NumberColumn(format="percent") for c in ("share_of_matches", "win_rate", "avg_claimed_ev", "flat_roi", "flat_roi_se", "kelly_roi")})
-    st.caption("Closing prices are the hardest test. The realistic edge is a book whose price lags the fair price; the "
-               "board shows the best price across all books The Odds API returns.")
+    st.caption("Closing prices are the hardest test: earlier prices and slower books are easier to beat. Live CLV on the "
+               "Results page is the real-time check of these rules.")
 
 st.markdown("### Court speed index")
 if TA_PATH.exists():

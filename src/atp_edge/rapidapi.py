@@ -279,6 +279,8 @@ def results_to_frame(records: list[dict], since: date | None = None) -> pd.DataF
             "l_ace": s(ls, "aces"), "l_df": s(ls, "doubleFaults"), "l_svpt": s(ls, "firstServeOf"), "l_1stIn": s(ls, "firstServe"),
             "l_1stWon": s(ls, "winningOnFirstServe"), "l_2ndWon": s(ls, "winningOnSecondServe"),
             "l_bpFaced": wbpo, "l_bpSaved": (wbpo - wbp) if wbpo is not None and wbp is not None else np.nan,
+            "w_winners": s(ws, "winners"), "w_unforced_errors": s(ws, "unforcedErrors"),
+            "l_winners": s(ls, "winners"), "l_unforced_errors": s(ls, "unforcedErrors"),
             "data_source": "Matchstat",
         })
     return pd.DataFrame(rows)

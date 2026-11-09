@@ -233,11 +233,10 @@ def train_all(rows: pd.DataFrame, engine, data_report: dict | None = None) -> di
                          "model_accuracy": float((g["p_winner"] > 0.5).mean()), "market_accuracy": float((g["p_market"] > 0.5).mean())})
 
     a, b = fit_blend(pin["p_winner"].to_numpy(), pin["p_market"].to_numpy())
-    blended = sigmoid(a * logit(pin["p_winner"]) + b * logit(pin["p_market"]))
     backtests = {
         "model_only_ev2_edge2": backtest(pin["p_winner"], pin["ps_w"], pin["ps_l"], min_ev=0.02, min_edge=0.02, market_w=pin["p_market"]),
         "model_only_ev5_edge5": backtest(pin["p_winner"], pin["ps_w"], pin["ps_l"], min_ev=0.05, min_edge=0.05, market_w=pin["p_market"]),
-        "market_anchored_ev2": backtest(blended, pin["ps_w"], pin["ps_l"], min_ev=0.02, market_w=pin["p_market"]),
+        "model_only_ev8_edge8": backtest(pin["p_winner"], pin["ps_w"], pin["ps_l"], min_ev=0.08, min_edge=0.08, market_w=pin["p_market"]),
     }
 
     print("final fit on all rows", flush=True)

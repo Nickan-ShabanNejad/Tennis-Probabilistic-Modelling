@@ -116,6 +116,10 @@ LOWER_TIER = re.compile(
     r"(challenger|\bitf\b|futures?\b|^\s*[mw]\s?-?(?:15|25|35|50|75|100)\b|\butr\b|junior|\bch\s?\d{2,3}\b|\bwta\b|women|doubles)",
     re.I,
 )
+# Removed from the database entirely (no consistent history). Challengers are KEPT for
+# ratings (TennisMyLife has every Challenger since 1978) but never bet on.
+ITF_TIER = re.compile(r"(\bitf\b|futures?\b|^\s*[mw]\s?-?(?:15|25|35|50|75|100)\b|\butr\b|junior|\bwta\b|women|doubles)", re.I)
+CHALLENGER = re.compile(r"(challenger|\bch\s?\d{2,3}\b)", re.I)
 QUALIFYING = re.compile(r"(qualif|\bq[123]\b|^q\d?$)", re.I)
 
 

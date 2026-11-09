@@ -49,11 +49,14 @@ The app checks for a new slate every 10 minutes and reloads itself when the hour
 
 ## How a prediction is made
 
-1. **One rating engine for training and live use** (`src/atp_edge/engine.py`). It replays every tour-level match
-   since 2000 in date order. Training features and tomorrow's features come from the same code, so the two can't drift apart.
+1. **One rating engine for training and live use** (`src/atp_edge/engine.py`). It replays every tour-level **and
+   Challenger** match since 2000 in date order (about 200,000 matches). Challenger results only feed the ratings and form
+   (with a smaller rating step); the model is trained and bets only on tour-level matches. Training features and tomorrow's
+   features come from the same code, so the two can't drift apart.
 2. **Features:**
-   - **Ratings:** dynamic-K Elo, overall and per surface, weighted by margin of victory.
-   - **Serve and return:** surface-specific serve and return points won, ace and double-fault rates.
+   - **Ratings:** dynamic-K Elo, overall, per surface, and indoor vs outdoor hard court, weighted by margin of victory.
+   - **Serve:** surface-specific service points won, opponent-adjusted service points won, ace and double-fault rates.
+   - **Return:** surface-specific return points won and opponent-adjusted return points won.
    - **Form:** last-10 results, Elo trend, opponent strength.
    - **Fatigue:** matches, sets and minutes played in the last 7 to 14 days, and rest days.
    - **Injuries:** see the injuries section below.
@@ -64,10 +67,12 @@ The app checks for a new slate every 10 minutes and reloads itself when the hour
    - **Rank, age and height.**
 3. **Model:** a logistic regression, chosen over gradient boosting on the last three seasons. It's trained symmetrically,
    so P(A beats B) = 1 − P(B beats A) exactly.
-4. **Fair price (market-anchored, the default):** the model's probability combined with Pinnacle's no-vig price, using weights
-   fitted on historical closing odds. The weight on the model is never negative.
-5. **Bet:** the best price across all books is compared with the fair price. A bet is called when EV ≥ 2% (adjustable).
-   Stake is ¼-Kelly, capped at 2% of bankroll (1.5% for set totals).
+4. **Fair price = the model's probability** (after any manual injury flag).
+5. **Bet:** a bet is signalled when, at the best price among your books, **EV ≥ 5% and the model is at least 5 points
+   above the market's no-vig probability** (Pinnacle, or the books' consensus when Pinnacle is missing). Stake is
+   ¼-Kelly, capped at 2% of bankroll (1.5% for set totals). Change any of these without touching code by adding repo
+   **variables**: `MIN_EV`, `MIN_EDGE`, `MIN_EV_SETS`, `KELLY_FRACTION`, `KELLY_CAP`, and `BET_BOOKS` (comma-separated
+   book keys you can actually use, e.g. `pinnacle,bet365,draftkings,fanduel`).
 
 ### Court speed index
 The primary source is the **Tennis Abstract surface-speed ratings**: ace rate adjusted for the servers and returners,
@@ -104,35 +109,36 @@ be sets. Not every book offers it. When none do, use the price checker on the Gr
 Walk-forward, 2018–2026: each season is predicted by a model trained only on earlier seasons and compared
 with Pinnacle closing odds on 18,637 matches.
 
-| | Log loss | Accuracy |
+| | Log loss (lower is better) | Accuracy |
 |---|---|---|
-| Model | 0.604 | 66.3% |
+| Model (v1.1: Challenger history, indoor ratings, opponent-adjusted serve/return) | 0.598 | 66.8% |
+| Model (v1.0) | 0.604 | 66.3% |
 | Pinnacle closing price | **0.586** | **68.0%** |
 
-| Rule at Pinnacle closing prices | Bets | Actual ROI |
+| Bet rule, replayed at Pinnacle *closing* prices | Bets | Actual ROI |
 |---|---|---|
-| Model only, EV ≥ 2% & edge ≥ 2% | 13,080 (70% of matches) | −4.1% ± 1.1% |
-| Model only, EV ≥ 5% & edge ≥ 5% | 8,751 | −2.8% ± 1.3% |
-| Market-anchored (default) | almost none | n/a |
+| EV ≥ 2%, edge ≥ 2% | 12,548 (67% of matches) | −2.5% ± 1.1% |
+| **EV ≥ 5%, edge ≥ 5% (default)** | 7,833 (42%) | **−0.3% ± 1.4%** |
+| EV ≥ 8%, edge ≥ 8% | 4,384 (24%) | −2.7% ± 1.7% |
 
-The closing market is more accurate than any public-data model, so this repo doesn't pretend otherwise:
+At closing prices the default rule is now roughly break-even (it was −2.8% in v1.0). Closing prices are the hardest
+test: earlier prices and the best price across several books are better than the Pinnacle close, so live results can
+be better, or worse. The live bet log and its CLV are the real test.
 
-- **Default mode looks for book prices that lag the fair price.** That's line shopping, and it's where public-data edges realistically are.
-- **Every recommendation is logged before the match** and graded against the closing price. Closing-line value (CLV) on the
-  *Results & CLV* page is the number to watch. Positive CLV over a few hundred bets is the evidence that matters.
-- **Model-only mode is still in the sidebar** for research.
+## Results & closing-line value (CLV)
 
-## Closing-line value (CLV)
+Only the bets the model signals are tracked, each with the ¼-Kelly stake it was given:
+- **Logged before the match**, at the price and book that triggered the signal (never overwritten later).
+- **Settled** the next morning from official results: won / lost, profit in % of bankroll and CA$.
+- **CLV:** price taken × closing no-vig probability − 1. The close is the last hourly Pinnacle snapshot before the
+  start (or the books' consensus if Pinnacle has none). Positive CLV over a few hundred bets is the earliest reliable sign
+  of an edge; the page gives an "edge / no edge / too early" verdict using a two-standard-error rule.
 
-The fastest honest test of an edge. The *Results & CLV* page tracks:
-- **Bet CLV:** the price you were told to take versus Pinnacle's closing no-vig price. Positive means you beat the close.
-- **Model-lean CLV:** on every match, not just bets, the side the model preferred when the match first appeared, at the
-  opening Pinnacle price, measured against the close. If this stays more than two standard errors above zero over a few
-  hundred matches, the model is seeing something the market only prices in later.
-- **Verdict:** "edge", "no edge" or "too early", based on that two-standard-error rule.
+## Match previews (optional AI)
 
-Opening price = first hourly snapshot; closing price = last snapshot before the scheduled start. All of it is in
-`data/predictions/predictions_log.csv` and `bets_log.csv`.
+Every match page has a written preview built from the model's numbers. Add a repo secret `ANTHROPIC_API_KEY`
+(from console.anthropic.com) and the hourly job also asks Claude Haiku to write a 3–4 sentence preview from the same
+facts. Previews are cached and only rewritten when the numbers move; cost is well under a cent per match.
 
 ## Things to check after your first live run
 

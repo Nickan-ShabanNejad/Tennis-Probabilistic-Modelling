@@ -22,10 +22,11 @@ import numpy as np
 import pandas as pd
 
 from .config import GENERATED, RAW, SEED
-from .tournaments import EXCLUDED, LOWER_TIER, normalize, resolve
+from .tournaments import CHALLENGER, EXCLUDED, ITF_TIER, normalize, resolve
 
 MATCHES_PATH = GENERATED / "matches.csv.gz"
 SEED_PATH = SEED / "matches_seed.csv.gz"
+CHALLENGER_SEED_PATH = SEED / "challenger_seed.csv.gz"   # TennisMyLife Challenger results 2000-2026 (ratings only)
 TML_INDEX = "https://stats.tennismylife.org/api/data-files"
 TML_GITHUB = "https://raw.githubusercontent.com/Tennismylife/TML-Database/master/{year}.csv"
 
@@ -39,6 +40,7 @@ KEEP_COLS = [
     "winner_id", "winner_name", "winner_hand", "winner_ht", "winner_ioc", "winner_age",
     "loser_id", "loser_name", "loser_hand", "loser_ht", "loser_ioc", "loser_age",
     "score", "best_of", "round", "data_source", *STAT_COLS,
+    "w_winners", "w_unforced_errors", "l_winners", "l_unforced_errors",
 ]
 
 
@@ -108,6 +110,8 @@ def dedupe(frame: pd.DataFrame, window_days: int = 14) -> tuple[pd.DataFrame, in
 
 def resolve_level(name, provider_level) -> str:
     lv = str(provider_level or "").strip().upper()
+    if CHALLENGER.search(str(name or "")) or lv in {"C", "CH"}:
+        return "C"
     if re.search(r"davis cup", str(name), re.I):
         return "D"
     if EXCLUDED.search(str(name or "")):
@@ -131,9 +135,12 @@ def clean(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     df = df.dropna(subset=["tourney_date", "winner_name", "loser_name", "surface"])
     df["surface"] = df["surface"].astype(str).str.title()
     df = df[df["surface"].isin(["Hard", "Clay", "Grass", "Carpet"])]
-    lower = df["tourney_name"].astype(str).map(lambda n: bool(LOWER_TIER.search(n))) | df["tourney_level"].astype(str).str.upper().isin(["C", "S", "CH"])
-    report["lower_tier_removed"] = int(lower.sum())
-    df = df[~lower]
+    itf = df["tourney_name"].astype(str).map(lambda n: bool(ITF_TIER.search(n))) | df["tourney_level"].astype(str).str.upper().isin(["S", "F15", "F25"])
+    report["lower_tier_removed"] = int(itf.sum())
+    df = df[~itf]
+    chall = df["tourney_name"].astype(str).map(lambda n: bool(CHALLENGER.search(n)))
+    df.loc[chall, "tourney_level"] = "C"
+    report["challenger_rows"] = int((df["tourney_level"].astype(str).str.upper() == "C").sum())
     qual = df["round"].astype(str).str.strip().str.match(r"^Q\d?$", case=False)
     report["qualifying_removed"] = int(qual.sum())
     df = df[~qual]
@@ -155,7 +162,8 @@ def clean(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 # Sources
 # ---------------------------------------------------------------------------
 def load_seed() -> pd.DataFrame:
-    return pd.read_csv(SEED_PATH, low_memory=False) if SEED_PATH.exists() else pd.DataFrame()
+    frames = [pd.read_csv(p, low_memory=False) for p in (SEED_PATH, CHALLENGER_SEED_PATH) if p.exists()]
+    return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
 
 
 def fetch_tml_years(years: list[int]) -> tuple[pd.DataFrame, dict]:
@@ -170,8 +178,9 @@ def fetch_tml_years(years: list[int]) -> tuple[pd.DataFrame, dict]:
         urls = {f["name"]: f["url"] for f in r.json().get("files", [])}
     except Exception as exc:
         status["index_error"] = str(exc)
-    for year in years:
-        for url in (urls.get(f"{year}.csv"), TML_GITHUB.format(year=year)):
+    jobs = [(y, f"{y}.csv") for y in years] + [(y, f"{y}_challenger.csv") for y in years]
+    for year, fname in jobs:
+        for url in (urls.get(fname), TML_GITHUB.format(year=year) if fname == f"{year}.csv" else None):
             if not url:
                 continue
             try:
@@ -180,12 +189,14 @@ def fetch_tml_years(years: list[int]) -> tuple[pd.DataFrame, dict]:
                 df = pd.read_csv(io.StringIO(r.text), low_memory=False)
                 if {"winner_name", "loser_name", "tourney_date"}.issubset(df.columns) and len(df):
                     df["data_source"] = "TennisMyLife"
-                    (RAW / f"tml_{year}.csv").write_text(r.text)
+                    if "challenger" in fname:
+                        df["tourney_level"] = "C"
+                    (RAW / f"tml_{fname}").write_text(r.text)
                     frames.append(df)
-                    status[str(year)] = {"ok": True, "rows": int(len(df)), "url": url}
+                    status[fname] = {"ok": True, "rows": int(len(df)), "url": url}
                     break
             except Exception as exc:
-                status[str(year)] = {"ok": False, "error": str(exc), "url": url}
+                status[fname] = {"ok": False, "error": str(exc), "url": url}
     return (pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()), status
 
 

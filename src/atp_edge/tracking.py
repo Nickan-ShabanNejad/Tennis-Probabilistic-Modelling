@@ -159,6 +159,8 @@ def settle(matches: pd.DataFrame) -> dict:
                 a_side = same_player(b["selection"], p["player_a"])
                 close_odds = p["pinnacle_a"] if a_side else p["pinnacle_b"]
                 close_fair = no_vig(p["pinnacle_a"], p["pinnacle_b"])
+                if close_fair is None and pd.notna(p.get("p_market_a")):
+                    close_fair = float(p["p_market_a"])  # no Pinnacle at the close: consensus of the books
                 close_fair = close_fair if a_side else (1 - close_fair if close_fair else None)
             else:
                 if pd.isna(p.get("sets")):
@@ -228,6 +230,9 @@ def summary() -> dict:
             out.update({"settled": int(len(s)), "model_log_loss": ll(s["p_model_a"]), "fair_log_loss": ll(s["p_fair_a"]),
                         "market_log_loss": ll(s["p_market_a"]),
                         "model_accuracy": float(((pd.to_numeric(s["p_model_a"]) > 0.5) == (y == 1)).mean())})
+    if not bets.empty and "strategy" in bets.columns:
+        bets = bets[bets["strategy"].fillna("model") == "model"]   # bets flagged by the model-only rule
+        out["bets"] = int(len(bets))
     if not bets.empty and "result" in bets.columns:
         done = bets[bets["result"].isin(["won", "lost"])]
         if len(done):
