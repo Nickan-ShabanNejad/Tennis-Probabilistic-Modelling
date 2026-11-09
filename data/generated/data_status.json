@@ -1,21 +1,31 @@
 {
-  "started_utc": "2026-11-08T15:15:30+00:00",
+  "started_utc": "2026-11-09T18:51:03+00:00",
   "tennismylife": {
-    "2025": {
+    "2025.csv": {
       "ok": true,
       "rows": 2943,
       "url": "https://stats.tennismylife.org/data/2025.csv"
     },
-    "2026": {
+    "2026.csv": {
       "ok": true,
-      "rows": 2719,
+      "rows": 2774,
       "url": "https://stats.tennismylife.org/data/2026.csv"
+    },
+    "2025_challenger.csv": {
+      "ok": true,
+      "rows": 6399,
+      "url": "https://stats.tennismylife.org/data/2025_challenger.csv"
+    },
+    "2026_challenger.csv": {
+      "ok": true,
+      "rows": 6909,
+      "url": "https://stats.tennismylife.org/data/2026_challenger.csv"
     }
   },
   "matchstat": {
     "ok": true,
     "rankings": 500,
-    "recent_results": 344,
+    "recent_results": 347,
     "api_calls": 208
   },
   "court_speed": {
@@ -29,16 +39,17 @@
     "url": "http://www.tennis-data.co.uk/2026/2026.xlsx"
   },
   "database": {
-    "input_rows": 174900,
-    "lower_tier_removed": 6548,
-    "qualifying_removed": 1132,
-    "duplicates_removed": 86635,
-    "output_rows": 80585,
-    "latest_date": "20261107"
+    "input_rows": 311146,
+    "lower_tier_removed": 1085,
+    "challenger_rows": 140933,
+    "qualifying_removed": 1816,
+    "duplicates_removed": 104745,
+    "output_rows": 202783,
+    "latest_date": "20261109"
   },
   "settlement": {
-    "settled_predictions": 2,
+    "settled_predictions": 9,
     "settled_bets": 1
   },
-  "finished_utc": "2026-11-08T15:21:46+00:00"
+  "finished_utc": "2026-11-09T19:27:59+00:00"
 }
