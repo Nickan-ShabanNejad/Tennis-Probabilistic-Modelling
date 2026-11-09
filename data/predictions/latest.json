@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-09T04:22:48+00:00",
- "generated_at_local": "Sun Nov 08, 23:22",
+ "generated_at": "2026-11-09T04:29:52+00:00",
+ "generated_at_local": "Sun Nov 08, 23:29",
  "settings": {
   "strategy": "market",
   "min_ev": 0.02,
@@ -1586,7 +1586,7 @@
    "credits_remaining": "17766",
    "credits_used": "2234"
   },
-  "odds_fetched_ts": 1794198138.226623,
+  "odds_fetched_ts": 1794198562.014621,
   "matchstat_odds": {
    "ok": true,
    "fixtures_checked": 10,
