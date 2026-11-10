@@ -1,21 +1,21 @@
-name: Daily data refresh, settlement and retrain
+name: Daily data refresh and retrain
 
 on:
   schedule:
-    - cron: "20 8 * * *"      # 08:20 UTC every day (after the night's results are in)
+    - cron: "20 8 * * *"      # 08:20 UTC (GitHub often starts scheduled jobs late; that's fine here)
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: atp-edge-writer
+  group: atp-edge-daily
   cancel-in-progress: false
 
 jobs:
   daily:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 30       # normally 5-10 minutes
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -24,23 +24,27 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
 
-      - name: Refresh data and settle yesterday's bets
+      - name: Refresh results, rankings and court speed
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: python scripts/update_data.py
 
-      - name: Retrain ratings and models
+      - name: Rebuild ratings and retrain
         run: python scripts/train.py
 
       - name: Tests
         run: pytest -q
 
+      # data/predictions belongs to the live-prices job (it also settles bets), so the two never conflict.
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data model
+          git add -A data model ':!data/predictions'
           git diff --cached --quiet && exit 0
           git commit -m "Daily refresh $(date -u +%F)"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            sleep $((i * 10))
+          done
+          exit 1
