@@ -92,9 +92,9 @@ def runtime() -> Runtime:
     return _runtime(_artifact_stamp()[:2])
 
 
-@st.fragment(run_every="10m")
+@st.fragment(run_every="2m")
 def auto_refresh() -> None:
-    """Re-run the page when the hourly job has published a new slate (checked every 10 min)."""
+    """Re-run the page when the live-prices job has published new prices (checked every 2 min)."""
     stamp = _artifact_stamp()
     if st.session_state.get("_stamp") is None:
         st.session_state["_stamp"] = stamp
@@ -146,7 +146,7 @@ def keys_available() -> bool:
 @st.cache_data(ttl=600, show_spinner="Fetching live fixtures and prices…")
 def live_inputs(_nonce: int):
     from atp_edge.live import collect
-    fixtures, odds_events, status = collect(runtime(), demo=False)
+    fixtures, odds_events, status = collect(runtime(), demo=False, persist=False)
     return fixtures, odds_events, status, time.time()
 
 
@@ -168,7 +168,9 @@ def load_inputs() -> tuple[list, list, dict, str, bool]:
     if LATEST_PATH.exists():
         data = json.loads(LATEST_PATH.read_text())
         inp = data.get("inputs") or {}
-        label = "automated run " + str(data.get("generated_at_local", ""))
+        ts = (data.get("sources") or {}).get("refreshed_ts")
+        label = ("prices checked " + datetime.fromtimestamp(float(ts), tz=TZ).strftime("%a %H:%M")) if ts else \
+            "automated run " + str(data.get("generated_at_local", ""))
         return inp.get("fixtures", []), inp.get("odds_events", []), data.get("sources", {}), label, bool(data.get("demo"))
     return [], [], {}, "no data yet", False
 
@@ -178,6 +180,17 @@ def current_slate(settings: Settings) -> tuple[dict, str, bool]:
     slate = build_slate(runtime(), f, o, settings)
     slate["sources"] = status
     return slate, label, demo
+
+
+def age_text(ts) -> str:
+    """'4 min ago' for a price timestamp."""
+    try:
+        mins = (time.time() - float(ts)) / 60
+    except (TypeError, ValueError):
+        return ""
+    if mins < 1:
+        return "just now"
+    return f"{mins:.0f} min ago" if mins < 90 else f"{mins / 60:.0f} h ago"
 
 
 def level_name(code) -> str:

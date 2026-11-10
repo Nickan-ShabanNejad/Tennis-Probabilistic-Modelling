@@ -5,8 +5,8 @@ main-draw singles match (Grand Slams, ATP Finals, Masters, 500, 250, plus Davis
 Cup / team events which are kept for ratings but never bet on).
 
 Cleaning rules (each one fixed a real bug in the previous repository):
-* ITF / Challenger / qualifying rows are removed: the archive is main-draw tour
-  level only, so mixing them in makes recent form non-comparable.
+* ITF and qualifying rows are removed. Challenger rows are kept (level "C") for
+  ratings and form only; the model is trained and bets only on tour-level matches.
 * The same match reported by two providers (TML dates = tournament start,
   Matchstat dates = match day) is de-duplicated with a +-14 day window and fuzzy
   player names ("Jaume Antoni Munar Clar" == "Jaume Munar").
@@ -90,7 +90,7 @@ def dedupe(frame: pd.DataFrame, window_days: int = 14) -> tuple[pd.DataFrame, in
                     break
                 pairs.add((min(a, b), max(a, b)))
     drop: set[int] = set()
-    fill: dict[int, list[int]] = {}
+    keeps, loses = [], []
     for a, b in sorted(pairs):
         if a in drop or b in drop:
             continue
@@ -98,13 +98,19 @@ def dedupe(frame: pd.DataFrame, window_days: int = 14) -> tuple[pd.DataFrame, in
             continue  # same provider, different round/event = a genuine rematch
         keep, lose = (a, b) if stats[a] >= stats[b] else (b, a)
         drop.add(lose)
-        fill.setdefault(keep, []).append(lose)
-    for keep, losers in fill.items():
-        for lose in losers:
-            missing = df.loc[keep].isna()
-            cols = missing[missing].index
-            if len(cols):
-                df.loc[keep, cols] = df.loc[lose, cols].values
+        keeps.append(keep)
+        loses.append(lose)
+    if keeps:
+        # Fill the kept row's gaps from its duplicate, one column at a time (vectorised;
+        # the old row-by-row version took ~30 minutes on the full archive).
+        k = np.array(keeps[::-1])   # reversed so the first duplicate wins when a row has several
+        lo = np.array(loses[::-1])
+        for col in df.columns:
+            vals = df[col].to_numpy(dtype=object, copy=True)
+            miss = pd.isna(vals[k]) & ~pd.isna(vals[lo])
+            if miss.any():
+                vals[k[miss]] = vals[lo[miss]]
+                df[col] = pd.Series(vals, index=df.index).infer_objects()
     return df.drop(index=list(drop)).reset_index(drop=True), len(drop)
 
 

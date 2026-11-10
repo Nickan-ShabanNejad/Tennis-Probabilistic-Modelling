@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT / "src"))
     ("HSBC Championships - London", "queens club", "500"), ("Wimbledon", "wimbledon", "G"),
     ("ATP Shanghai Masters", "shanghai", "M"), ("Kinoshita Group Japan Open", "tokyo", "500"),
     ("BNP Paribas Nordic Open - Stockholm", "stockholm", "250"), ("BNP Paribas Open - Indian Wells", "indian wells", "M"),
-    ("Rolex Paris Masters - Paris", "paris masters", "M"), ("Mubadala Citi DC Open - Washington", "washington", "500"),
+    ("Rolex Paris Masters - Paris", "paris masters", "M"), ("ATP Finals", "atp finals", "F"), ("finals", "atp finals", "F"), ("Mubadala Citi DC Open - Washington", "washington", "500"),
 ])
 def test_tournament_resolution(name, key, level):
     from atp_edge.tournaments import resolve
@@ -256,3 +256,94 @@ def test_matchstat_odds_real_payload():
     payload = json.loads((Path(__file__).parent / "matchstat_odds_sample.json").read_text())["payload"]
     ml = parse_moneylines(payload)
     assert ml["pinnacle"] == (1.323, 3.66) and ml["bet365"] == (1.3, 3.5) and len(ml) == 4
+
+
+# ------------------------------------------------------------------ live prices
+def test_dedupe_fills_gaps_from_duplicate():
+    from atp_edge.data import KEEP_COLS, dedupe
+    base = {c: np.nan for c in KEEP_COLS}
+    a = {**base, "tourney_name": "Paris Masters", "tourney_date": 20261102, "winner_name": "Jannik Sinner",
+         "loser_name": "Carlos Alcaraz", "score": "6-4 6-4", "data_source": "TennisMyLife", "w_ace": 9.0, "w_df": 1.0, "minutes": 90.0}
+    b = {**base, "tourney_name": "Rolex Paris Masters", "tourney_date": 20261108, "winner_name": "J. Sinner",
+         "loser_name": "C. Alcaraz", "score": "6-4 6-4", "data_source": "Matchstat", "w_ace": 9.0, "winner_rank": 1.0}
+    out, n = dedupe(pd.DataFrame([a, b]))
+    assert n == 1 and len(out) == 1
+    assert out.loc[0, "w_df"] == 1.0 and out.loc[0, "winner_rank"] == 1.0   # gaps filled from the duplicate
+
+
+def test_price_refresh_gets_faster_near_the_start(monkeypatch):
+    from atp_edge.live import is_due, refresh_minutes
+    monkeypatch.delenv("PRICE_INTERVAL_MINUTES", raising=False)
+    assert refresh_minutes(1) == 10 and refresh_minutes(6) == 30 and refresh_minutes(30) == 120
+    now = time.time()
+    assert is_due(None, now + 3600, now)
+    assert is_due(now - 11 * 60, now + 3600, now)          # 1 h out, 11 min old -> refresh
+    assert not is_due(now - 11 * 60, now + 20 * 3600, now)  # 20 h out -> wait for 2 h
+
+
+def test_matchstat_budget_spreads_quota_and_keeps_reserve():
+    from atp_edge.live import matchstat_budget
+    now = time.time()
+    assert matchstat_budget({}, now) == 40
+    assert matchstat_budget({"limit": 10000, "remaining": 200, "reset_s": 86400, "at": now}, now) == 0
+    # 2,000 spare calls over 10 days of 10-minute runs -> about 1 call per run
+    assert matchstat_budget({"limit": 2000, "remaining": 2300, "reset_s": 10 * 86400, "at": now}, now) == 1
+    assert matchstat_budget({"limit": 100000, "remaining": 90000, "reset_s": 86400, "at": now}, now) == 40
+
+
+def test_collect_only_pulls_prices_that_are_due(tmp_path, monkeypatch):
+    from atp_edge import live, odds_api
+    from atp_edge.tournaments import resolve
+    monkeypatch.setattr(live, "CACHE_PATH", tmp_path / "cache.json")
+    monkeypatch.setenv("ODDS_API_KEY", "test")
+    monkeypatch.delenv("RAPIDAPI_KEY", raising=False)
+    now = time.time()
+    calls = []
+
+    class FakeAPI:
+        remaining, used = "15000", "5000"
+        def __init__(self, *a, **k): pass
+        def atp_sports(self):
+            return [{"key": "tennis_atp_finals", "title": "ATP Finals", "event": resolve("ATP Finals")}]
+        def odds(self, key, slam=False):
+            calls.append(key)
+            return [{"id": "e1", "home_team": "Jannik Sinner", "away_team": "Carlos Alcaraz", "commence_time": now + 3600,
+                     "bookmakers": [{"key": "pinnacle", "markets": [{"key": "h2h", "outcomes": [
+                         {"name": "Jannik Sinner", "price": 1.8}, {"name": "Carlos Alcaraz", "price": 2.1}]}]}]}]
+    monkeypatch.setattr(odds_api, "OddsAPI", FakeAPI)
+    f, o, s = live.collect(None)
+    assert calls == ["tennis_atp_finals"] and o[0]["prices_a"]["pinnacle"] == 1.8 and o[0]["prices_ts"]
+    live.collect(None)                                   # 0 s later: cached, no credit spent
+    assert len(calls) == 1
+    monkeypatch.setattr(live.time, "time", lambda: now + 11 * 60)
+    live.collect(None)                                   # match 1 h away, prices 11 min old: refresh
+    assert len(calls) == 2
+
+
+def test_logged_bet_tracks_line_moves(tmp_path, monkeypatch):
+    from atp_edge import tracking
+    monkeypatch.setattr(tracking, "PRED_LOG", tmp_path / "p.csv")
+    monkeypatch.setattr(tracking, "BETS_LOG", tmp_path / "b.csv")
+    start = time.time() + 7200
+    def slate(price, rec):
+        return {"matches": [{"player_a": "Carlos Alcaraz", "player_b": "Jannik Sinner", "start_ts": start, "event": "ATP Finals",
+                             "level": "F", "surface": "Hard", "p_model_a": 0.55, "p_fair_a": 0.55, "p_market_a": 0.45,
+                             "best_a": price, "best_book_a": "bet365", "best_b": 1.7, "best_book_b": "bet365", "strategy": "model",
+                             "recommendation": {"market": "Moneyline", "selection": "Carlos Alcaraz", "price": price, "book": "bet365",
+                                                "probability": 0.55, "ev": 0.55 * price - 1, "stake": 0.01} if rec else None}]}
+    r = tracking.record(slate(2.20, True))
+    assert r["new_bets"] == 1 and r["new_bet_rows"][0]["price"] == 2.20
+    r = tracking.record(slate(1.85, False))              # price shortened, no longer a bet
+    assert r["new_bets"] == 0
+    b = pd.read_csv(tmp_path / "b.csv")
+    assert b.loc[0, "price"] == 2.20 and b.loc[0, "price_now"] == 1.85
+    assert not bool(b.loc[0, "signal_now"]) and b.loc[0, "ev_now"] == pytest.approx(0.55 * 1.85 - 1)
+
+
+def test_slate_fingerprint_ignores_timestamps():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from live_loop import slate_fingerprint
+    m = {"player_a": "A", "player_b": "B", "start_ts": 1, "p_model_a": 0.6, "prices_a": {"x": 1.5}, "prices_b": {"x": 2.6}}
+    a = slate_fingerprint({"generated_at": "t1", "matches": [m]})
+    assert a == slate_fingerprint({"generated_at": "t2", "matches": [dict(m)]})
+    assert a != slate_fingerprint({"matches": [{**m, "prices_a": {"x": 1.45}}]})

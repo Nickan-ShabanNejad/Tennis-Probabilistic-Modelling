@@ -109,6 +109,13 @@ class CourtSpeed:
         Returns (speed, n_seasons). n_seasons = 0 means the surface default.
         """
         key = canonical(tournament)
+        cache = self.__dict__.setdefault("_prior_cache", {})   # (table is fixed for the object's lifetime)
+        hit = cache.get((key, surface, season))
+        if hit is None:
+            hit = cache[(key, surface, season)] = self._prior(key, surface, season)
+        return hit
+
+    def _prior(self, key: str, surface: str, season: int) -> tuple[float, int]:
         hist = [(y, v) for y, v in self._by_event.get((key, surface), []) if y < season]
         if not hist:
             return self.surface_default.get(surface, 1.0), 0

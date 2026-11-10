@@ -7,6 +7,7 @@ fixtures, odds, historical results and court-speed ratings all line up.
 from __future__ import annotations
 
 import re
+from functools import lru_cache
 import unicodedata
 from dataclasses import dataclass
 
@@ -123,11 +124,16 @@ CHALLENGER = re.compile(r"(challenger|\bch\s?\d{2,3}\b)", re.I)
 QUALIFYING = re.compile(r"(qualif|\bq[123]\b|^q\d?$)", re.I)
 
 
-def normalize(text) -> str:
+@lru_cache(maxsize=200000)
+def _normalize_cached(text: str) -> str:
     text = unicodedata.normalize("NFKD", str(text or ""))
     text = "".join(ch for ch in text if not unicodedata.combining(ch))
     text = re.sub(r"[^a-zA-Z0-9]+", " ", text).strip().lower()
     return " ".join(text.split())
+
+
+def normalize(text) -> str:
+    return _normalize_cached(str(text or ""))
 
 
 def _event_text(name) -> str:
@@ -137,6 +143,11 @@ def _event_text(name) -> str:
 
 
 def resolve(name) -> Event | None:
+    return _resolve_cached(str(name or ""))
+
+
+@lru_cache(maxsize=50000)
+def _resolve_cached(name: str) -> Event | None:
     """Map any provider tournament name to a registry event (or None).
 
     Provider names often look like "<sponsor name> - <city>". Sponsors are shared
@@ -160,6 +171,9 @@ def resolve(name) -> Event | None:
     # Plain "Paris" with no other context is the Paris Masters.
     if _event_text(raw).strip() == "paris":
         return EVENTS["paris masters"]
+    # "ATP Finals" loses its "atp" token in _event_text; The Odds API calls it exactly that.
+    if _event_text(raw).strip() == "finals":
+        return EVENTS["atp finals"]
     return None
 
 
@@ -178,6 +192,11 @@ def _best(text: str) -> Event | None:
 
 
 def canonical(name) -> str:
+    return _canonical_cached(str(name or ""))
+
+
+@lru_cache(maxsize=50000)
+def _canonical_cached(name: str) -> str:
     """Stable key for any tournament name; registry key when known."""
     ev = resolve(name)
     if ev is not None:

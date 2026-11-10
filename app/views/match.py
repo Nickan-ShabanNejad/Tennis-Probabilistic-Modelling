@@ -10,7 +10,7 @@ import streamlit as st  # noqa: E402
 
 from atp_edge.betting import kelly_stake  # noqa: E402
 from atp_edge.narrative import cached_preview, template_preview  # noqa: E402
-from common import badge, current_slate, esc, level_name, local_time, settings_sidebar, setup  # noqa: E402
+from common import age_text, badge, current_slate, esc, level_name, local_time, settings_sidebar, setup  # noqa: E402
 
 setup("Match detail")
 settings = settings_sidebar()
@@ -106,6 +106,10 @@ with tab_prices:
             "Margin": st.column_config.NumberColumn("Bookmaker margin", format="percent")})
     else:
         st.info("No prices yet.")
+    if m.get("prices_ts"):
+        st.caption(f"Prices from {m.get('odds_source') or 'the books'}, updated {age_text(m['prices_ts'])}. "
+                   "They refresh automatically: every 10 minutes in the last 3 hours before the start, "
+                   "every 30 minutes before that, every 2 hours a day or more out.")
     with st.container(border=True):
         st.markdown("**💱 Check your price**")
         x1, x2 = st.columns(2)

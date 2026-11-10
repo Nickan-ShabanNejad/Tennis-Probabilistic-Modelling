@@ -269,6 +269,7 @@ def build_slate(rt: Runtime, fixtures: list[dict], odds_events: list[dict], sett
             cur["prices_a"], cur["prices_b"] = o.get("prices_b", {}), o.get("prices_a", {})
         cur["sets35"] = o.get("sets35", {})
         cur["odds_event_id"] = o.get("odds_event_id")
+        cur["prices_ts"], cur["odds_source"] = o.get("prices_ts"), o.get("source", "the-odds-api")
         if not cur.get("start_ts"):
             cur["start_ts"] = o.get("start_ts")
     preds, skipped = [], []
@@ -284,6 +285,7 @@ def build_slate(rt: Runtime, fixtures: list[dict], odds_events: list[dict], sett
         p = rt.predict(f["player_a"], f["player_b"], f.get("tournament", ""), ts, f.get("round", ""),
                        f.get("prices_a"), f.get("prices_b"), f.get("sets35"), st)
         p["fixture_id"] = f.get("id") or f.get("odds_event_id")
+        p["prices_ts"], p["odds_source"] = f.get("prices_ts"), f.get("odds_source") or f.get("source")
         (preds if p["status"] == "ok" else skipped).append(p)
     preds.sort(key=lambda r: (r.get("start_ts") or 0))
     return {

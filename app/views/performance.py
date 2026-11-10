@@ -24,7 +24,7 @@ bets = pd.read_csv(BETS_LOG) if BETS_LOG.exists() else pd.DataFrame()
 if not bets.empty and "strategy" in bets.columns:
     bets = bets[bets["strategy"].fillna("model") == "model"]
 if bets.empty:
-    st.info("No bets yet. The hourly job logs a bet whenever the model's price passes the EV and edge thresholds.")
+    st.info("No bets yet. The live-prices job (every 10 minutes) logs a bet whenever a price passes the EV and edge thresholds.")
     st.stop()
 
 for c in ("result", "pl_units", "closing_price", "clv"):
@@ -77,6 +77,30 @@ if len(done):
         "staked": st.column_config.NumberColumn("staked (bankroll)", format="percent"),
         "profit": st.column_config.NumberColumn("profit (bankroll)", format="percent"),
         "roi": st.column_config.NumberColumn(format="percent"), "clv": st.column_config.NumberColumn(format="percent")})
+
+if not open_.empty:
+    st.markdown("#### ⏳ Open bets: how the price has moved")
+    o = open_.sort_values("start_ts").copy()
+    o["start"] = o["start"].dt.strftime("%a %H:%M")
+    for c in ("price_now", "book_now", "ev_now", "signal_now", "checked_at"):
+        if c not in o.columns:
+            o[c] = np.nan
+    pn = pd.to_numeric(o["price_now"], errors="coerce")
+    o["move"] = (pn / o["price"] - 1).where(pn.notna())
+    o["status"] = [("✅ still a bet" if str(sig).lower() == "true" else "⚠️ no longer a bet") if pd.notna(pnow) else "–"
+                   for sig, pnow in zip(o["signal_now"], pn)]
+    o["stake CA$"] = o["stake"] * bankroll
+    st.dataframe(o[["start", "tournament", "selection", "price", "book", "price_now", "book_now", "move", "ev_now", "status", "stake", "stake CA$"]],
+                 hide_index=True, use_container_width=True, column_config={
+                     "price": st.column_config.NumberColumn("price when flagged", format="%.2f"),
+                     "price_now": st.column_config.NumberColumn("best price now", format="%.2f"),
+                     "book_now": st.column_config.TextColumn("book now"),
+                     "move": st.column_config.NumberColumn("price move", format="percent"),
+                     "ev_now": st.column_config.NumberColumn("EV now", format="percent"),
+                     "stake": st.column_config.NumberColumn("stake (Kelly)", format="percent"),
+                     "stake CA$": st.column_config.NumberColumn(format="$%.2f")})
+    st.caption("Checked every 10 minutes until the match starts. Results and CLV always use the price when the bet "
+               "was first flagged; if it has dropped, only bet it if 'still a bet' shows.")
 
 st.markdown("#### Bet log")
 show = bets.sort_values("start_ts", ascending=False).copy()

@@ -7,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 import pandas as pd  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from common import (badge, bar, current_slate, esc, keys_available, kpi, level_name, local_time,  # noqa: E402
+from common import (age_text, badge, bar, current_slate, esc, keys_available, kpi, level_name, local_time,  # noqa: E402
                     runtime, settings_sidebar, setup)
 
 setup("ATP Edge")
@@ -26,7 +26,7 @@ bench = rt.metrics.get("market_benchmark", {})
 st.markdown(
     '<div class="hero"><h1>🎾 ATP Edge</h1><div class="sub">Men\'s singles · ATP 250 / 500 / Masters 1000 / '
     'Grand Slams / ATP Finals · fair odds, value bets and Grand Slam total sets</div></div>'
-    + badge(f"Data: {label}", "")
+    + badge(f"{label} · auto-refresh every 10 min", "ok" if "prices checked" in label else "")
     + badge(f"Ratings to {rt.metrics.get('latest_match_date', '?')}", "")
     + badge(f"Bets: EV ≥ {settings.min_ev:.0%} · edge ≥ {settings.min_edge:.0%}", "blue")
     + (badge("DEMO · synthetic prices", "bad") if demo else ""),
@@ -111,7 +111,9 @@ for t_i, (event, grp) in enumerate(df.groupby("event", sort=False)):
             c[1].markdown(f'**{esc(m["player_a"])}**{inj} <span class="muted">{pa:.0%}</span> vs **{esc(m["player_b"])}**{injb} '
                           f'<span class="muted">{1 - pa:.0%}</span>{bar(pa)}', unsafe_allow_html=True)
             ba, bb = m.get("best_a"), m.get("best_b")
-            c[2].markdown(f"{ba:.2f} / {bb:.2f}" if pd.notna(ba) and pd.notna(bb) and ba and bb else '<span class="muted">no price</span>', unsafe_allow_html=True)
+            age = age_text(m.get("prices_ts")) if pd.notna(m.get("prices_ts")) else ""
+            c[2].markdown((f"{ba:.2f} / {bb:.2f}" + (f'<br><span class="muted">{esc(age)}</span>' if age else ""))
+                          if pd.notna(ba) and pd.notna(bb) and ba and bb else '<span class="muted">no price</span>', unsafe_allow_html=True)
             c[3].markdown(f"{m['fair_odds_a']:.2f} / {m['fair_odds_b']:.2f}")
             r = m.get("recommendation")
             sets = m.get("sets") if isinstance(m.get("sets"), dict) else {}

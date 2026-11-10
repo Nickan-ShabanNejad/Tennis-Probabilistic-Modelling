@@ -1,7 +1,7 @@
 """Written match previews.
 
 * ``template_preview`` - always available, built from the model's own numbers.
-* ``ai_previews`` - optional. With an ANTHROPIC_API_KEY secret, the hourly job asks
+* ``ai_previews`` - optional. With an ANTHROPIC_API_KEY secret, the live job asks
   Claude (Haiku) to write a short preview from the same facts. Previews are cached
   in data/predictions/previews.json and only regenerated when the numbers move, so
   the cost is a fraction of a cent per match.
@@ -100,7 +100,10 @@ def ai_previews(matches: list[dict], max_new: int = 30) -> dict:
     fresh = {}
     for m in matches:
         mid = match_id(m)
-        sig = f"{m['p_model_a']:.2f}|{m.get('p_market_a') and round(m['p_market_a'], 2)}|{bool(m.get('recommendation'))}"
+        # Coarse signature: prices now refresh every 10 minutes, and a preview is only rewritten
+        # when the picture really changes (5-point moves or a bet appearing/disappearing).
+        pm = m.get("p_market_a")
+        sig = f"{round(m['p_model_a'] * 20)}|{None if pm is None else round(pm * 20)}|{bool(m.get('recommendation'))}"
         old = cache.get(mid)
         if old and old.get("sig") == sig:
             fresh[mid] = old

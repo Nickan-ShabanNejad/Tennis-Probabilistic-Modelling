@@ -179,6 +179,10 @@ def fetch_event_odds(client, event_id, want_sets: bool = False) -> dict:
         ml = parse_moneylines(payload)
         if not ml and payload:
             _save_sample(path, payload)
+        if not ml and path.endswith(f"pre-match/{event_id}"):
+            # The main endpoint answered but has no lines yet (usually: too early). Don't spend
+            # two more calls on the fallbacks; the scheduler retries later.
+            return {"prices_a": {}, "prices_b": {}, "sets35": {}, "errors": []}
         if ml:
             return {"prices_a": {k: v[0] for k, v in ml.items()}, "prices_b": {k: v[1] for k, v in ml.items()},
                     "sets35": parse_sets35(payload) if want_sets else {}, "source": path.split("/api/")[-1].split("/")[0] + ":" + path.split("/")[-2]}
@@ -188,8 +192,8 @@ def fetch_event_odds(client, event_id, want_sets: bool = False) -> dict:
 def _save_sample(path: str, payload: Any) -> None:
     """Keep one unparsed payload so an unexpected response shape can be diagnosed from the repo."""
     import json
-    from .config import GENERATED
-    target = GENERATED / "matchstat_odds_sample.json"
+    from .config import PREDICTIONS
+    target = PREDICTIONS / "matchstat_odds_sample.json"
     try:
         if not target.exists():
             target.write_text(json.dumps({"endpoint": path, "payload": payload}, default=str)[:60000])

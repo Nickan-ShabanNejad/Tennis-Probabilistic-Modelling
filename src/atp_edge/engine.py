@@ -196,7 +196,7 @@ class Engine:
     # --------------------------------------------------------------- states
     def _window(self, p: Player, key: str, n: int, default: float, surface: str | None = None) -> float:
         vals = [m[key] for m in list(p.hist)[::-1] if (surface is None or m["surface"] == surface) and m.get(key) is not None][:n]
-        return float(np.mean(vals)) if vals else default
+        return float(sum(vals) / len(vals)) if vals else default
 
     def state(self, p: Player, surface: str, when: date, level: str, best_of: int, event: str, speed: float,
               indoor: bool = False) -> dict:

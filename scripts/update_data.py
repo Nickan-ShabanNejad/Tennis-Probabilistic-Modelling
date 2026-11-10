@@ -1,4 +1,4 @@
-"""Daily data refresh: results, rankings, court speed, closing odds; then settle bets.
+"""Daily data refresh: results, rankings, court speed, closing odds.
 
 Runs in GitHub Actions (see .github/workflows/daily.yml). Every source is
 best-effort: a failure is reported in data/generated/data_status.json and the
@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import pandas as pd  # noqa: E402
 
-from atp_edge import court_speed, odds_history, tracking  # noqa: E402
+from atp_edge import court_speed, odds_history  # noqa: E402
 from atp_edge.config import GENERATED, secret  # noqa: E402
 from atp_edge.data import build_database, fetch_tml_years, load_matches  # noqa: E402
 from atp_edge.rankings import RANKINGS_PATH  # noqa: E402
@@ -58,7 +58,7 @@ def main() -> int:
 
     matches, report = build_database(extra)
     status["database"] = report
-    status["settlement"] = tracking.settle(matches)
+    # Bets are settled by the live-prices job as soon as this commit lands.
     status["finished_utc"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     (GENERATED / "data_status.json").write_text(json.dumps(status, indent=2, default=str))
     print(json.dumps(status, indent=2, default=str))

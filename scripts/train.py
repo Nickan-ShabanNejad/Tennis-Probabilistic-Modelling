@@ -1,6 +1,6 @@
 """Rebuild ratings from the full match history and retrain every model.
 
-    python scripts/train.py            # ~2-4 minutes
+    python scripts/train.py            # ~2 minutes
 """
 import json
 import sys
@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from atp_edge.court_speed import CourtSpeed  # noqa: E402
-from atp_edge.data import build_database  # noqa: E402
+from atp_edge.data import load_matches  # noqa: E402
 from atp_edge.engine import Engine  # noqa: E402
 from atp_edge.history import replay  # noqa: E402
 from atp_edge.modeling import train_all  # noqa: E402
@@ -17,7 +17,9 @@ from atp_edge.rankings import apply_current_rankings  # noqa: E402
 
 
 def main():
-    matches, report = build_database()
+    # update_data.py has just rebuilt the database; don't rebuild it a second time.
+    matches = load_matches()
+    report = {"matches": int(len(matches)), "latest_date": str(int(matches["tourney_date"].max()))}
     print("data:", report, flush=True)
     engine = Engine(CourtSpeed())
     rows = replay(matches, engine)

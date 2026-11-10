@@ -9,10 +9,10 @@ Men's singles betting model for every **ATP 250, ATP 500, Masters 1000, Grand Sl
 ```
 pip install -r requirements.txt
 streamlit run app/streamlit_app.py      # the app (sidebar → "Demo data" works without keys)
-python scripts/run_slate.py             # predict upcoming matches + log bets   (needs keys)
-python scripts/update_data.py           # refresh results, rankings, court speed; settle bets
-python scripts/train.py                 # rebuild ratings + retrain all models (~3 min)
-pytest -q                               # 32 tests
+python scripts/live_loop.py --once      # one refresh: prices, predictions, bet log  (needs keys)
+python scripts/update_data.py           # refresh results, rankings, court speed
+python scripts/train.py                 # rebuild ratings + retrain all models (~2 min)
+pytest -q                               # 47 tests
 ```
 
 ## Set it up (about 15 minutes)
@@ -24,8 +24,8 @@ pytest -q                               # 32 tests
    - `ODDS_API_KEY`: your key from the-odds-api.com
 3. **Let the workflows write to the repo:** **Settings → Actions → General → Workflow permissions →
    Read and write**.
-4. **Run each workflow once by hand:** **Actions → "Daily data refresh…" → Run workflow**, then **Actions → "Live slate…" → Run workflow**.
-   After that they run on their own schedule.
+4. **Run each workflow once by hand:** **Actions → "Daily data refresh…" → Run workflow**, then **Actions → "Live prices…" → Run workflow**.
+   After that they run by themselves.
 5. **Deploy the app** on share.streamlit.io: choose the repo, set the main file to `app/streamlit_app.py`, and paste
    both keys into the app's **Secrets** box (format in `.streamlit/secrets.toml.example`).
 
@@ -33,19 +33,38 @@ pytest -q                               # 32 tests
 
 | Workflow | When | What it does |
 |---|---|---|
-| `daily.yml` | 08:20 UTC daily | New results (TennisMyLife and Matchstat), rankings, the court speed index (Tennis Abstract) and closing odds; settles yesterday's bets; rebuilds ratings and retrains every model; runs the tests; commits everything |
-| `slate.yml` | Every hour | Pulls upcoming fixtures (Matchstat) and prices (The Odds API); predicts every match in the next 48 hours; logs predictions and recommended bets with a timestamp before the match starts; snapshots prices hourly so the last one before the start serves as the closing price for CLV |
+| `slate.yml` (Live prices) | Always on: a refresh every 10 minutes | Fixtures (Matchstat) and prices (The Odds API, Matchstat as fallback); predicts every match in the next 48 hours; logs new bets the moment a price passes the rule; tracks each logged bet's price until the start; settles finished bets; optional phone alert per new bet |
+| `daily.yml` | Once a day (08:20 UTC, often later) | New results (TennisMyLife, Matchstat), rankings, court speed (Tennis Abstract) and closing odds; rebuilds ratings and retrains every model; runs the tests. About 5–10 minutes |
 
-**The Odds API quota:** each price pull costs about 1 credit per active tournament, or 2 during a Slam (moneyline plus sets totals).
-Pulling every hour uses roughly 750–1,500 credits a month, which needs a paid plan. To stay on the free 500-credit plan,
-add a repo **variable** (Settings → Secrets and variables → Actions → Variables) `ODDS_REFRESH_HOURS` = `4`. Predictions
-and fixtures still refresh hourly; prices are reused between pulls. To also compare North American books (FanDuel,
-DraftKings, BetMGM, …), add a variable `ODDS_API_REGIONS` = `eu,us`. This doubles the cost.
+**How prices stay current.** GitHub's timer is unreliable (an "hourly" job really ran 3–4 times a day), so the live
+job doesn't depend on it: each run refreshes every 10 minutes for about 50 minutes and then starts the next run itself.
+The hourly schedule is only a backup that restarts it if it ever stops. When nothing starts within 24 hours (off-season),
+it stops after one check, and the backup schedule looks again an hour later. To pause it: **Actions → Live prices → ⋯ → Disable workflow**.
 
-**GitHub Actions minutes:** hourly runs use roughly 1,500–1,800 minutes a month. A private repo on the free plan includes 2,000;
-public repos are unlimited.
+Not every price is pulled every 10 minutes. Each match is refreshed by how close it is to the start:
 
-The app checks for a new slate every 10 minutes and reloads itself when the hourly job publishes one.
+| Time to start | Prices refreshed every |
+|---|---|
+| under 3 hours | 10 minutes (`PRICE_INTERVAL_MINUTES`) |
+| 3–12 hours | 30 minutes |
+| more than 12 hours | 2 hours |
+
+**Quotas look after themselves.** The Odds API costs 1 credit per tournament per pull (2 during a Slam, for the sets
+market); at this schedule that's typically 5,000–10,000 credits a month. If fewer than 1,500 credits remain, pulls
+slow to a third; under 300 they stop. Matchstat (RapidAPI) calls are budgeted from the plan usage RapidAPI reports with
+every response: what's left is spread evenly until the plan resets, keeping a reserve for the daily job.
+
+A logged bet always keeps the price at which it was first flagged (that's what results and CLV use). The **Results**
+page also shows each open bet's best price now, the move since it was flagged, and whether it's still a bet.
+
+**Phone alerts (optional).** Install the free **ntfy** app, subscribe to a long random topic name (e.g.
+`atp-edge-7f3k29xq`), and add the same name as a repo secret `NTFY_TOPIC`. Each new bet then arrives as a
+notification with the price, book, EV and stake. A Discord channel webhook works too (`DISCORD_WEBHOOK_URL`).
+
+**GitHub Actions minutes:** the live job runs most of the day. That's free and unlimited on a public repository; on a
+private one it would use far more than the free 2,000 minutes a month.
+
+The app checks for new prices every 2 minutes and reloads itself when the live job publishes them.
 
 ## How a prediction is made
 
@@ -130,14 +149,14 @@ be better, or worse. The live bet log and its CLV are the real test.
 Only the bets the model signals are tracked, each with the ¼-Kelly stake it was given:
 - **Logged before the match**, at the price and book that triggered the signal (never overwritten later).
 - **Settled** the next morning from official results: won / lost, profit in % of bankroll and CA$.
-- **CLV:** price taken × closing no-vig probability − 1. The close is the last hourly Pinnacle snapshot before the
+- **CLV:** price taken × closing no-vig probability − 1. The close is the last Pinnacle snapshot (taken every 10 minutes near the start) before the
   start (or the books' consensus if Pinnacle has none). Positive CLV over a few hundred bets is the earliest reliable sign
   of an edge; the page gives an "edge / no edge / too early" verdict using a two-standard-error rule.
 
 ## Match previews (optional AI)
 
 Every match page has a written preview built from the model's numbers. Add a repo secret `ANTHROPIC_API_KEY`
-(from console.anthropic.com) and the hourly job also asks Claude Haiku to write a 3–4 sentence preview from the same
+(from console.anthropic.com) and the live job also asks Claude Haiku to write a 3–4 sentence preview from the same
 facts. Previews are cached and only rewritten when the numbers move; cost is well under a cent per match.
 
 ## Things to check after your first live run
@@ -160,10 +179,12 @@ src/atp_edge/
   betting.py              no-vig, EV, Kelly, best-of-5 set maths, backtests
   rapidapi.py             Matchstat (RapidAPI) client
   odds_api.py             The Odds API client
-  predict.py / live.py    slate building and recommendations
-  tracking.py             prediction & bet logs, settlement, CLV
+  predict.py              predictions and recommendations
+  live.py                 price scheduler (refresh by time to start, quota budgets)
+  tracking.py             prediction & bet logs, line moves, settlement, CLV
+  notify.py               optional phone alerts (ntfy / Discord)
   injuries.py             manual injury flags
-scripts/                  update_data.py, train.py, run_slate.py
+scripts/                  live_loop.py (live prices), update_data.py + train.py (daily), run_slate.py (one-off / demo)
 data/seed                 match archive 2000–2026 (bootstrap; refreshed daily)
 data/reference            court speed table, injury flags
 data/odds                 historical closing odds (tennis-data.co.uk, evaluation only)

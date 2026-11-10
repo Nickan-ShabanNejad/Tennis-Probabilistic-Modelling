@@ -79,6 +79,18 @@ class MatchstatClient:
         self.min_interval, self.timeout = min_interval, timeout
         self._last = 0.0
         self.calls = 0
+        self.quota: dict = {}   # RapidAPI plan usage from the response headers
+
+    def _read_quota(self, headers) -> None:
+        def num(name):
+            try:
+                return int(float(headers.get(name)))
+            except (TypeError, ValueError):
+                return None
+        limit, remaining = num("x-ratelimit-requests-limit"), num("x-ratelimit-requests-remaining")
+        if remaining is not None:
+            self.quota = {"limit": limit, "remaining": remaining, "reset_s": num("x-ratelimit-requests-reset"),
+                          "at": time.time()}
 
     def get(self, path: str, params: dict | None = None) -> Any:
         last_err = None
@@ -90,11 +102,17 @@ class MatchstatClient:
                 r = self.s.get(f"{BASE}/{path.lstrip('/')}", params=params or {}, timeout=self.timeout)
                 self._last = time.monotonic()
                 self.calls += 1
+                self._read_quota(r.headers)
                 if r.status_code == 429:
                     time.sleep(min(float(r.headers.get("Retry-After", 3 + 3 * attempt)), 30))
                     continue
+                if 400 <= r.status_code < 500:
+                    # Not found / not subscribed: retrying only burns quota.
+                    raise RuntimeError(f"Matchstat request failed {path}: HTTP {r.status_code}")
                 r.raise_for_status()
                 return r.json()
+            except RuntimeError:
+                raise
             except Exception as exc:
                 last_err = exc
                 time.sleep(min(2 ** attempt, 8))

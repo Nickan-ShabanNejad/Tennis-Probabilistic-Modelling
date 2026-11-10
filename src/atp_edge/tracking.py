@@ -96,15 +96,60 @@ def record(slate: dict) -> dict:
             preds = new
         preds = add_lean_clv(preds)
         preds.to_csv(PRED_LOG, index=False)
-    added = 0
+    added, new_bets = 0, []
     if bet_rows:
         new = pd.DataFrame(bet_rows)
         if not bets.empty:
             new = new[~new["bet_id"].isin(bets["bet_id"])]  # first flag (price taken) is never overwritten
         added = len(new)
+        new_bets = new.to_dict("records")
         bets = pd.concat([bets, new], ignore_index=True) if not bets.empty else new
+    moved = track_line_moves(bets, slate, now) if not bets.empty else 0
+    if added or moved:
         bets.to_csv(BETS_LOG, index=False)
-    return {"predictions": len(pred_rows), "new_bets": added}
+    return {"predictions": len(pred_rows), "new_bets": added, "line_moves_tracked": moved, "new_bet_rows": new_bets}
+
+
+def current_view(m: dict, market: str, selection: str) -> tuple:
+    """(best price now, book, EV now, still a bet?) for a logged selection in the latest slate."""
+    if market == "Moneyline":
+        side_a = same_player(selection, m["player_a"])
+        price, book = (m.get("best_a"), m.get("best_book_a")) if side_a else (m.get("best_b"), m.get("best_book_b"))
+        p = m["p_fair_a"] if side_a else 1 - m["p_fair_a"]
+        rec = m.get("recommendation")
+    else:
+        sets = m.get("sets") or {}
+        if not sets.get("available"):
+            return None, None, None, False
+        over = selection.lower().startswith("over")
+        price, book = (sets.get("best_over"), sets.get("best_over_book")) if over else (sets.get("best_under"), sets.get("best_under_book"))
+        p = sets["p_over35"] if over else 1 - sets["p_over35"]
+        rec = sets.get("recommendation")
+    ev = (p * price - 1) if price else None
+    on = bool(rec and normalize(rec["selection"]) == normalize(selection))
+    return price, book, ev, on
+
+
+def track_line_moves(bets: pd.DataFrame, slate: dict, now: float) -> int:
+    """Until the match starts, keep each logged bet's current best price, EV and whether
+    the model would still bet it. The price taken (first flag) is never changed."""
+    by_id = {match_id(m): m for m in slate.get("matches", []) if not m.get("start_ts") or m["start_ts"] > now}
+    for col in ("price_now", "book_now", "ev_now", "signal_now", "checked_at"):
+        if col not in bets.columns:
+            bets[col] = pd.Series([None] * len(bets), index=bets.index, dtype=object)
+        elif col in ("book_now", "signal_now", "checked_at"):
+            bets[col] = bets[col].astype(object)
+    n = 0
+    for i, r in bets.iterrows():
+        m = by_id.get(r["match_id"])
+        if m is None or pd.notna(r.get("result")):
+            continue
+        price, book, ev, on = current_view(m, str(r["market"]), str(r["selection"]))
+        bets.at[i, "price_now"], bets.at[i, "book_now"] = price, book
+        bets.at[i, "ev_now"], bets.at[i, "signal_now"] = ev, on
+        bets.at[i, "checked_at"] = _now()
+        n += 1
+    return n
 
 
 def settle(matches: pd.DataFrame) -> dict:
