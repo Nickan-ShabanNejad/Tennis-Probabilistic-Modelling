@@ -1,21 +1,30 @@
-name: Live slate (predictions + bet log)
+name: Live prices (predictions + bet log)
+
+# Refreshes prices every 10 minutes for matches about to start (less often for later
+# ones), rebuilds every prediction, logs new bets and tracks line moves.
+#
+# GitHub's cron is unreliable (the old hourly job really ran 3-4 times a day), so each
+# run keeps refreshing for ~50 minutes and then starts the next run itself. The
+# schedule below is only a backup that restarts the chain if it ever stops.
+# To pause it: Actions -> this workflow -> "..." -> Disable workflow.
 
 on:
   schedule:
-    - cron: "5 * * * *"       # every hour (fixtures, predictions, closing-line snapshots)
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write          # lets a run start the next one
 
 concurrency:
-  group: atp-edge-writer
+  group: atp-edge-live
   cancel-in-progress: false
 
 jobs:
-  slate:
+  live:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 70
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -24,27 +33,29 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
 
-      - name: Predict upcoming matches and log recommendations
+      - name: Refresh prices, predictions and bet log every few minutes
+        id: loop
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional: AI-written match previews
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}      # optional: AI match previews
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}                    # optional: phone alert for each new bet
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}  # optional: same, to Discord
           MIN_EV: ${{ vars.MIN_EV }}
           MIN_EDGE: ${{ vars.MIN_EDGE }}
+          MIN_EV_SETS: ${{ vars.MIN_EV_SETS }}
           KELLY_FRACTION: ${{ vars.KELLY_FRACTION }}
           KELLY_CAP: ${{ vars.KELLY_CAP }}
           BET_BOOKS: ${{ vars.BET_BOOKS }}
           ODDS_API_REGIONS: ${{ vars.ODDS_API_REGIONS || 'eu' }}
-          # Hours between paid price pulls. 1 = every run. Set the repo variable to 4 to stay on the free plan.
-          ODDS_REFRESH_HOURS: ${{ vars.ODDS_REFRESH_HOURS || '1' }}
-        run: python scripts/run_slate.py
-
-      - name: Commit
+          PRICE_INTERVAL_MINUTES: ${{ vars.PRICE_INTERVAL_MINUTES || '10' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data
-          git diff --cached --quiet && exit 0
-          git commit -m "Slate $(date -u +'%F %H:%M')"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+          python scripts/live_loop.py --minutes 50 --git
+
+      - name: Start the next run
+        if: ${{ !cancelled() && steps.loop.outputs.continue != 'false' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run slate.yml --ref "${GITHUB_REF_NAME}"
