@@ -1,0 +1,1 @@
+{"endpoint": "/tennis/v2/extend/api/odds/pre-match/4760554", "payload": {"success": true, "id": "4760554", "status": "Not Started", "startTimestamp": 1794484800, "player1": {"name": "Alex Michelsen"}, "player2": {"name": "Alejandro Tabilo"}, "tournament": {"name": "BNP Paribas Nordic Open - Stockholm"}, "roundId": 9, "tourType": "atp", "result": null}}
