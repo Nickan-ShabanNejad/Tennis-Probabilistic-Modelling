@@ -1,0 +1,5 @@
+player,severity,until,note
+# severity: 0 = fit, 0.3 = minor niggle, 0.6 = clearly hampered, 1.0 = should not be playing
+# until: YYYY-MM-DD after which the flag is ignored (leave blank to keep it until you remove the row)
+# Example (commented out):
+# Example Player,0.4,2026-11-30,Wrist strapped in last match
