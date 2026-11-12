@@ -1,8 +1,8 @@
 {
-  "trained_at_utc": "2026-11-11T18:09:36+00:00",
-  "latest_match_date": "2026-11-10",
-  "latest_priced_match": "2026-11-10",
-  "training_matches": 67958,
+  "trained_at_utc": "2026-11-12T16:57:26+00:00",
+  "latest_match_date": "2026-11-12",
+  "latest_priced_match": "2026-11-12",
+  "training_matches": 67967,
   "features": [
     "elo_diff",
     "surf_elo_diff",
@@ -69,8 +69,8 @@
   ],
   "selected_model": "logistic_regression",
   "selection_log_loss": {
-    "logistic_regression": 0.5954859315328154,
-    "gradient_boosting": 0.6005054068801606
+    "logistic_regression": 0.5956657125006712,
+    "gradient_boosting": 0.6006393698947097
   },
   "recency_half_life_years": 5.0,
   "market_benchmark": {
@@ -168,7 +168,7 @@
         "year": 2026,
         "matches": 1920,
         "market_source": "market-average close",
-        "model_log_loss": 0.5980927278699278,
+        "model_log_loss": 0.5980927516845224,
         "market_log_loss": 0.5950160672490165,
         "model_accuracy": 0.6802083333333333,
         "market_accuracy": 0.6848958333333334
@@ -180,8 +180,8 @@
     "model_coef": 0.1520769966624189,
     "market_coef": 0.8536155526801363,
     "fitted_matches": 18637,
-    "consensus_model_coef": 0.18657180553976196,
-    "consensus_market_coef": 0.8007585486120579,
+    "consensus_model_coef": 0.18657187133953132,
+    "consensus_market_coef": 0.8007584831550052,
     "consensus_fitted_matches": 20723
   },
   "blend_benchmark": {
@@ -590,14 +590,14 @@
     "note": "Probability source: Pinnacle moneyline when available (else rating model) -> per-set win probability -> P(4+ sets) -> logistic correction. No historical total-sets prices exist in the archive, so betting ROI on this market cannot be backtested; track it live."
   },
   "data": {
-    "matches": 202820,
-    "latest_date": "20261110",
+    "matches": 202871,
+    "latest_date": "20261112",
     "market_history": {
-      "priced_matches": 50386,
+      "priced_matches": 50395,
       "from_archive": 50369,
-      "from_live_log": 17,
-      "latest_priced_match": "2026-11-10"
+      "from_live_log": 26,
+      "latest_priced_match": "2026-11-12"
     },
-    "current_rankings_applied": 496
+    "current_rankings_applied": 497
   }
 }

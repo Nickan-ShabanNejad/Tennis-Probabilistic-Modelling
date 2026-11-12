@@ -1684,62 +1684,63 @@ date,year,tournament,key,surface,ace_pct,speed,source
 2025-10-27,2025,Paris Masters,paris masters,Hard,0.102,0.94,tennis_abstract
 2025-11-02,2025,Athens,athens,Hard,0.145,1.34,tennis_abstract
 2025-11-02,2025,Metz,metz,Hard,0.126,1.31,tennis_abstract
-2025-11-09,2025,Tour Finals,atp finals,Hard,0.1169999999999999,1.44,tennis_abstract
-2025-12-17,2025,Next Gen Finals,next gen finals,Hard,0.1159999999999999,1.26,tennis_abstract
+2025-11-09,2025,Tour Finals,atp finals,Hard,0.11699999999999999,1.42,tennis_abstract
+2025-12-17,2025,Next Gen Finals,next gen finals,Hard,0.11599999999999999,1.26,tennis_abstract
 2026-01-04,2026,Brisbane,brisbane,Hard,0.146,1.17,tennis_abstract
-2026-01-05,2026,United Cup,united,Hard,0.14,1.07,tennis_abstract
-2026-01-05,2026,Hong Kong,hong kong,Hard,0.114,1.06,tennis_abstract
-2026-01-12,2026,Auckland,auckland,Hard,0.118,1.1,tennis_abstract
-2026-01-12,2026,Adelaide,adelaide,Hard,0.098,1.05,tennis_abstract
-2026-01-19,2026,Australian Open,australian open,Hard,0.119,1.12,tennis_abstract
-2026-02-02,2026,Montpellier,montpellier,Hard,0.198,1.49,tennis_abstract
+2026-01-05,2026,Hong Kong,hong kong,Hard,0.11699999999999999,1.12,tennis_abstract
+2026-01-05,2026,United Cup,united,Hard,0.14,1.08,tennis_abstract
+2026-01-12,2026,Auckland,auckland,Hard,0.11800000000000001,1.11,tennis_abstract
+2026-01-12,2026,Adelaide,adelaide,Hard,0.098,1.04,tennis_abstract
+2026-01-19,2026,Australian Open,australian open,Hard,0.11900000000000001,1.12,tennis_abstract
+2026-02-02,2026,Montpellier,montpellier,Hard,0.201,1.53,tennis_abstract
 2026-02-09,2026,Dallas,dallas,Hard,0.165,1.45,tennis_abstract
-2026-02-09,2026,Rotterdam,rotterdam,Hard,0.111,0.89,tennis_abstract
-2026-02-09,2026,Buenos Aires,buenos aires,Clay,0.046,0.52,tennis_abstract
-2026-02-16,2026,Delray Beach,delray beach,Hard,0.136,1.31,tennis_abstract
-2026-02-16,2026,Rio de Janeiro,rio de janeiro,Clay,0.0819999999999999,0.97,tennis_abstract
-2026-02-16,2026,Doha,doha,Hard,0.091,0.89,tennis_abstract
+2026-02-09,2026,Rotterdam,rotterdam,Hard,0.111,0.9,tennis_abstract
+2026-02-09,2026,Buenos Aires,buenos aires,Clay,0.044000000000000004,0.54,tennis_abstract
+2026-02-16,2026,Delray Beach,delray beach,Hard,0.136,1.32,tennis_abstract
+2026-02-16,2026,Rio de Janeiro,rio de janeiro,Clay,0.085,0.95,tennis_abstract
+2026-02-16,2026,Doha,doha,Hard,0.091,0.88,tennis_abstract
 2026-02-23,2026,Dubai,dubai,Hard,0.159,1.29,tennis_abstract
-2026-02-23,2026,Acapulco,acapulco,Hard,0.122,1.1,tennis_abstract
-2026-02-23,2026,Santiago,santiago,Clay,0.077,0.81,tennis_abstract
+2026-02-23,2026,Acapulco,acapulco,Hard,0.122,1.11,tennis_abstract
+2026-02-23,2026,Santiago,santiago,Clay,0.076,0.81,tennis_abstract
 2026-03-04,2026,Indian Wells Masters,indian wells,Hard,0.114,1.16,tennis_abstract
-2026-03-18,2026,Miami Masters,miami,Hard,0.123,1.19,tennis_abstract
-2026-03-30,2026,Marrakech,marrakech,Clay,0.08,0.93,tennis_abstract
+2026-03-18,2026,Miami Masters,miami,Hard,0.12300000000000001,1.19,tennis_abstract
+2026-03-30,2026,Marrakech,marrakech,Clay,0.08,0.92,tennis_abstract
 2026-03-30,2026,Houston,houston,Clay,0.09,0.67,tennis_abstract
-2026-03-30,2026,Bucharest,bucharest,Clay,0.044,0.55,tennis_abstract
-2026-04-05,2026,Monte Carlo Masters,monte carlo,Clay,0.059,0.57,tennis_abstract
-2026-04-13,2026,Munich,munich,Clay,0.072,0.7,tennis_abstract
-2026-04-13,2026,Barcelona,barcelona,Clay,0.051,0.53,tennis_abstract
+2026-03-30,2026,Bucharest,bucharest,Clay,0.044000000000000004,0.55,tennis_abstract
+2026-04-05,2026,Monte Carlo Masters,monte carlo,Clay,0.059000000000000004,0.57,tennis_abstract
+2026-04-13,2026,Munich,munich,Clay,0.07200000000000001,0.69,tennis_abstract
+2026-04-13,2026,Barcelona,barcelona,Clay,0.052000000000000005,0.55,tennis_abstract
 2026-04-22,2026,Madrid Masters,madrid,Clay,0.087,0.86,tennis_abstract
-2026-05-06,2026,Rome Masters,rome,Clay,0.068,0.66,tennis_abstract
-2026-05-17,2026,Geneva,geneva,Clay,0.07,0.65,tennis_abstract
+2026-05-06,2026,Rome Masters,rome,Clay,0.068,0.67,tennis_abstract
+2026-05-17,2026,Geneva,geneva,Clay,0.067,0.64,tennis_abstract
 2026-05-17,2026,Hamburg,hamburg,Clay,0.051,0.51,tennis_abstract
-2026-06-08,2026,Stuttgart,stuttgart,Grass,0.177,1.3,tennis_abstract
-2026-06-08,2026,s Hertogenbosch,s hertogenbosch,Grass,0.11,0.95,tennis_abstract
+2026-06-08,2026,Stuttgart,stuttgart,Grass,0.177,1.31,tennis_abstract
+2026-06-08,2026,s Hertogenbosch,s hertogenbosch,Grass,0.11,0.96,tennis_abstract
 2026-06-15,2026,Halle,halle,Grass,0.138,1.19,tennis_abstract
 2026-06-15,2026,Queen's Club,queens club,Grass,0.105,1.03,tennis_abstract
-2026-06-21,2026,Mallorca,mallorca,Grass,0.11,1.18,tennis_abstract
-2026-06-22,2026,Eastbourne,eastbourne,Grass,0.119,1.16,tennis_abstract
-2026-06-29,2026,Wimbledon,wimbledon,Grass,0.118,1.1,tennis_abstract
-2026-07-13,2026,Gstaad,gstaad,Clay,0.1119999999999999,0.9,tennis_abstract
-2026-07-13,2026,Umag,umag,Clay,0.052,0.7,tennis_abstract
-2026-07-13,2026,Bastad,bastad,Clay,0.075,0.67,tennis_abstract
-2026-07-20,2026,Kitzbuhel,kitzbuhel,Clay,0.094,0.74,tennis_abstract
-2026-07-20,2026,Estoril,estoril,Clay,0.053,0.54,tennis_abstract
-2026-07-27,2026,Washington,washington,Hard,0.125,1.13,tennis_abstract
-2026-07-27,2026,Los Cabos,los cabos,Hard,0.055,0.53,tennis_abstract
-2026-08-02,2026,Canada Masters,canada,Hard,0.093,0.86,tennis_abstract
-2026-08-13,2026,Cincinnati Masters,cincinnati,Hard,0.1169999999999999,1.13,tennis_abstract
+2026-06-21,2026,Mallorca,mallorca,Grass,0.11,1.19,tennis_abstract
+2026-06-22,2026,Eastbourne,eastbourne,Grass,0.11900000000000001,1.17,tennis_abstract
+2026-06-29,2026,Wimbledon,wimbledon,Grass,0.11800000000000001,1.09,tennis_abstract
+2026-07-13,2026,Gstaad,gstaad,Clay,0.11,0.9,tennis_abstract
+2026-07-13,2026,Umag,umag,Clay,0.052000000000000005,0.69,tennis_abstract
+2026-07-13,2026,Bastad,bastad,Clay,0.075,0.68,tennis_abstract
+2026-07-20,2026,Kitzbuhel,kitzbuhel,Clay,0.095,0.75,tennis_abstract
+2026-07-20,2026,Estoril,estoril,Clay,0.053,0.55,tennis_abstract
+2026-07-27,2026,Washington,washington,Hard,0.125,1.14,tennis_abstract
+2026-07-27,2026,Los Cabos,los cabos,Hard,0.055,0.54,tennis_abstract
+2026-08-02,2026,Canada Masters,canada,Hard,0.09300000000000001,0.87,tennis_abstract
+2026-08-13,2026,Cincinnati Masters,cincinnati,Hard,0.11699999999999999,1.12,tennis_abstract
 2026-08-23,2026,Winston-Salem,winston salem,Hard,0.109,1.05,tennis_abstract
 2026-08-31,2026,Us Open,us open,Hard,0.107,0.95,tennis_abstract
-2026-09-23,2026,Chengdu,chengdu,Hard,0.136,1.44,tennis_abstract
+2026-09-23,2026,Chengdu,chengdu,Hard,0.136,1.45,tennis_abstract
 2026-09-23,2026,Hangzhou,hangzhou,Hard,0.141,1.36,tennis_abstract
-2026-09-25,2026,Laver Cup,laver,Hard,0.044,0.44,tennis_abstract
-2026-09-30,2026,Beijing,beijing,Hard,0.115,1.08,tennis_abstract
-2026-09-30,2026,Tokyo,tokyo,Hard,0.093,0.93,tennis_abstract
-2026-10-07,2026,Shanghai Masters,shanghai,Hard,0.127,1.3,tennis_abstract
-2026-10-19,2026,Lyon,lyon,Hard,0.12,1.21,tennis_abstract
+2026-09-25,2026,Laver Cup,laver,Hard,0.044000000000000004,0.44,tennis_abstract
+2026-09-30,2026,Beijing,beijing,Hard,0.115,1.07,tennis_abstract
+2026-09-30,2026,Tokyo,tokyo,Hard,0.09300000000000001,0.93,tennis_abstract
+2026-10-07,2026,Shanghai Masters,shanghai,Hard,0.127,1.29,tennis_abstract
+2026-10-19,2026,Lyon,lyon,Hard,0.121,1.19,tennis_abstract
 2026-10-19,2026,Brussels,antwerp,Hard,0.135,1.14,tennis_abstract
-2026-10-19,2026,Almaty,almaty,Hard,0.146,1.12,tennis_abstract
+2026-10-19,2026,Almaty,almaty,Hard,0.146,1.13,tennis_abstract
 2026-10-26,2026,Basel,basel,Hard,0.15,1.2,tennis_abstract
-2026-10-26,2026,Vienna,vienna,Hard,0.0969999999999999,1.1,tennis_abstract
+2026-10-26,2026,Vienna,vienna,Hard,0.09699999999999999,1.09,tennis_abstract
+2026-11-02,2026,Paris,paris masters,Hard,0.135,1.48,tennis_abstract
