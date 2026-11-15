@@ -1,5 +1,5 @@
 {
-  "started_utc": "2026-11-14T15:08:02+00:00",
+  "started_utc": "2026-11-15T15:42:01+00:00",
   "tennismylife": {
     "2025.csv": {
       "ok": true,
@@ -25,7 +25,7 @@
   "matchstat": {
     "ok": true,
     "rankings": 500,
-    "recent_results": 315,
+    "recent_results": 295,
     "api_calls": 208
   },
   "court_speed": {
@@ -39,13 +39,13 @@
     "url": "http://www.tennis-data.co.uk/2026/2026.xlsx"
   },
   "database": {
-    "input_rows": 433401,
+    "input_rows": 433412,
     "lower_tier_removed": 1085,
-    "challenger_rows": 263189,
-    "qualifying_removed": 1816,
-    "duplicates_removed": 226879,
-    "output_rows": 202904,
-    "latest_date": "20261114"
+    "challenger_rows": 263210,
+    "qualifying_removed": 1802,
+    "duplicates_removed": 226896,
+    "output_rows": 202912,
+    "latest_date": "20261115"
   },
-  "finished_utc": "2026-11-14T15:12:05+00:00"
+  "finished_utc": "2026-11-15T15:46:07+00:00"
 }
