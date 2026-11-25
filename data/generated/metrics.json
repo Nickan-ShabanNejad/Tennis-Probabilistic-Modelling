@@ -1,8 +1,8 @@
 {
-  "trained_at_utc": "2026-11-24T19:37:37+00:00",
+  "trained_at_utc": "2026-11-25T18:43:20+00:00",
   "latest_match_date": "2026-11-24",
   "latest_priced_match": "2026-11-22",
-  "training_matches": 67986,
+  "training_matches": 67987,
   "features": [
     "elo_diff",
     "surf_elo_diff",
@@ -69,8 +69,8 @@
   ],
   "selected_model": "logistic_regression",
   "selection_log_loss": {
-    "logistic_regression": 0.5954252985153566,
-    "gradient_boosting": 0.6003048623978054
+    "logistic_regression": 0.595356883669863,
+    "gradient_boosting": 0.6002704326193123
   },
   "recency_half_life_years": 5.0,
   "market_benchmark": {
@@ -86,7 +86,7 @@
       2026
     ],
     "matches": 18637,
-    "model_log_loss": 0.5936921847784729,
+    "model_log_loss": 0.5936921847784727,
     "pinnacle_log_loss": 0.5852214930090928,
     "pinnacle_log_loss_simple_devig": 0.585646148826387,
     "model_accuracy": 0.6723721629017546,
@@ -96,7 +96,7 @@
         "year": 2018,
         "matches": 2608,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5965147876033288,
+        "model_log_loss": 0.5965147876033279,
         "market_log_loss": 0.5887352561651503,
         "model_accuracy": 0.6813650306748467,
         "market_accuracy": 0.6825153374233128
@@ -114,7 +114,7 @@
         "year": 2020,
         "matches": 1223,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5887229255895986,
+        "model_log_loss": 0.588722925589598,
         "market_log_loss": 0.5719792943543417,
         "model_accuracy": 0.678659035159444,
         "market_accuracy": 0.6966475878986099
@@ -123,7 +123,7 @@
         "year": 2021,
         "matches": 2392,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5990977540643291,
+        "model_log_loss": 0.5990977540643292,
         "market_log_loss": 0.5901606584101985,
         "model_accuracy": 0.6613712374581939,
         "market_accuracy": 0.681438127090301
@@ -150,7 +150,7 @@
         "year": 2024,
         "matches": 2564,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.5831733992756251,
+        "model_log_loss": 0.5831733992756255,
         "market_log_loss": 0.5789801469764558,
         "model_accuracy": 0.6739469578783152,
         "market_accuracy": 0.6911076443057722
@@ -159,7 +159,7 @@
         "year": 2025,
         "matches": 2299,
         "market_source": "Pinnacle close",
-        "model_log_loss": 0.6040766224939866,
+        "model_log_loss": 0.6040766224939864,
         "market_log_loss": 0.59348154168918,
         "model_accuracy": 0.6659417137886038,
         "market_accuracy": 0.6820356676816007
@@ -168,8 +168,8 @@
         "year": 2026,
         "matches": 1920,
         "market_source": "market-average close",
-        "model_log_loss": 0.5981004133938385,
-        "market_log_loss": 0.5950160672490165,
+        "model_log_loss": 0.5981004344760397,
+        "market_log_loss": 0.5950160672490166,
         "model_accuracy": 0.6807291666666667,
         "market_accuracy": 0.6848958333333334
       }
@@ -177,11 +177,11 @@
   },
   "market_blend": {
     "available": true,
-    "model_coef": 0.1509735704111389,
-    "market_coef": 0.8546552055984098,
+    "model_coef": 0.15097357041114365,
+    "market_coef": 0.8546552055984062,
     "fitted_matches": 18637,
-    "consensus_model_coef": 0.18550297695101062,
-    "consensus_market_coef": 0.8017481012444088,
+    "consensus_model_coef": 0.1855030420644148,
+    "consensus_market_coef": 0.8017480364060268,
     "consensus_fitted_matches": 20723
   },
   "blend_benchmark": {
@@ -192,7 +192,7 @@
     ],
     "fair_log_loss": 0.5844346097214961,
     "market_log_loss": 0.5846497858339103,
-    "model_log_loss": 0.593232932912029
+    "model_log_loss": 0.5932329329120292
   },
   "backtests": {
     "matches": 16027,
@@ -207,25 +207,25 @@
           "share_of_matches": 0.42372246833468524,
           "win_rate": 0.4598733618023855,
           "avg_odds": 2.7420998380209096,
-          "avg_claimed_ev": 0.21727661962507605,
+          "avg_claimed_ev": 0.21727661962507744,
           "flat_roi": -0.01710793697540863,
           "flat_roi_se": 0.015258847619918617,
-          "kelly_roi": -0.01037861330039369,
-          "profit_units": -1.3532096718389703,
-          "staked_units": 130.38443891031199,
-          "max_drawdown_units": 2.35200116337466
+          "kelly_roi": -0.01037861330039391,
+          "profit_units": -1.3532096718389992,
+          "staked_units": 130.3844389103126,
+          "max_drawdown_units": 2.3520011633746276
         },
         "best": {
           "bets": 6777,
           "share_of_matches": 0.4228489424096837,
           "win_rate": 0.4600855835915597,
           "avg_odds": 2.8486690275933304,
-          "avg_claimed_ev": 0.25725306939160025,
+          "avg_claimed_ev": 0.25725306939160164,
           "flat_roi": 0.011488859377305595,
           "flat_roi_se": 0.01578200384921279,
-          "kelly_roi": 0.017657419323465706,
-          "profit_units": 2.3297890134733157,
-          "staked_units": 131.9439138185502,
+          "kelly_roi": 0.017657419323464336,
+          "profit_units": 2.329789013473144,
+          "staked_units": 131.94391381855073,
           "max_drawdown_units": 1.9107788752793198
         },
         "halfway": {
@@ -233,13 +233,13 @@
           "share_of_matches": 0.411368315966806,
           "win_rate": 0.454421355983619,
           "avg_odds": 2.7421462156833005,
-          "avg_claimed_ev": 0.21474759353402917,
+          "avg_claimed_ev": 0.21474759353403053,
           "flat_roi": -0.02181101167905354,
           "flat_roi_se": 0.015395199825686708,
-          "kelly_roi": -0.010630781069473906,
-          "profit_units": -1.3204212089728817,
-          "staked_units": 124.20735601116064,
-          "max_drawdown_units": 2.3191682454787044
+          "kelly_roi": -0.010630781069474743,
+          "profit_units": -1.320421208972997,
+          "staked_units": 124.2073560111615,
+          "max_drawdown_units": 2.319168245478696
         }
       },
       "new_ev2": {
@@ -248,39 +248,39 @@
           "share_of_matches": 0.00018718412678604855,
           "win_rate": 0.0,
           "avg_odds": 3.1166666666666667,
-          "avg_claimed_ev": 0.040982682770459355,
+          "avg_claimed_ev": 0.040982682770456615,
           "flat_roi": -1.0,
           "flat_roi_se": 0.0,
           "kelly_roi": -1.0,
-          "profit_units": -0.014191836625252554,
-          "staked_units": 0.014191836625252554,
-          "max_drawdown_units": 0.014191836625252554
+          "profit_units": -0.014191836625251017,
+          "staked_units": 0.014191836625251017,
+          "max_drawdown_units": 0.014191836625251017
         },
         "best": {
           "bets": 5557,
           "share_of_matches": 0.34672739751669057,
           "win_rate": 0.5418391218283246,
           "avg_odds": 2.308137484254094,
-          "avg_claimed_ev": 0.05493725632347975,
+          "avg_claimed_ev": 0.05493725632348013,
           "flat_roi": 0.0650782796472917,
           "flat_roi_se": 0.015526469018768562,
-          "kelly_roi": 0.07388379730661424,
-          "profit_units": 4.944270165349212,
-          "staked_units": 66.91954590301708,
-          "max_drawdown_units": 0.27782851423023047
+          "kelly_roi": 0.07388379730661583,
+          "profit_units": 4.944270165349312,
+          "staked_units": 66.91954590301637,
+          "max_drawdown_units": 0.27782851423024474
         },
         "halfway": {
           "bets": 1252,
           "share_of_matches": 0.07811817557871092,
           "win_rate": 0.5287539936102237,
           "avg_odds": 2.271649361022364,
-          "avg_claimed_ev": 0.04970408226726069,
+          "avg_claimed_ev": 0.04970408226726074,
           "flat_roi": 0.04463658146964856,
           "flat_roi_se": 0.03186900941564683,
-          "kelly_roi": 0.03501080002281163,
-          "profit_units": 0.46515884039491096,
-          "staked_units": 13.286152846888186,
-          "max_drawdown_units": 0.4585937320305919
+          "kelly_roi": 0.03501080002280788,
+          "profit_units": 0.46515884039485034,
+          "staked_units": 13.286152846887905,
+          "max_drawdown_units": 0.4585937320306162
         }
       },
       "new_ev3": {
@@ -289,39 +289,39 @@
           "share_of_matches": 0.0001247894178573657,
           "win_rate": 0.0,
           "avg_odds": 3.425,
-          "avg_claimed_ev": 0.06125226470999734,
+          "avg_claimed_ev": 0.06125226470999656,
           "flat_roi": -1.0,
           "flat_roi_se": 0.0,
           "kelly_roi": -1.0,
-          "profit_units": -0.014117916810021988,
-          "staked_units": 0.014117916810021988,
-          "max_drawdown_units": 0.014117916810021988
+          "profit_units": -0.014117916810021561,
+          "staked_units": 0.014117916810021561,
+          "max_drawdown_units": 0.014117916810021561
         },
         "best": {
           "bets": 3964,
           "share_of_matches": 0.24733262619329882,
           "win_rate": 0.5131180625630676,
           "avg_odds": 2.450587790110999,
-          "avg_claimed_ev": 0.06546390679751486,
+          "avg_claimed_ev": 0.06546390679751518,
           "flat_roi": 0.07780272452068616,
           "flat_roi_se": 0.01946811514349345,
-          "kelly_roi": 0.08483722327037456,
-          "profit_units": 4.232715879566021,
-          "staked_units": 49.892201988700606,
-          "max_drawdown_units": 0.35255281951298345
+          "kelly_roi": 0.0848372232703762,
+          "profit_units": 4.232715879566065,
+          "staked_units": 49.89220198870014,
+          "max_drawdown_units": 0.3525528195129852
         },
         "halfway": {
           "bets": 799,
           "share_of_matches": 0.04985337243401759,
           "win_rate": 0.5081351689612015,
           "avg_odds": 2.4194242803504378,
-          "avg_claimed_ev": 0.06310637846313447,
+          "avg_claimed_ev": 0.06310637846313451,
           "flat_roi": 0.07478097622027534,
           "flat_roi_se": 0.04268580670029969,
-          "kelly_roi": 0.050973813381586415,
-          "profit_units": 0.4638734873138085,
-          "staked_units": 9.100231207763187,
-          "max_drawdown_units": 0.35270728263065987
+          "kelly_roi": 0.05097381338157998,
+          "profit_units": 0.4638734873137418,
+          "staked_units": 9.10023120776302,
+          "max_drawdown_units": 0.35270728263066464
         }
       },
       "new_ev5": {
@@ -330,26 +330,26 @@
           "share_of_matches": 6.239470892868285e-05,
           "win_rate": 0.0,
           "avg_odds": 4.6,
-          "avg_claimed_ev": 0.07952927801344045,
+          "avg_claimed_ev": 0.07952927801344134,
           "flat_roi": -1.0,
           "flat_roi_se": NaN,
           "kelly_roi": -1.0,
-          "profit_units": -0.005522866528711143,
-          "staked_units": 0.005522866528711143,
-          "max_drawdown_units": 0.005522866528711143
+          "profit_units": -0.0055228665287112046,
+          "staked_units": 0.0055228665287112046,
+          "max_drawdown_units": 0.0055228665287112046
         },
         "best": {
           "bets": 1983,
           "share_of_matches": 0.12372870780557808,
           "win_rate": 0.46142208774583965,
           "avg_odds": 2.7258093797276857,
-          "avg_claimed_ev": 0.08968708302277431,
+          "avg_claimed_ev": 0.08968708302277448,
           "flat_roi": 0.08935451336359052,
           "flat_roi_se": 0.03006362127701865,
-          "kelly_roi": 0.09759496861222357,
-          "profit_units": 2.616459984116589,
-          "staked_units": 26.80937369335748,
-          "max_drawdown_units": 0.38828720884195533
+          "kelly_roi": 0.09759496861222304,
+          "profit_units": 2.6164599841165566,
+          "staked_units": 26.809373693357273,
+          "max_drawdown_units": 0.3882872088419451
         },
         "halfway": {
           "bets": 347,
@@ -359,10 +359,10 @@
           "avg_claimed_ev": 0.09462819831715291,
           "flat_roi": 0.13374639769452448,
           "flat_roi_se": 0.07509069436995158,
-          "kelly_roi": 0.03872494384979117,
-          "profit_units": 0.1709974335798932,
-          "staked_units": 4.415692227809783,
-          "max_drawdown_units": 0.2325261380651149
+          "kelly_roi": 0.038724943849785906,
+          "profit_units": 0.1709974335798672,
+          "staked_units": 4.415692227809718,
+          "max_drawdown_units": 0.23252613806511196
         }
       },
       "price_only_ev3": {
@@ -384,24 +384,24 @@
           "share_of_matches": 0.25650464840581516,
           "win_rate": 0.5098516176112868,
           "avg_odds": 2.467081002189248,
-          "avg_claimed_ev": 0.06381754132838742,
+          "avg_claimed_ev": 0.06381754132838739,
           "flat_roi": 0.07669180248114814,
           "flat_roi_se": 0.019194217744809446,
-          "kelly_roi": 0.0760770953676525,
-          "profit_units": 3.9862080349750455,
+          "kelly_roi": 0.07607709536765252,
+          "profit_units": 3.9862080349750464,
           "staked_units": 52.3969535865057,
-          "max_drawdown_units": 0.3832235500918495
+          "max_drawdown_units": 0.3832235500918486
         },
         "halfway": {
           "bets": 840,
           "share_of_matches": 0.05241155550009359,
           "win_rate": 0.5011904761904762,
           "avg_odds": 2.437059523809524,
-          "avg_claimed_ev": 0.06286203144639775,
+          "avg_claimed_ev": 0.06286203144639774,
           "flat_roi": 0.06167261904761905,
           "flat_roi_se": 0.041506260993977855,
           "kelly_roi": 0.07628536551120967,
-          "profit_units": 0.7510455033613108,
+          "profit_units": 0.7510455033613106,
           "staked_units": 9.845210786214952,
           "max_drawdown_units": 0.3218964614969505
         }
@@ -415,13 +415,13 @@
         "share_of_matches": 0.29200988467874794,
         "win_rate": 0.538787023977433,
         "avg_odds": 2.3021720733427364,
-        "avg_claimed_ev": 0.06747428865574566,
+        "avg_claimed_ev": 0.06747428865574713,
         "flat_roi": 0.06070521861777152,
         "flat_roi_se": 0.04239771331223214,
-        "kelly_roi": 0.0805949218216215,
-        "profit_units": 0.7710700258151083,
-        "staked_units": 9.567228410763853,
-        "max_drawdown_units": 0.2772883190527368
+        "kelly_roi": 0.08059492182162079,
+        "profit_units": 0.7710700258150924,
+        "staked_units": 9.567228410763743,
+        "max_drawdown_units": 0.2772883190527526
       },
       {
         "year": 2020,
@@ -430,13 +430,13 @@
         "share_of_matches": 0.312346688470973,
         "win_rate": 0.5235602094240838,
         "avg_odds": 2.3595287958115185,
-        "avg_claimed_ev": 0.06610652815419524,
+        "avg_claimed_ev": 0.0661065281541958,
         "flat_roi": 0.04013089005235602,
         "flat_roi_se": 0.05966641344901757,
-        "kelly_roi": 0.09654423916781406,
-        "profit_units": 0.49380452681176806,
-        "staked_units": 5.114800541888704,
-        "max_drawdown_units": 0.16376265615228336
+        "kelly_roi": 0.09654423916781792,
+        "profit_units": 0.493804526811783,
+        "staked_units": 5.114800541888652,
+        "max_drawdown_units": 0.16376265615227092
       },
       {
         "year": 2021,
@@ -445,13 +445,13 @@
         "share_of_matches": 0.4159698996655518,
         "win_rate": 0.5266331658291458,
         "avg_odds": 2.487778894472362,
-        "avg_claimed_ev": 0.06824830308157369,
+        "avg_claimed_ev": 0.0682483030815735,
         "flat_roi": 0.14506532663316582,
         "flat_roi_se": 0.04134732637173563,
-        "kelly_roi": 0.10805871698374514,
-        "profit_units": 1.3803113644441365,
-        "staked_units": 12.773716021926962,
-        "max_drawdown_units": 0.21920449964889088
+        "kelly_roi": 0.10805871698374651,
+        "profit_units": 1.3803113644441343,
+        "staked_units": 12.773716021926788,
+        "max_drawdown_units": 0.219204499648896
       },
       {
         "year": 2022,
@@ -460,13 +460,13 @@
         "share_of_matches": 0.3038981702466189,
         "win_rate": 0.5078534031413613,
         "avg_odds": 2.5964005235602095,
-        "avg_claimed_ev": 0.06415921187359826,
+        "avg_claimed_ev": 0.06415921187359833,
         "flat_roi": 0.1081151832460733,
         "flat_roi_se": 0.04529625380488871,
-        "kelly_roi": 0.12542668517917177,
-        "profit_units": 1.1211129741066197,
-        "staked_units": 8.938392755139093,
-        "max_drawdown_units": 0.22980245225693313
+        "kelly_roi": 0.12542668517917527,
+        "profit_units": 1.1211129741066446,
+        "staked_units": 8.938392755139024,
+        "max_drawdown_units": 0.22980245225692802
       },
       {
         "year": 2023,
@@ -478,10 +478,10 @@
         "avg_claimed_ev": 0.059838819091771356,
         "flat_roi": -0.07621376811594203,
         "flat_roi_se": 0.04794591825458194,
-        "kelly_roi": -0.0209724385211247,
-        "profit_units": -0.14345360863658946,
-        "staked_units": 6.840101521437022,
-        "max_drawdown_units": 0.3382528897784547
+        "kelly_roi": -0.0209724385211244,
+        "profit_units": -0.14345360863658657,
+        "staked_units": 6.840101521436976,
+        "max_drawdown_units": 0.33825288977844864
       },
       {
         "year": 2024,
@@ -490,13 +490,13 @@
         "share_of_matches": 0.12368318376902068,
         "win_rate": 0.5173501577287066,
         "avg_odds": 2.3579179810725552,
-        "avg_claimed_ev": 0.060451696509071826,
+        "avg_claimed_ev": 0.0604516965090729,
         "flat_roi": 0.08656151419558358,
         "flat_roi_se": 0.06812285575433398,
-        "kelly_roi": 0.09857746634717336,
-        "profit_units": 0.3817989108700118,
-        "staked_units": 3.873085046894792,
-        "max_drawdown_units": 0.11403610259075428
+        "kelly_roi": 0.09857746634718251,
+        "profit_units": 0.38179891087004764,
+        "staked_units": 3.873085046894799,
+        "max_drawdown_units": 0.114036102590761
       },
       {
         "year": 2025,
@@ -505,13 +505,13 @@
         "share_of_matches": 0.10265332753371031,
         "win_rate": 0.4830508474576271,
         "avg_odds": 2.643050847457627,
-        "avg_claimed_ev": 0.07148703678744131,
+        "avg_claimed_ev": 0.07148703678744062,
         "flat_roi": 0.15478813559322033,
         "flat_roi_se": 0.09030373971115506,
-        "kelly_roi": 0.07770303091418375,
-        "profit_units": 0.2093193348976858,
-        "staked_units": 2.693837453121497,
-        "max_drawdown_units": 0.22933755415513096
+        "kelly_roi": 0.0777030309141784,
+        "profit_units": 0.2093193348976696,
+        "staked_units": 2.6938374531214753,
+        "max_drawdown_units": 0.22933755415513343
       },
       {
         "year": 2026,
@@ -520,13 +520,13 @@
         "share_of_matches": 0.13846153846153847,
         "win_rate": 0.5555555555555556,
         "avg_odds": 2.143333333333333,
-        "avg_claimed_ev": 0.04634512022867532,
+        "avg_claimed_ev": 0.04634512022867522,
         "flat_roi": 0.13333333333333336,
         "flat_roi_se": 0.36870268057971406,
-        "kelly_roi": 0.20597871629418696,
-        "profit_units": 0.01875235125727637,
-        "staked_units": 0.09104023752868486,
-        "max_drawdown_units": 0.0172682711601539
+        "kelly_roi": 0.20597871629417727,
+        "profit_units": 0.018752351257275302,
+        "staked_units": 0.09104023752868395,
+        "max_drawdown_units": 0.017268271160154124
       }
     ]
   },
@@ -547,55 +547,55 @@
       2026
     ],
     "eval_matches": 4760,
-    "log_loss": 0.6681199865751776,
+    "log_loss": 0.6681199865725188,
     "base_rate_log_loss": 0.6925184242737848,
     "independent_sets_log_loss": 0.696131957312176,
-    "brier": 0.23775640238974843,
+    "brier": 0.23775640238863727,
     "calibration": [
       {
         "bin": "(0.0, 0.4]",
         "n": 896,
-        "predicted": 0.29956864005861467,
+        "predicted": 0.2995686400779925,
         "actual": 0.3404017857142857
       },
       {
         "bin": "(0.4, 0.5]",
         "n": 891,
-        "predicted": 0.4543980887986707,
+        "predicted": 0.45439808881665256,
         "actual": 0.49607182940516276
       },
       {
         "bin": "(0.5, 0.6]",
         "n": 1929,
-        "predicted": 0.5598932186769319,
+        "predicted": 0.5598932186802056,
         "actual": 0.5951270088128564
       },
       {
         "bin": "(0.6, 0.7]",
         "n": 1044,
-        "predicted": 0.6148710932559316,
+        "predicted": 0.6148710932372198,
         "actual": 0.6264367816091954
       }
     ],
     "coefficients": {
-      "iid_logit": 1.0289770113120378,
-      "serve_sum": 0.712321489603565,
-      "serve_gap": 0.1633995270707273,
-      "speed_c": -0.0557499870813875,
-      "long_hist": 0.799507130850783,
-      "slam_exp": 0.003580651527797843,
-      "injury_sum": 0.02343812119504403,
-      "round": -0.0009655573349692477
+      "iid_logit": 1.0289770113117165,
+      "serve_sum": 0.7123214896018909,
+      "serve_gap": 0.16339952707007155,
+      "speed_c": -0.055749987079446756,
+      "long_hist": 0.7995071308491521,
+      "slam_exp": 0.003580651527698225,
+      "injury_sum": 0.02343812119491097,
+      "round": -0.0009655573348860075
     },
     "note": "Probability source: Pinnacle moneyline when available (else rating model) -> per-set win probability -> P(4+ sets) -> logistic correction. No historical total-sets prices exist in the archive, so betting ROI on this market cannot be backtested; track it live."
   },
   "data": {
-    "matches": 203360,
+    "matches": 203363,
     "latest_date": "20261124",
     "market_history": {
-      "priced_matches": 50416,
+      "priced_matches": 50417,
       "from_archive": 50369,
-      "from_live_log": 47,
+      "from_live_log": 48,
       "latest_priced_match": "2026-11-22"
     },
     "current_rankings_applied": 495
