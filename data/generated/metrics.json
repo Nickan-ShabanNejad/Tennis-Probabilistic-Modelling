@@ -1,6 +1,6 @@
 {
-  "trained_at_utc": "2026-11-26T18:32:43+00:00",
-  "latest_match_date": "2026-11-26",
+  "trained_at_utc": "2026-11-27T18:19:46+00:00",
+  "latest_match_date": "2026-11-27",
   "latest_priced_match": "2026-11-22",
   "training_matches": 67987,
   "features": [
@@ -69,8 +69,8 @@
   ],
   "selected_model": "logistic_regression",
   "selection_log_loss": {
-    "logistic_regression": 0.5953569879645529,
-    "gradient_boosting": 0.599918916734785
+    "logistic_regression": 0.5953569966331353,
+    "gradient_boosting": 0.5999190866940282
   },
   "recency_half_life_years": 5.0,
   "market_benchmark": {
@@ -168,7 +168,7 @@
         "year": 2026,
         "matches": 1920,
         "market_source": "market-average close",
-        "model_log_loss": 0.5981016164898937,
+        "model_log_loss": 0.5981016376598309,
         "market_log_loss": 0.5950160672490165,
         "model_accuracy": 0.6807291666666667,
         "market_accuracy": 0.6848958333333334
@@ -180,8 +180,8 @@
     "model_coef": 0.15095227500356137,
     "market_coef": 0.8546802565291863,
     "fitted_matches": 18637,
-    "consensus_model_coef": 0.1854633512881652,
-    "consensus_market_coef": 0.8017901398907953,
+    "consensus_model_coef": 0.18546341567663463,
+    "consensus_market_coef": 0.8017900757806126,
     "consensus_fitted_matches": 20723
   },
   "blend_benchmark": {
@@ -590,8 +590,8 @@
     "note": "Probability source: Pinnacle moneyline when available (else rating model) -> per-set win probability -> P(4+ sets) -> logistic correction. No historical total-sets prices exist in the archive, so betting ROI on this market cannot be backtested; track it live."
   },
   "data": {
-    "matches": 203379,
-    "latest_date": "20261126",
+    "matches": 203390,
+    "latest_date": "20261127",
     "market_history": {
       "priced_matches": 50418,
       "from_archive": 50370,
